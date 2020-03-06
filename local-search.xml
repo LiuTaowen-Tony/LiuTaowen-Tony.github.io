@@ -4,19 +4,17 @@
   
   
   <entry>
-    <title>Linear ALgebra II</title>
-    <link href="/2020/Linear-ALgebra-II/"/>
-    <url>/2020/Linear-ALgebra-II/</url>
+    <title>建站指南</title>
+    <link href="/2020/%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/"/>
+    <url>/2020/%E5%BB%BA%E7%AB%99%E6%8C%87%E5%8D%97/</url>
     
-    <content type="html"><![CDATA[<h1 id="linear-algebra-iii"><a class="markdownIt-Anchor" href="#linear-algebra-iii"></a> Linear Algebra III</h1><p>sle</p><h2 id="srf"><a class="markdownIt-Anchor" href="#srf"></a> srf</h2><h3 id="se"><a class="markdownIt-Anchor" href="#se"></a> se</h3><table><thead><tr><th>table</th><th>tbale</th><th></th><th></th></tr></thead><tbody><tr><td>Se</td><td></td><td></td><td></td></tr><tr><td></td><td>sds</td><td></td><td></td></tr><tr><td></td><td>se</td><td></td><td></td></tr></tbody></table><ul><li></li><li></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="建站指南"><a class="markdownIt-Anchor" href="#建站指南"></a> 建站指南</h1><p>这篇文章主要是介绍怎样利用 github 以及 hexo 快速搭建简易的博客站. 同时这也是我的练手文章, 用来熟悉博客站的操作.</p><p>Markdown 的介绍请看 <a href="https://www.markdownguide.org/" target="_blank" rel="noopener">这里</a>.</p><h3 id="github-以及-hexo-的简介"><a class="markdownIt-Anchor" href="#github-以及-hexo-的简介"></a> GitHub 以及 Hexo 的简介</h3><p><a href="github.com">Github</a> 是一个代码托管网站. 你可以在这里下载到很多很好玩的代码, 当然也不只是代码, 比如本篇文章就是托管在 Github 上, 利用 Github Pages 的某种特性发布的. 具体细节我也不清楚…</p><p>Github的核心是一个开源的版本控制系统 Git. Git 的各种操作我们在这里不讨论. 未来我可能会写一篇关于 Git 的学习笔记…</p><p>关于Github 我们如果只是想搭建博客的话不需要了解太多.</p><p>Hexo 是一个快速的博客框架. Hexo 依赖 于Node.js 和 Git. Hexo 可以方便的把markdown文档生成网页, 管理博客, 并且把网页部署到各种网站. <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">这里</a>是他的文档.</p><h3 id="github-中的配置"><a class="markdownIt-Anchor" href="#github-中的配置"></a> GitHub 中的配置</h3><p>登录到 Github. 如果没有注册, 我们可以在<a href="https://link.zhihu.com/?target=https%3A//github.com/">这里</a>注册. 之后我们点击 New repository 创建仓库. 这里需要注意的是, 仓库的名字必须是 &lt;user_name&gt;.github.io 其中 &lt;user_name&gt; 是 Github 的 username.</p><h3 id="hexo-的安装"><a class="markdownIt-Anchor" href="#hexo-的安装"></a> Hexo 的安装</h3><p>Hexo 的安装很容易, 但是外那之前, 我们需要先检查是否已经安装了 Hexo 的依赖.</p><p>首先, 我们检查是否安装了 Git, 在命令台输入:</p><p><code>git --version</code></p><p>之后检查 Node.js :</p><p><code>node -v</code></p><p>如果显示了版本即位安装完成.</p><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 和  <a href="https://nodejs.org/en/about/" target="_blank" rel="noopener">Node.js</a> 安装的网站. Node.js 安装过程是图形化的, 所以比较容易.</p><h4 id="git-的配置"><a class="markdownIt-Anchor" href="#git-的配置"></a> Git 的配置</h4><p>在Git 网站安装好 Git 之后, 我们需要先配置Git</p><blockquote><p>在安装 Git 的时候可能需要 Xcode 的依赖, 这部分可以上网搜索解决.</p></blockquote><pre class="highlight"><code class="">git config --global user.name &quot;&lt;your_name&gt;&quot;git config --global user.email &quot;&lt;your_email_address&gt;&quot;</code></pre><p>这里的名字和邮箱建议用比较正经的, 因为未来你很有可能继续使用 Git 和你的同事管理版本.</p><p>使用 ssh 我们就不用在部署博客的时候每次都输密码. 我们生成 ssh 密钥连接 Git 和 Github. 使用 ssh-keygen 命令生成 密钥和公钥:</p><pre class="highlight"><code class="">ssh-keygen -t rsa -C &quot;&lt;your_email_address&gt;&quot;</code></pre><p>按照提示创建密码, 或者回车不适用密码. 密码要牢记, 忘了就得重新生成 ssh 密钥对了.</p><p>密钥对存在用户目录的 ~/.ssh 目录下. <code>/Users/&lt;user_name&gt;/.ssh</code>, 其中 &lt;user_name&gt; 是电脑用户的名称.</p><p>我们需要把公钥拷贝到 Github 上. 打开Github_Settings_keys 页面, 粘贴进去就可以了. 这部分参考 <a href="https://help.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh" target="_blank" rel="noopener">这里</a></p><p>之后, 我们就可以使用</p><pre class="highlight"><code class="">ssh github@github.com</code></pre><p>命令测试是否正常连接. 正常连接的话会显示 Hi &lt;your name&gt;…</p><h3 id="hexo-的安装-2"><a class="markdownIt-Anchor" href="#hexo-的安装-2"></a> Hexo 的安装</h3><p>现在转移到 Hexo 的安装过程. 在安装好依赖之后, 我们可以一行命令安装npm.</p><p><code>npm install -g hexo-cli</code></p><h3 id="hexo-建站"><a class="markdownIt-Anchor" href="#hexo-建站"></a> Hexo 建站</h3><p>完成 Hexo 的安装之后, 我们需要现在本地准备好我们的网站的所有文档.</p><p>首先我们来到我们想要开始建站的目录, 比如 ~\Document.</p><pre class="highlight"><code class="">hexo init &lt;folder&gt;cd &lt;folder&gt;</code></pre><p>&lt;folder&gt; 填你的博客文件夹的名字 比如 hexo-blog-folder. 做好之后文件夹内的目录应该是这样.</p><pre class="highlight"><code class="">.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes</code></pre><p>我们的文件已经生成好了. 现在我们需要对站点进行配置.</p><p>我们修改 _config.yml 文档.</p><p>参考 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">这个</a> 网站.</p><p>比较重要需要修改的是 title, subtitle, author, language, theme, 以及deploy.</p><p>值得注意的是,  deploy 部分容易出现问题. 这里提供一个简单的例子.</p><pre class="highlight"><code class="">deploy:     type: git     repo: https://github.com/&lt;your-name&gt;/&lt;your-name&gt;.github.io.git     branch: master</code></pre><p>&lt;your-name&gt; 填你的 Github 用户名.</p><p>这里我们的网站就建好了.</p><p>我们用 <code>hexo server</code> 命令来检查网站搭建进度.</p><h3 id="hexo的常用命令-以及-工作流"><a class="markdownIt-Anchor" href="#hexo的常用命令-以及-工作流"></a> Hexo的常用命令 以及 工作流</h3><p>首先我们介绍几个常用命令:</p><ul><li><code>hexo new [type]&quot;&lt;page_name&gt;&quot;</code><ul><li>new 命令新建一个网页.</li><li>[type] 是文章的种类, 默认是 post 也就是博客, &lt;page_name&gt; 是新建的网页的名字和标题.</li></ul></li><li><code>hexo server</code> 或者简写为 <code>hexo s</code><ul><li>server 命令 在本地预览网页</li></ul></li><li><code>hexo clean</code><ul><li>clean 命令 删除本地生成的网页文档, 防止冲突</li></ul></li><li><code>hexo generate</code> 或者简写为 <code>hexo g</code><ul><li>generate 命令 在本地生成网页文档</li></ul></li><li><code>hexo deploy</code> 或者简写为 <code>hexo d</code><ul><li>deploy 命令 把生成的本地文档部署到云端, 这里就是放到 Github 上.</li></ul></li></ul><p>之后我们介绍工作流, 以写第一篇文章为例</p><p>首先, 使用 <code>hexo new</code> 命令生成一篇md格式的文章模版.</p><p>文章放在 ~\source\__post 目录下. 我们使用markdown 编辑器添加文章的内容. Markdown 的介绍请看 <a href="https://www.markdownguide.org/" target="_blank" rel="noopener">这里</a>.</p><p>之后, 我们就可以用 <code>hexo server</code> 命令来在本地预览文章.</p><p>确认无误之后, 我们可以用 <code>hexo clean</code>,<code>hexo g</code>,<code>hexo d</code>三连大法将文章部署到 Github 上.</p><p>我们通过 &lt;user_name&gt;<a href="http://github.io" target="_blank" rel="noopener">github.io</a> 来访问我们的博客.</p>]]></content>
     
     
     
     <tags>
       
-      <tag>Linear algebra</tag>
-      
-      <tag>Maths</tag>
+      <tag>学习笔记</tag>
       
     </tags>
     
@@ -40,19 +38,6 @@
       <tag>Maths</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2020/hello-world/"/>
-    <url>/2020/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><pre class="highlight"><code class="bash">$ hexo new <span class="hljs-string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><pre class="highlight"><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><pre class="highlight"><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><pre class="highlight"><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
