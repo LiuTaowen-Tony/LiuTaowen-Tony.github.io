@@ -484,7 +484,7 @@ a.police-beian img {
   box-sizing: border-box;
   padding-left: 10%;
   padding-right: 10%;
-  max-width: 64rem;
+  max-width: 90rem;
 }
 @media (max-width: 768px) {
   .post-content {
@@ -567,14 +567,14 @@ h6::before {
 }
 .custom,
 .comments {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 @media (max-width: 425px) {
   .custom,
   .comments {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }
 @media (min-width: 64rem) {
