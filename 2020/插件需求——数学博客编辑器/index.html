@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
-  <title>Vector and Matrix: Mindmap - 托尼的部落格</title>
+  <title>插件需求——数学博客编辑器 - 托尼的部落格</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -123,7 +123,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 三月 7日 2020, 4:43 下午
+                  星期六, 三月 14日 2020, 5:38 下午
                 </p>
               
 
@@ -132,7 +132,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    136 字
+                    781 字
                   </span>
                 
 
@@ -140,7 +140,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      2 分钟
                   </span>
                 
 
@@ -174,24 +174,83 @@
         <div class="post-content mx-auto" id="post">
           
           <div class="markdown-body">
-            <h1 id="vector-and-matrix"><a class="markdownIt-Anchor" href="#vector-and-matrix"></a> Vector and Matrix</h1>
-<h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>
-<blockquote>
-<p>Before go to the content, here is a brief introduction talking about the purpose of this post and also a explaination of the form of this serie of posts.</p>
-<p>The serie of the post mainly have three purposes. Firstly, it is a review of Linear algebra for myself. Secondly, I want to give the content of linear algebra a better explaination. And thirdly, it is a trail of the new form “Quantum Book”.</p>
-<p>The whole serie of  posts is writen in the form of “Quantum Book” (I made up the name). Which you can get more information about it at [here](i_will _add_it_later_on).</p>
-</blockquote>
-<h3 id="map"><a class="markdownIt-Anchor" href="#map"></a> Map</h3>
-<p>The map starts here.</p>
-<p>Here will be a picture.</p>
+            <h3 id="更新"><a class="markdownIt-Anchor" href="#更新"></a> 更新：</h3>
+<p>目前采用VScode自带的snippet 配置了替换，比较赏心悦目。链接看<a href="">这里</a></p>
+<h3 id="之前的内容"><a class="markdownIt-Anchor" href="#之前的内容"></a> 之前的内容：</h3>
+<p>目前的痛点主要是写数学公式的时候要打很多内容, 看了比利时小哥用vim打LaTeX的博客之后收了一点启发, 我觉得可以写个什么插件, 让latex比较容易打. 主要是因为vim这个软件还是挺专业的, 一般人是不太方便用的, 写个什么小插件就会很易用.</p>
+<p>不过我觉得这可能是个好的js练手项目，说不定可以从vscode插件入手学习js</p>
+<p>目前能想到的几个功能,从比较容易实现的说起:</p>
+<h3 id="中文输入法的问题"><a class="markdownIt-Anchor" href="#中文输入法的问题"></a> 中文输入法的问题</h3>
+<p>国外的软件对中文的标点符号很不友好, 在打markdown和latex的时候中文符号是不支持的. 所以首先就是映射中文符号到英文符号:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">中文符号</th>
+<th style="text-align:center">英文符号</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1。</td>
+<td style="text-align:center">1.</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">·</td>
+<td style="text-align:center">`</td>
+<td style="text-align:center">分割名字用的点</td>
+</tr>
+<tr>
+<td style="text-align:center">「」</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">【】</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">《》</td>
+<td style="text-align:center">&lt;&gt;</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">、</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">¥</td>
+<td style="text-align:center">$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">——</td>
+<td style="text-align:center">_</td>
+<td style="text-align:center">中文破折号</td>
+</tr>
+</tbody>
+</table>
+<p>目前想到的比较好的解决方案是 markdown和latex在解析的时候把中文标点映射为英文标点，如果想使用中文标点的话，需要使用<code>\</code> 转译符号。</p>
+<h3 id="latex-易用化改造"><a class="markdownIt-Anchor" href="#latex-易用化改造"></a> LaTeX 易用化改造</h3>
+<p>比利时小哥用的是LaTeX 写文档, 收到她的启发, 我觉得有几点可以借鉴:</p>
 <ol>
-<li>A Review of Vector</li>
-<li>Matrix operation and Linear equation</li>
-<li>Linear transformation</li>
-<li>Vector Space</li>
-<li>Inner Product Space</li>
-<li>Eigenvalue and Eigenvector</li>
+<li>上标下标自动增加{} 例如: <code>a_12</code>自动转变为<code>a_{12}</code></li>
+<li>分数自动转化 例如：<code>(1+2x)/(x+3)</code>在输入<code>/</code>的时候自动转化为<code>\frac{1+2x}{x+3}</code></li>
+<li>模块开始和结束在输入<code>\begin{...}</code>的时候自动加入<code>\end{...}</code>和缩进</li>
+<li>矩阵输入一直比较麻烦， 我希望可以像表格一样输入矩阵，所以需要定义一段脚本类似这样<code>\begbmx 3 4</code> 之后自动生成矩阵的格式，输入的时候<code>Tab</code>输入下一个元素，<code>Enter</code>进入下一行</li>
 </ol>
+<p>还有就是考虑到软件的使用者不一定对latex熟悉，所以我们需要一个可视化的书写助手，直接输入LaTex公式</p>
+<h3 id="mathematica-输入方式的支持"><a class="markdownIt-Anchor" href="#mathematica-输入方式的支持"></a> Mathematica 输入方式的支持</h3>
+<p>很多人不熟悉latex, mathematica 的公式输入比较简单. 如果能兼容mathmatica的公式就太好了.</p>
+<h3 id="类似typora的功能"><a class="markdownIt-Anchor" href="#类似typora的功能"></a> 类似typora的功能</h3>
+<p>对于笔记本用户来说，双栏的预览方式并不是理想的。我们希望可以折叠latex代码，只显示formatted的公式。markdown的部分我觉得不太需要渲染，因为它的可读性非常好。但是和html我还是希望可以实时渲染一下，因为html比较冗长。</p>
+<p>还有就是typora对图片的良好支持这个功能也要考虑</p>
+<p>typora的输出模版非常好，如果能做到这样就太好了.</p>
+<h3 id="及时符号运算"><a class="markdownIt-Anchor" href="#及时符号运算"></a> 及时符号运算</h3>
+<p>敲好算式，再手算或者扔到mathematica里面计算是不优雅的，我希望可以在一个软件里自动完成计算，这应该作为一个插件存在。我记得python里有库可以使用，应该也不是很大的问题。</p>
 
             <hr>
           </div>
@@ -200,19 +259,6 @@
             <p>
             
               
-              <span>
-                <i class="iconfont icon-tag"></i>
-                
-                  <a class="hover-with-bg" href="/tags/Maths/">Maths</a>
-                
-                  <a class="hover-with-bg" href="/tags/Learning-Note/">Learning Note</a>
-                
-                  <a class="hover-with-bg" href="/tags/Quantum-Book/">Quantum Book</a>
-                
-                  <a class="hover-with-bg" href="/tags/Vector-and-Matrix/">Vector and Matrix</a>
-                
-              </span>
-            
             </p>
             
               <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -397,7 +443,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Vector and Matrix: Mindmap&nbsp;",
+        "插件需求——数学博客编辑器&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
