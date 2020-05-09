@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
-  <title>标签 - 工具打造 - 托尼的部落格</title>
+  <title>cli gui 的一些思考(草稿) - 托尼的部落格</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -42,7 +42,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -109,7 +109,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" false
          style="background: url('https://pic1.zhimg.com/v2-1e98ef9d580dbd1419b446535e85eb06_r.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -119,6 +119,40 @@
               
             </span>
 
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 四月 20日 2020, 5:47 下午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      3 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
             
           </div>
 
@@ -130,36 +164,65 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 1 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/%E6%88%91%E6%98%AF%E6%80%8E%E6%A0%B7%E6%8A%8Avscode%E6%89%93%E9%80%A0%E6%88%90%E8%B6%81%E6%89%8B%E7%9A%84markdown-latex%E5%B7%A5%E5%85%B7%E7%9A%84/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">我是怎样把vscode打造成趁手的markdown+latex工具的</span>
-      <span style="float: right;">03-17</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          
+          <div class="markdown-body">
+            <p>Cli 和 Gui 最大的区别在于 Cli 需要记忆很多内容。比如说文件管理器，在用gui的时候我不会记得哪个文件存在哪个目录，然而在cli里面我需要记住某个文件在某个目录里才能执行cp这样的命令。再比如说数学画图工具，在gui里面，我只要输入公式，直接就能画图。但是cli的画图就不太方便，要记下来有哪些参数可以设置，如果我不经常使用的话我每次写都要查教程，就很麻烦。</p>
+<p>在看到cli的第一眼，我是懵逼的，对这个系统，我能干什么。我没有图形化的界面提示我能干什么，所以就很难上手。但是如果有一个好的教程的话，比如像hacknet那样，告诉我输入cd进入目录等等，就很好。</p>
+<p>cli 更适合编排脚本，gui确实也可以编排脚本，比如苹果的automator，但是不太方便。在cli下，编排脚本就和直接操作是一样的。但是gui的脚本就得模拟鼠标键盘这样做。这就很不好。</p>
+<p>和gui一样，其实cli也是可以多窗口的。</p>
+<p>有人觉得cli不能做图形化窗口，然而这是不对的。cli不一定非要是那个黑乎乎的窗口。我们依然可以图像展示cli。比如chrome插件vimium，就可以用键盘控制chrome。这就很方便。当然，我觉得看网页不是什么需要快速操作的地方，vimium对我不是很重要。这不是一个好的例子。</p>
+<p>所以，gui的好处在于易于上手，我能看到我能做什么。cli的好处在于我可以方便的编辑脚本，这样就不用重复性操作。</p>
+<p>我们使用电脑的时候，很多操作是一次性的，比如我们配置一个环境，我们配置一次就完事了。所以如果能图形化交互就很好。但是另一些所有人都经常用，比如说访问文件，打开某某应用程序，复制粘贴。还有一些是一部分人经常用，一部分人很少用，比如数学画图，做统计，写复杂的文档，剪辑视频。</p>
+<p>其实他还区分结果的呈现。我不希望结果是黑压压的一个terminal所以如果程序可以cli控制，gui呈现就好了。当然一些操作我就不希望cli控制，比如说剪辑视频，这个鼠标控制就很好，键盘主要是快捷键。</p>
+<p>还有一个因素是npl，就是很多时候我不希望记忆复杂的命令，图形界面某个东西我也不知道怎么设置。如果这个时候我只要告诉计算机，我想干什么，然后计算机直接帮我列出相关的命令就好了。在这一点上，我觉得老罗的tnt是不错的。比如，我想把我手机上的文件发送到电脑上，那我就得先看电脑的ip地址，然后开去文件共享，然后再发送文件。但是这样做对于第一次做的用户来说就很麻烦，那么不如输入一条指令说&quot;send xxx to my phone&quot;，然后电脑提示你打开文件共享，之后再提示你传到哪台设备。之后在手机上提示接收到哪个文件夹。</p>
+<p>或者说我要把pdf的文件大小压缩一点。那我没这么操作过，就算有gui界面，我依然要上网搜索怎么做。这不如说在程序里有个接口，然后我输入&quot;resize .xxx&quot;之后软件自动帮我找到类似的选项并确认功能就好了。</p>
+<p>对与一般用户，这个是必要的。对于专业用户，因为他们会花很多时间在自己熟悉的软件上，所以npl 入口不必要。但是他们一定有很多重复性操作，所以，他们需要cli的方便的脚本。</p>
+<p>比较好的展示形式是具有gui的展示窗口，比如用html，同时保留cli的控制，但是展示窗口也是可以交互的，用手触摸或者鼠标点点点。同时应该有一个控制台，在操作的同时展示cli命令，</p>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -241,6 +304,52 @@
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var main = $('main');
+      var tocT = navHeight + (toc.offset().top - main.offset().top);
+      var tocLimMin = main.offset().top - navHeight;
+      var tocLimMax = $('#comments').offset().top - navHeight;
+      $(window).scroll(function () {
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': tocT,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
 
 
 
@@ -269,7 +378,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - 工具打造&nbsp;",
+        "cli gui 的一些思考(草稿)&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
