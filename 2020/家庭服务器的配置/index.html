@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
-  <title>A Review of Vector - 托尼的部落格</title>
+  <title>家庭服务器的配置 - 托尼的部落格</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -123,7 +123,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 三月 7日 2020, 5:11 下午
+                  星期一, 五月 11日 2020, 1:35 凌晨
                 </p>
               
 
@@ -132,7 +132,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    590 字
+                    234 字
                   </span>
                 
 
@@ -140,7 +140,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      3 分钟
+                      1 分钟
                   </span>
                 
 
@@ -174,89 +174,15 @@
         <div class="post-content mx-auto" id="post">
           
           <div class="markdown-body">
-            <h1 id="a-review-of-vector"><a class="markdownIt-Anchor" href="#a-review-of-vector"></a> A Review of Vector</h1>
-<p>In this post we will go over the basic operation toward vector.</p>
-<h3 id="what-is-a-vector"><a class="markdownIt-Anchor" href="#what-is-a-vector"></a> What is a vector</h3>
-<p>In the reallife, we do not always only want to look at the magnitude of a value, but  sometimes we also need to concern about the direction of a value. For example, a boat in a river.</p>
-<p><img src="/Users/tony/Downloads/IMG_3969DC6A76B6-1.jpeg" srcset="/img/loading.gif" alt="IMG_3969DC6A76B6-1" /></p>
-<p>We can use a group of numbers to denote a vector. For example (x, y) or (x, y, z).</p>
-<h3 id="zero-vector"><a class="markdownIt-Anchor" href="#zero-vector"></a> Zero vector</h3>
-<p>Some vectors has “strange” behaviour.</p>
-<p>We prescribe zero vectors, (a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, … , a<sub>n</sub>) where a<sub>1</sub> = a<sub>2</sub> =  a<sub>3</sub> = … = a<sub>n</sub> = 0 and n <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∈</mo><msup><mi mathvariant="double-struck">N</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">\in \N ^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">N</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>, are parallel to any vectors. And all the zero vectors are equal, meaning (0, 0) is treated as the same as (0, 0, 0).</p>
-<p>The definition of zero vector is just for convenience. And it is intuitive. All the vectors pointing to no direction and has no magnitude are the same.</p>
-<p>这部分我有点忘了, 可能不是这样的.</p>
-<h3 id="vector-addition"><a class="markdownIt-Anchor" href="#vector-addition"></a> Vector addition</h3>
-<p>We can only add the vectors in the same dimension (except zero vector).</p>
-<p>Vector addition is defined as follow:</p>
-<hr />
-<p>Two distinct vectors (a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, … , a<sub>n</sub>) and (b<sub>1</sub>, b<sub>2</sub>, b<sub>3</sub>, … , b<sub>n</sub>) are denoted by <strong>a</strong> and <strong>b</strong>.</p>
-<p><strong>a</strong> + <strong>b</strong> := (a<sub>1</sub> + b<sub>1</sub>, a<sub>2</sub> + b<sub>2</sub>, a<sub>3</sub> + b<sub>3</sub>, … , a<sub>n</sub> + b<sub>n</sub>)</p>
-<hr />
-<p>This part is very straghtforward.</p>
-<p>Using vector addition, we can find the (To do)</p>
-<h3 id="vector-scalar-multiplication"><a class="markdownIt-Anchor" href="#vector-scalar-multiplication"></a> Vector scalar multiplication</h3>
-<p>However, sometimes, we also want to the multiples of a vector. For example, I know that a car go at (5, 5) km/h, and I think the car is too slow, so that I speed up the car for 10%. Now I need to know the current velocity of the car.</p>
-<p>Vector scalar multiplication:</p>
-<hr />
-<p>s is a scalar , and (v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>, … v<sub>n</sub>) is a vector denoted by <strong>v</strong>.</p>
-<p>s__v__ := (sv<sub>1</sub>, sv<sub>2</sub>, sv<sub>3</sub>, … sv<sub>n</sub>)</p>
-<hr />
-<p>It is worthnoting that s, v<sub>1</sub>, v<sub>2</sub>, v<sub>3</sub>, … v<sub>n</sub> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∈</mo><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\in \R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span> .  When s = 0, s__v__ = <strong>0</strong> , where <strong>v</strong> is any vector, and <strong>0</strong> is the zero vector. In similar way, s__0__ = <strong>0</strong>.</p>
-<p>For convenience, we denote ( -1__v __) as ( -__v __).</p>
-<p>这里不太确定是不是另有深意, 我觉得是为了方便.</p>
-<h3 id="interface-toward-vector-space"><a class="markdownIt-Anchor" href="#interface-toward-vector-space"></a> Interface toward Vector Space</h3>
-<p>Now we can talk about some more exciting contents. :happy:</p>
-<p>First of all, one thing need to declare is that we haven’t defined an operation called substraction. As a matter of fact, we do not need to.</p>
-<p>Let’s examine the properties of the two operations on vector which we defined.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Name of the property</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1. ( <strong>u</strong> + <strong>v</strong> ) is a vector has the same dimension as <strong>u</strong> and <strong>v</strong></td>
-<td>Closure under addition</td>
-</tr>
-<tr>
-<td>2. <strong>u</strong> + <strong>v</strong> = <strong>v</strong> + <strong>u</strong></td>
-<td>Communicative property of addition</td>
-</tr>
-<tr>
-<td>3. <strong>u</strong> + <strong>v</strong> + <strong>w</strong> = <strong>u</strong> + ( <strong>v</strong> + <strong>w</strong> )</td>
-<td>Association property of addition</td>
-</tr>
-<tr>
-<td>4. <strong>u</strong> + <strong>0</strong> = <strong>u</strong></td>
-<td>Identity property of addition</td>
-</tr>
-<tr>
-<td>5. <strong>u</strong> + -<strong>u</strong> = <strong>0</strong></td>
-<td>Inverse property of addition</td>
-</tr>
-<tr>
-<td>6. c__u__ is a vector has the same dimension as <strong>u</strong></td>
-<td>Closure under scalar multiplication</td>
-</tr>
-<tr>
-<td>7. c ( <strong>u</strong> + <strong>v</strong> ) = c__u__ + c__v__</td>
-<td>Distributive property</td>
-</tr>
-<tr>
-<td>8. ( c + d ) <strong>u</strong> = c__u__ + d__u__9. cd__u__ = c(d__u__)</td>
-<td>Distributive property</td>
-</tr>
-<tr>
-<td>10. 1__u__ = <strong>u</strong></td>
-<td>Identity property of multiplication</td>
-</tr>
-</tbody>
-</table>
-<p>These properties are very easy to prove for vectors.</p>
-<p>这里稍微逼逼两句, 各种空间啊, 群啊啥的, 让我感觉非常安心, 因为我知道我做了这些操作之后不会蹦出来一个东西我没见错</p>
-<h3 id=""><a class="markdownIt-Anchor" href="#"></a> </h3>
+            <p>目前写一份草稿,记录下我做了哪些配置,免得到时候服务器搞坏了不会修.</p>
+<p>首先我弄了smb服务.</p>
+<p>然后是jellyfin用来dlan串流视频.</p>
+<p>然后是timemachine.</p>
+<p>最后我弄一个nextcloud上webdav相册.</p>
+<p>为了在广域网访问相册,我又弄了frp.</p>
+<p>目前机器上装了一块400g的硬盘(100g给原来的windows系统).因为一个电影就是10-20个g,我不想重新配置这些服务.所以我要加一块硬盘,同时加一块备份盘.</p>
+<p>那就这样了，timemachine我觉得300个g最多了.电影可能需要一个t.相册也是300个g最多了.</p>
+<p>我想还是这样好,备份用电脑自带的硬盘,相册也放在那块硬盘,bt下载单独一块,如果看电影少的话,那就可以不要那块硬盘了.另外弄一块冷备份硬盘就完事了.</p>
 
             <hr>
           </div>
@@ -265,19 +191,6 @@
             <p>
             
               
-              <span>
-                <i class="iconfont icon-tag"></i>
-                
-                  <a class="hover-with-bg" href="/tags/Maths/">Maths</a>
-                
-                  <a class="hover-with-bg" href="/tags/Learning-Note/">Learning Note</a>
-                
-                  <a class="hover-with-bg" href="/tags/Quantum-Book/">Quantum Book</a>
-                
-                  <a class="hover-with-bg" href="/tags/Vector-and-Matrix/">Vector and Matrix</a>
-                
-              </span>
-            
             </p>
             
               <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -462,7 +375,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "A Review of Vector&nbsp;",
+        "家庭服务器的配置&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

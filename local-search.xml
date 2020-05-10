@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>家庭服务器的配置</title>
+    <link href="/2020/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <url>/2020/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<p>目前写一份草稿,记录下我做了哪些配置,免得到时候服务器搞坏了不会修.</p><p>首先我弄了smb服务.</p><p>然后是jellyfin用来dlan串流视频.</p><p>然后是timemachine.</p><p>最后我弄一个nextcloud上webdav相册.</p><p>为了在广域网访问相册,我又弄了frp.</p><p>目前机器上装了一块400g的硬盘(100g给原来的windows系统).因为一个电影就是10-20个g,我不想重新配置这些服务.所以我要加一块硬盘,同时加一块备份盘.</p><p>那就这样了，timemachine我觉得300个g最多了.电影可能需要一个t.相册也是300个g最多了.</p><p>我想还是这样好,备份用电脑自带的硬盘,相册也放在那块硬盘,bt下载单独一块,如果看电影少的话,那就可以不要那块硬盘了.另外弄一块冷备份硬盘就完事了.</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>新想法 ar 相册</title>
     <link href="/2020/%E6%96%B0%E6%83%B3%E6%B3%95%20ar%20%E7%9B%B8%E5%86%8C/"/>
     <url>/2020/%E6%96%B0%E6%83%B3%E6%B3%95%20ar%20%E7%9B%B8%E5%86%8C/</url>
@@ -140,11 +153,11 @@
       
       <tag>Maths</tag>
       
+      <tag>Linear Algebra</tag>
+      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
-      
-      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -165,11 +178,11 @@
       
       <tag>Maths</tag>
       
+      <tag>Linear Algebra</tag>
+      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
-      
-      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -190,11 +203,11 @@
       
       <tag>Maths</tag>
       
+      <tag>Linear Algebra</tag>
+      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
-      
-      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -232,13 +245,13 @@
     
     <tags>
       
-      <tag>Vector and Matrix</tag>
-      
       <tag>Maths</tag>
       
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
+      
+      <tag>Vector and Matrix</tag>
       
     </tags>
     
@@ -270,13 +283,13 @@
     
     <tags>
       
-      <tag>Vector and Matrix</tag>
-      
       <tag>Maths</tag>
       
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
+      
+      <tag>Vector and Matrix</tag>
       
     </tags>
     
