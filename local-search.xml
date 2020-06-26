@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>读书列表</title>
+    <link href="/2020/%E8%AF%BB%E4%B9%A6%E5%88%97%E8%A1%A8/"/>
+    <url>/2020/%E8%AF%BB%E4%B9%A6%E5%88%97%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这里是我读过的书"><a class="markdownIt-Anchor" href="#这里是我读过的书"></a> 这里是我读过的书</h1><p>从2020-06-26开始记录.</p><h2 id="想读的"><a class="markdownIt-Anchor" href="#想读的"></a> 想读的</h2><ul><li>国家意志<ul><li>2020-06-26</li></ul></li><li>差分机<ul><li>2020-06-26</li></ul></li><li>海伯利安<ul><li>2020-06-26</li></ul></li></ul><h2 id="在读的"><a class="markdownIt-Anchor" href="#在读的"></a> 在读的</h2><ul><li>神经漫游者<ul><li>读到了第二章 25%</li><li>06-26</li></ul></li><li>牛津通识读本：维特根斯坦<ul><li>读了一半</li><li>大概是春节时候读的</li></ul></li></ul><h2 id="读完的"><a class="markdownIt-Anchor" href="#读完的"></a> 读完的</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>目前的一些编程思路</title>
+    <link href="/2020/%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    <url>/2020/%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</url>
+    
+    <content type="html"><![CDATA[<p>写函数的时候,所有调用的全局变量要传入函数体内部,不要不传入直接用,除非是只有你自己在写这个程序.有时候调用函数会没注意到全局变量是什么,给出非预期的结果.需要传入的话就能提醒自己全局变量现在是什么.而且函数体内部修改不了全局变量,但是有时候会记混全局和局部变量,所以直接传入全局变量在传出.</p><p>尽量少用循环,除非循环的结果一目了然,尽量用递归.递归比较容易搞清楚你从哪个状态到了哪个状态.</p><p>用定义递归式的函数的时候要包装别的函数,这样函数名比较容易读,调用的时候不会纠结这个函数怎么实现的.</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>家庭服务器的配置</title>
     <link href="/2020/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
     <url>/2020/%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
@@ -153,11 +179,11 @@
       
       <tag>Maths</tag>
       
-      <tag>Linear Algebra</tag>
-      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
+      
+      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -178,11 +204,11 @@
       
       <tag>Maths</tag>
       
-      <tag>Linear Algebra</tag>
-      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
+      
+      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -203,11 +229,11 @@
       
       <tag>Maths</tag>
       
-      <tag>Linear Algebra</tag>
-      
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
+      
+      <tag>Linear Algebra</tag>
       
     </tags>
     
@@ -245,13 +271,13 @@
     
     <tags>
       
+      <tag>Vector and Matrix</tag>
+      
       <tag>Maths</tag>
       
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
-      
-      <tag>Vector and Matrix</tag>
       
     </tags>
     
@@ -283,13 +309,13 @@
     
     <tags>
       
+      <tag>Vector and Matrix</tag>
+      
       <tag>Maths</tag>
       
       <tag>Learning Note</tag>
       
       <tag>Quantum Book</tag>
-      
-      <tag>Vector and Matrix</tag>
       
     </tags>
     
