@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      549 字
+      556 字
     </span>
   
 
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -254,39 +236,23 @@
 <h2 id="赋值语句"><a class="markdownIt-Anchor" href="#赋值语句"></a> 赋值语句</h2>
 <p>我们学编程的第一条语句 赋值 就是一个语义陷阱。</p>
 <p>这是一个老生常谈的问题。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span> <span class="token comment"># 和数学上的 = 不符</span>
-<span class="token number">1</span> <span class="token operator">=</span> x <span class="token comment"># = 左边只能是变量名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = x + <span class="hljs-number">1</span> <span class="hljs-comment"># 和数学上的 = 不符</span><br><span class="hljs-number">1</span> = x <span class="hljs-comment"># = 左边只能是变量名</span><br></code></pre></td></tr></table></figure>
 <p>看起来如果我们把 <code>=</code> 改成 <code>&lt;-</code> 的话，可能新手会更容易接受一些。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">&lt;</span><span class="token operator">-</span> x <span class="token operator">+</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">x &lt;- x + <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 <p>但是这样我们也没有解决这个问题。</p>
 <p>一开始学编程的时候，编程教材会用 “把变量名看作一个小盒子，内部保存了变量的值” 这个比喻来帮助理解。</p>
 <p>但是我们看回之前一个例子 <code>x &lt;- x + 1</code> 。这里很自然的我们可以理解为 先把 名为 <code>x</code> 小盒子里的值 取出来， 之后 <code>+ 1</code> 再之后放回名为 <code>x</code> 的小盒子里。我们发现 同样一个 <code>x</code> 在 赋值符号 的左边和右边有不一样的含义。</p>
 <p>问题同样存在在</p>
 <p>可能类似 PHP 的变量取值方式，或者直接把所有变量看作是指针 会看起来好一点。</p>
-<div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">x <span class="token operator">&lt;</span><span class="token operator">-</span> $x <span class="token operator">+</span> <span class="token number">1</span>
-x <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token operator">*</span>x <span class="token operator">+</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">x &lt;- $x + <span class="hljs-number">1</span><br>x &lt;- *x + <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 <p>我不只是说赋值里的 <code>=</code> 和数学里的 <code>=</code> 有不一样的含义。就算我们把 <code>=</code> 改成 <code>&lt;-</code> 依然不能解决这个问题。</p>
 <h2 id="值拷贝和引用拷贝"><a class="markdownIt-Anchor" href="#值拷贝和引用拷贝"></a> 值拷贝和引用拷贝</h2>
 <p>这里存在一个 “值拷贝” 和 “引用拷贝“ 的问题。</p>
 <p>比如说</p>
-<div class="code-wrapper"><pre class="line-numbers language-js" data-language="js"><code class="language-js">x <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-y <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-z <span class="token operator">&lt;</span><span class="token operator">-</span> y<span class="token punctuation">;</span>
-
-x is y<span class="token punctuation">;</span> <span class="token comment">// false</span>
-z is y<span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">x &lt;- <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();<br>y &lt;- <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();<br>z &lt;- y;<br><br>x is y; <span class="hljs-comment">// false</span><br>z is y; <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
 <h2 id="可变数据类型"><a class="markdownIt-Anchor" href="#可变数据类型"></a> 可变数据类型</h2>
 <p>最后一个问题是可变数据类型并不按新手通常想的方式表现。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">foods <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"pizza"</span><span class="token punctuation">,</span><span class="token string">"chicken"</span><span class="token punctuation">,</span><span class="token string">"apple"</span><span class="token punctuation">]</span>
-
-<span class="token keyword">def</span> <span class="token function">change_foods</span><span class="token punctuation">(</span>foods<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    changed_foods <span class="token operator">=</span> foods<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"salad"</span><span class="token punctuation">)</span> 
-    <span class="token comment"># 这里是错的！！！</span>
-    <span class="token keyword">return</span> changed_foods
-
-<span class="token keyword">def</span> <span class="token function">change_foods2</span><span class="token punctuation">(</span>foods<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  	foods<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"salad"</span><span class="token punctuation">)</span>
-    <span class="token comment">#正确的写法是这样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">foods = [<span class="hljs-string">&quot;pizza&quot;</span>,<span class="hljs-string">&quot;chicken&quot;</span>,<span class="hljs-string">&quot;apple&quot;</span>]<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_foods</span>(<span class="hljs-params">foods</span>):</span><br>    changed_foods = foods.append(<span class="hljs-string">&quot;salad&quot;</span>) <br>    <span class="hljs-comment"># 这里是错的！！！</span><br>    <span class="hljs-keyword">return</span> changed_foods<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_foods2</span>(<span class="hljs-params">foods</span>):</span><br>  	foods.append(<span class="hljs-string">&quot;salad&quot;</span>)<br>    <span class="hljs-comment">#正确的写法是这样</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -384,30 +350,6 @@ z is y<span class="token punctuation">;</span> <span class="token comment">// tr
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -444,8 +386,6 @@ z is y<span class="token punctuation">;</span> <span class="token comment">// tr
 
 
   
-    
-  
 
 
 
@@ -464,8 +404,6 @@ z is y<span class="token punctuation">;</span> <span class="token comment">// tr
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -498,13 +436,6 @@ z is y<span class="token punctuation">;</span> <span class="token comment">// tr
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

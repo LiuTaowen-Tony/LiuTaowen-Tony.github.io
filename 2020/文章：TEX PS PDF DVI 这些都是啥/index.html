@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      2.1k 字
     </span>
   
 
@@ -204,20 +194,12 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29
+      28
        分钟
     </span>
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -258,10 +240,7 @@
 <p>Tex 在 1977 年被 Knuth 发明。据说是因为他在写他那套著名的 <em>计算机程式设计艺术</em> 的时候觉得排版非常不方便，所以设计了 Tex 排版系统帮助他自己排版。最开始 Latex 只适用于他用的那台电脑和某种特定型号的打印机。早期的软件貌似兼容性都不是很好。</p>
 <p>据说 Tex 是图灵完备的语言，所以可以把它作为一个编程语言来使用。我只对 Latex 的数学公式有一点点了解，所以这里不过多介绍了。</p>
 <p>这里简单给几个数学公式的例子来看看。</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\nabla\cdot\vec&#123;E&#125; &#x3D; \frac&#123;\rho&#125;&#123;\epsilon_0&#125; \\
-\nabla\cdot\vec&#123;B&#125; &#x3D; 0 \\
-\nabla\times\vec&#123;E&#125; &#x3D; -\frac&#123;\partial B&#125;&#123;\partial t&#125; \\
-\nabla\times\vec&#123;B&#125; &#x3D; \mu_0\left(\vec&#123;J&#125;+\epsilon_0\frac&#123;\partial E&#125;&#123;\partial t&#125; \right)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript"><span class="hljs-symbol">\n</span>abla<span class="hljs-symbol">\c</span>dot<span class="hljs-symbol">\v</span>ec&#123;E&#125; = <span class="hljs-symbol">\f</span>rac&#123;<span class="hljs-symbol">\r</span>ho&#125;&#123;<span class="hljs-symbol">\e</span>psilon_0&#125; <span class="hljs-symbol">\\</span><br><span class="hljs-symbol">\n</span>abla<span class="hljs-symbol">\c</span>dot<span class="hljs-symbol">\v</span>ec&#123;B&#125; = 0 <span class="hljs-symbol">\\</span><br><span class="hljs-symbol">\n</span>abla<span class="hljs-symbol">\t</span>imes<span class="hljs-symbol">\v</span>ec&#123;E&#125; = -<span class="hljs-symbol">\f</span>rac&#123;<span class="hljs-symbol">\p</span>artial B&#125;&#123;<span class="hljs-symbol">\p</span>artial t&#125; <span class="hljs-symbol">\\</span><br><span class="hljs-symbol">\n</span>abla<span class="hljs-symbol">\t</span>imes<span class="hljs-symbol">\v</span>ec&#123;B&#125; = <span class="hljs-symbol">\m</span>u_0<span class="hljs-symbol">\l</span>eft(<span class="hljs-symbol">\v</span>ec&#123;J&#125;+<span class="hljs-symbol">\e</span>psilon_0<span class="hljs-symbol">\f</span>rac&#123;<span class="hljs-symbol">\p</span>artial E&#125;&#123;<span class="hljs-symbol">\p</span>artial t&#125; <span class="hljs-symbol">\r</span>ight)<br></code></pre></td></tr></table></figure>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi><mo>⋅</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover><mo>=</mo><mfrac><mi>ρ</mi><msub><mi>ϵ</mi><mn>0</mn></msub></mfrac><mspace linebreak="newline"></mspace><mi mathvariant="normal">∇</mi><mo>⋅</mo><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo>=</mo><mn>0</mn><mspace linebreak="newline"></mspace><mi mathvariant="normal">∇</mi><mo>×</mo><mover accent="true"><mi>E</mi><mo>⃗</mo></mover><mo>=</mo><mo>−</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>B</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>t</mi></mrow></mfrac><mspace linebreak="newline"></mspace><mi mathvariant="normal">∇</mi><mo>×</mo><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo>=</mo><msub><mi>μ</mi><mn>0</mn></msub><mrow><mo fence="true">(</mo><mover accent="true"><mi>J</mi><mo>⃗</mo></mover><mo>+</mo><msub><mi>ϵ</mi><mn>0</mn></msub><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>E</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>t</mi></mrow></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\nabla\cdot\vec{E} = \frac{\rho}{\epsilon_0} \\
 \nabla\cdot\vec{B} = 0 \\
 \nabla\times\vec{E} = -\frac{\partial B}{\partial t} \\
@@ -298,7 +277,7 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
 c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></span></p>
 <p>麦克斯韦方程组，经典。</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">\sum _&#123;1&#125; ^&#123;n&#125; r^&#123;2&#125; &#x3D; \frac&#123;n(n+1)(2n+1)&#125;&#123;6&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml">\sum _</span><span class="hljs-template-variable">&#123;1&#125;</span><span class="xml"> ^</span><span class="hljs-template-variable">&#123;n&#125;</span><span class="xml"> r^</span><span class="hljs-template-variable">&#123;2&#125;</span><span class="xml"> = \frac</span><span class="hljs-template-variable">&#123;n(n+1)(2n+1)&#125;</span><span class="hljs-template-variable">&#123;6&#125;</span><br></code></pre></td></tr></table></figure>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mn>1</mn><mi>n</mi></munderover><msup><mi>r</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>6</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum _{1} ^{n} r^{2} = \frac{n(n+1)(2n+1)}{6}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.9185100000000004em;vertical-align:-1.267113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">6</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <p>求和什么的也可以显示。我在书上能看到的数学符号 Latex 都能打出来。</p>
@@ -312,122 +291,13 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
 <p>.PS 是 Adobe 研发的图形设计语言。但是他和 Apple 的关系也很深。据说是 1985 年推出，最早用于 AppleLaserWriter, 我还看到有说是 1984 年推出的。所以基本上是和 DVI 差不多一样的时间推出的。和 DVI 一样，他的好处就是版面制作的时候不用考虑设备依赖，不用考虑你是啥打印机，也不用专门准备一台电脑来制作 ps 文档。</p>
 <p>和 DVI 的背景类似，当时的打印机只能用来打印字符或者打印点阵，画图是用绘图仪实现的。网上很容易找到绘图仪的图片，还是挺酷的。点阵打印的话，问题就是分辨率太低，效果不好。为了打印排版良好的图片和文字，PS 应运而生。PS 可以生成矢量图，用的是类似海龟绘图的方法。而且 ps level2 还增加了对 jpeg 这样的图像以及更多字体的支持 （对亚洲国家很有必要）.</p>
 <p>PS 的好处就是 PS 是明文储存的，所以很容易查看。这里简单粘贴几行代码看：</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">%!PS-Adobe-3.0
-%APL_DSC_Encoding: UTF8
-%APLProducer: (Version 10.15.4 (Build 19E287) Quartz PS Context)
-%%Title: （首发哦 i 围巾哦 i 啊我哈佛 i 啊我和佛教）
-%%Creator: (Mail: cgpdftops CUPS filter)
-%%CreationDate: (Tuesday, April 28 2020 16:44:42 CST)
-.
-. &quot;⬆️开头的一些描述&quot;
-.
-&#x2F;rs&#x2F;rectstroke
-&#x2F;f&#x2F;fill
-&#x2F;f*&#x2F;eofill
-&#x2F;sf&#x2F;selectfont
-&#x2F;s&#x2F;show
-%&#x2F;as&#x2F;ashow
-&#x2F;xS&#x2F;xshow
-.
-. &quot;⬆️应该是定义宏&quot;
-.
-&#x2F;FunEval % val1 fundict -&gt; comp1 comp2 ... compN
-&#123;
-    begin
-	% the value passed in is the base index into the table
-	nRange mul &#x2F;val xd	% compute the actual index to the table
-				% since there are nRange entries per base index
-	0 1 nRange 1 sub
-	&#123;
-	    dup 2 mul&#x2F;nDim2 xd % dim
-	    val	% base value to use to do our lookup
-	    add DataSource exch get %  lookedupval
-	    mulRange nDim2 get mul 	% lookedupval*(ymax-ymin)&#x2F;(xmax-xmin)
-	    mulRange nDim2 1 add get % lookedupval*(ymax-ymin)&#x2F;(xmax-xmin) ymin
-	    add % interpolated result
-	&#125;for	% comp1 comp2 ... compN
-    end
-&#125;bd
-.
-. &quot;⬆️应该是定义函数&quot;
-.
-&#x2F;b 4 def
-&#x2F;c 5 def
-&#x2F;d 6 def
-&#x2F;e 7 def
-&#x2F;g 8 def
-&#x2F;h 9 def
-&#x2F;i 10 def
-&#x2F;l 11 def
-&#x2F;m 12 def
-&#x2F;n 13 def
-&#x2F;o 14 def
-.
-. &quot;⬆️这些应该是描述页面怎么布局的，好像是分很多步骤，我认不出来，所以就随便粘贴一些&quot;
-.
-h
-f
-ep
-end
-%%Trailer
-%%Pages: 1
-%%BoundingBox: 0 0 595 842
-%%EOF
-.
-. &quot;⬆️尾文件&quot;
-.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-comment">%!PS-Adobe-3.0</span><br><span class="hljs-comment">%APL_DSC_Encoding: UTF8</span><br><span class="hljs-comment">%APLProducer: (Version 10.15.4 (Build 19E287) Quartz PS Context)</span><br><span class="hljs-comment">%%Title: （首发哦 i 围巾哦 i 啊我哈佛 i 啊我和佛教）</span><br><span class="hljs-comment">%%Creator: (Mail: cgpdftops CUPS filter)</span><br><span class="hljs-comment">%%CreationDate: (Tuesday, April 28 2020 16:44:42 CST)</span><br>.<br>. <span class="hljs-string">&quot;⬆️开头的一些描述&quot;</span><br>.<br>/rs/rectstroke<br>/f/fill<br>/f*/eofill<br>/sf/selectfont<br>/s/show<br><span class="hljs-comment">%/as/ashow</span><br>/xS/xshow<br>.<br>. <span class="hljs-string">&quot;⬆️应该是定义宏&quot;</span><br>.<br>/<span class="hljs-symbol">FunEval</span> <span class="hljs-comment">% val1 fundict -&gt; comp1 comp2 ... compN</span><br>&#123;<br>    begin<br>	<span class="hljs-comment">% the value passed in is the base index into the table</span><br>	nRange mul /val xd	<span class="hljs-comment">% compute the actual index to the table</span><br>				<span class="hljs-comment">% since there are nRange entries per base index</span><br>	<span class="hljs-number">0</span> <span class="hljs-number">1</span> nRange <span class="hljs-number">1</span> sub<br>	&#123;<br>	    dup <span class="hljs-number">2</span> mul/nDim2 xd <span class="hljs-comment">% dim</span><br>	    val	<span class="hljs-comment">% base value to use to do our lookup</span><br>	    add <span class="hljs-symbol">DataSource</span> exch get <span class="hljs-comment">%  lookedupval</span><br>	    mulRange nDim2 get mul 	<span class="hljs-comment">% lookedupval*(ymax-ymin)/(xmax-xmin)</span><br>	    mulRange nDim2 <span class="hljs-number">1</span> add get <span class="hljs-comment">% lookedupval*(ymax-ymin)/(xmax-xmin) ymin</span><br>	    add <span class="hljs-comment">% interpolated result</span><br>	&#125;for	<span class="hljs-comment">% comp1 comp2 ... compN</span><br>    end<br>&#125;bd<br>.<br>. <span class="hljs-string">&quot;⬆️应该是定义函数&quot;</span><br>.<br>/b <span class="hljs-number">4</span> def<br>/c <span class="hljs-number">5</span> def<br>/d <span class="hljs-number">6</span> def<br>/e <span class="hljs-number">7</span> def<br>/g <span class="hljs-number">8</span> def<br>/h <span class="hljs-number">9</span> def<br>/i <span class="hljs-number">10</span> def<br>/l <span class="hljs-number">11</span> def<br>/m <span class="hljs-number">12</span> def<br>/n <span class="hljs-number">13</span> def<br>/o <span class="hljs-number">14</span> def<br>.<br>. <span class="hljs-string">&quot;⬆️这些应该是描述页面怎么布局的，好像是分很多步骤，我认不出来，所以就随便粘贴一些&quot;</span><br>.<br>h<br>f<br>ep<br>end<br><span class="hljs-comment">%%Trailer</span><br><span class="hljs-comment">%%Pages: 1</span><br><span class="hljs-comment">%%BoundingBox: 0 0 595 842</span><br><span class="hljs-comment">%%EOF</span><br>.<br>. <span class="hljs-string">&quot;⬆️尾文件&quot;</span><br>.<br></code></pre></td></tr></table></figure>
 <p>据说 ps 最早跟 Xerox 1976 年的激光打印机有关，不过我也不想研究太深了。</p>
 <p>ps 大概是 1990 年左右式微的，有人说这跟当时廉价的喷墨打印机有关。那个时候，Adobe 又发明了 PDF 格式。</p>
 <h2 id="0x03-pdf"><a class="markdownIt-Anchor" href="#0x03-pdf"></a> 0x03 .PDF</h2>
 <p>pdf 是我挺喜欢的一个格式，因为这个格式是通用的。在哪个设备上都一样。这个格式是 1993 年 Adobe 公司发明的。和 ps 不一样，pdf 是二进制文件和文本文件混合排列的，所以他的内容是人类不可读的。</p>
 <p>我没找到很多关于 pdf 的有趣的事，所以这里简单介绍一下 pdf 文件的组成。</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">%PDF-1.3
-%���������
-4 0 obj
-&lt;&lt; &#x2F;Length 5 0 R &#x2F;Filter &#x2F;FlateDecode &gt;&gt;
-.
-. &quot;⬆️这里是文件头，� 是二进制文件，读不出来。&quot;
-.
-21 0 obj
-&lt;&lt; &#x2F;Length 22 0 R &#x2F;Filter &#x2F;FlateDecode &gt;&gt;
-stream
-x]��j�0E��
--�E��$N�PR^�A�~�-������,�����)tqG�;�GΎ�s�l��&#123;�tKQ֙@�t	�dOg�D^Hcu����C�]�Hc�IV��2�@d�a��3����ނ��Y���-���i$�u-
-
-h����n$�qt��m\�H���\&lt;IL�D~IO�f�i
-�;�����ө�̿R^^�p�Z�u�P�P���
-���(�n�n�@�M�tPΖP -Su�&lt;$&#125;��Jnu�(��@�&#x3D;W&#123;(@���P �VJ���y�d(fap�$��%P��F~?&#x3D;-&#x3D;�&#125;����&#x2F;�O�Vl�?��R�y��
-endstream
-endobj
-22 0 obj
-.
-. &quot;⬆️中间基本都是一堆这样二进制和文本混合而成的东西。&quot;
-.
-&lt;&lt; &#x2F;Type &#x2F;FontDescriptor &#x2F;FontName &#x2F;PSDLIF+CourierNewPSMT &#x2F;Flags 5 &#x2F;FontBBox
-[-122 -680 622 1021] &#x2F;ItalicAngle 0 &#x2F;Ascent 833 &#x2F;Descent -300 &#x2F;CapHeight 571
-&#x2F;StemV 0 &#x2F;XHeight 423 &#x2F;AvgWidth 600 &#x2F;MaxWidth 634 &#x2F;FontFile2 23 0 R &gt;&gt;
-.
-. &quot;⬆️也有一些这样的可读的部分。
-.
-xref
-0 31
-0000000000 65535 f 
-0000026313 00000 n 
-0000002668 00000 n 
-0000005746 00000 n 
-0000026292 00000 n 
-.
-. &quot;⬆️最后是一个交叉引用表，我也没搞懂这是什么个机理&quot;
-.
-trailer
-&lt;&lt; &#x2F;Size 31 &#x2F;Root 19 0 R &#x2F;Info 1 0 R &#x2F;ID [ &lt;32711aa8c4a468216fc0f60bc03e44ea&gt;
-&lt;32711aa8c4a468216fc0f60bc03e44ea&gt; ] &gt;&gt;
-startxref
-26766
-%%EOF
-.
-. &quot;⬆️最后是一个尾文件&quot;
-.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs tap">%PDF-1.3<br>%���������<br>4<span class="hljs-number"> 0 </span>obj<br>&lt;&lt; /Length<span class="hljs-number"> 5 </span>0 R /Filter /FlateDecode &gt;&gt;<br>.<br>. &quot;⬆️这里是文件头，� 是二进制文件，读不出来。&quot;<br>.<br>21<span class="hljs-number"> 0 </span>obj<br>&lt;&lt; /Length<span class="hljs-number"> 22 </span>0 R /Filter /FlateDecode &gt;&gt;<br>stream<br>x]��j�0E��<br>-�E��$N�PR^�A�~�-������,�����)tqG�;�GΎ�s�l��&#123;�tKQ֙@�t	�dOg�D^Hcu����C�]�Hc�IV��2�@d�a��3����ނ��Y���-���i$�u-<br><br>h����n$�qt��m\�H���\&lt;IL�D~IO�f�i<br>�;�����ө�̿R^^�p�Z�u�P�P���<br>���(�n�n�@�M�tPΖP -Su�&lt;$&#125;��Jnu�(��@�=W&#123;(@���P �VJ���y�d(fap�$��%P��F~?=-=�&#125;����/�O�Vl�?��R�y��<br>endstream<br>endobj<br>22<span class="hljs-number"> 0 </span>obj<br>.<br>. &quot;⬆️中间基本都是一堆这样二进制和文本混合而成的东西。&quot;<br>.<br>&lt;&lt; /Type /FontDescriptor /FontName /PSDLIF+CourierNewPSMT /Flags<span class="hljs-number"> 5 </span>/FontBBox<br>[-122 -680<span class="hljs-number"> 622 </span>1021] /ItalicAngle<span class="hljs-number"> 0 </span>/Ascent<span class="hljs-number"> 833 </span>/Descent -300 /CapHeight 571<br>/StemV<span class="hljs-number"> 0 </span>/XHeight<span class="hljs-number"> 423 </span>/AvgWidth<span class="hljs-number"> 600 </span>/MaxWidth<span class="hljs-number"> 634 </span>/FontFile2<span class="hljs-number"> 23 </span>0 R &gt;&gt;<br>.<br>. &quot;⬆️也有一些这样的可读的部分。<br>.<br>xref<br>0 31<br>0000000000<span class="hljs-number"> 65535 </span>f <br>0000026313<span class="hljs-number"> 00000 </span>n <br>0000002668<span class="hljs-number"> 00000 </span>n <br>0000005746<span class="hljs-number"> 00000 </span>n <br>0000026292<span class="hljs-number"> 00000 </span>n <br>.<br>. &quot;⬆️最后是一个交叉引用表，我也没搞懂这是什么个机理&quot;<br>.<br>trailer<br>&lt;&lt; /Size<span class="hljs-number"> 31 </span>/Root<span class="hljs-number"> 19 </span>0 R /Info<span class="hljs-number"> 1 </span>0 R /ID [ &lt;32711aa8c4a468216fc0f60bc03e44ea&gt;<br>&lt;32711aa8c4a468216fc0f60bc03e44ea&gt; ] &gt;&gt;<br>startxref<br>26766<br>%%EOF<br>.<br>. &quot;⬆️最后是一个尾文件&quot;<br>.<br></code></pre></td></tr></table></figure>
 <h2 id="0x04-转换关系"><a class="markdownIt-Anchor" href="#0x04-转换关系"></a> 0x04 转换关系</h2>
 <p>最后的最后，简单介绍下这几个文件的转换关系。</p>
 <p>因为 Tex 最开始只是对单一打印机做了适配，后来添加更好的适配性，可以转化成 dvi 之后转化为打印机可以打印的格式。因为有了 dvi 这个轮子，所以 ps 不能直接从 Tex 获得，需要先转化为 dvi 之后变成 ps. 类似的，pdf 可以从 dvi 直接转化。但是，它也可以从 ps 转化，因为他和 ps 算是继承关系。</p>
@@ -543,30 +413,6 @@ startxref
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -603,8 +449,6 @@ startxref
 
 
   
-    
-  
 
 
 
@@ -623,8 +467,6 @@ startxref
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -657,13 +499,6 @@ startxref
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

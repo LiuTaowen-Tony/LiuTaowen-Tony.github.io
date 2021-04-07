@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      971 字
+      974 字
     </span>
   
 
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -255,33 +237,7 @@
 <p>You have the name of sprites, you have the power over it.</p>
 <p>如果你能对一个事物命名，你就可以掌控它。感觉有点语言哲学的感觉。唯名论的感觉。</p>
 <p>Iteration vs linear recursion</p>
-<div class="code-wrapper"><pre class="line-numbers language-scheme" data-language="scheme"><code class="language-scheme"><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span>
-  if <span class="token punctuation">(</span><span class="token operator">=</span> x <span class="token number">0</span><span class="token punctuation">)</span>
-  	 y
-  	 <span class="token punctuation">(</span><span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">pred</span> x<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">succ</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">;; Iteration</span>
-<span class="token comment">;; (+ 2 5)</span>
-<span class="token comment">;; (+ 1 6)</span>
-<span class="token comment">;; (+ 0 7)</span>
-<span class="token comment">;; 7</span>
-<span class="token comment">;; O(x) time O(1) space</span>
-
-
-<span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span>
-  if <span class="token punctuation">(</span><span class="token operator">=</span> x <span class="token number">0</span><span class="token punctuation">)</span>
-     y
-  	 <span class="token punctuation">(</span><span class="token function">succ</span> <span class="token punctuation">(</span><span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">pred</span> x<span class="token punctuation">)</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">;; Linear Recursion</span>
-<span class="token comment">;; (succ (+ 2 4))</span>
-<span class="token comment">;; (succ (succ (+ 1 4)))</span>
-<span class="token comment">;; (succ (succ (succ (+ 0 4))))</span>
-<span class="token comment">;; (succ (succ (succ 4)))</span>
-<span class="token comment">;; (succ (succ 5))</span>
-<span class="token comment">;; (succ 6)</span>
-<span class="token comment">;; 7</span>
-<span class="token comment">;; O(x) time O(x) space</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs scheme">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x y)<br>  if (<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> x <span class="hljs-number">0</span>)<br>  	 y<br>  	 (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> (<span class="hljs-name">pred</span> x) (<span class="hljs-name">succ</span> y)))<br><br><span class="hljs-comment">;; Iteration</span><br><span class="hljs-comment">;; (+ 2 5)</span><br><span class="hljs-comment">;; (+ 1 6)</span><br><span class="hljs-comment">;; (+ 0 7)</span><br><span class="hljs-comment">;; 7</span><br><span class="hljs-comment">;; O(x) time O(1) space</span><br><br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x y)<br>  if (<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> x <span class="hljs-number">0</span>)<br>     y<br>  	 (<span class="hljs-name">succ</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> (<span class="hljs-name">pred</span> x) y)))<br><br><span class="hljs-comment">;; Linear Recursion</span><br><span class="hljs-comment">;; (succ (+ 2 4))</span><br><span class="hljs-comment">;; (succ (succ (+ 1 4)))</span><br><span class="hljs-comment">;; (succ (succ (succ (+ 0 4))))</span><br><span class="hljs-comment">;; (succ (succ (succ 4)))</span><br><span class="hljs-comment">;; (succ (succ 5))</span><br><span class="hljs-comment">;; (succ 6)</span><br><span class="hljs-comment">;; 7</span><br><span class="hljs-comment">;; O(x) time O(x) space</span><br></code></pre></td></tr></table></figure>
 <p>学习编程就是学习编程语言里有用的模式，比如如何从数列中挑出最大的元素。如果不会这些模式，写程序会很痛苦。（抽象）</p>
 <p>计算机科学是非常唯名论的学科，他鼓励忘记符号背后的意义。感觉有点像抽象代数的感觉，把一类计算全部看作某某算子。</p>
 <p>data abstraction</p>
@@ -304,32 +260,12 @@
 <p>这样定义的 cons car cdr 组成了 pair</p>
 <p>循环是一种特殊的递归，它的效率更好</p>
 <p>允许我们进行递归的性质是 闭包 。比如</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">(num + num) -&gt; num -- 连加利用了 + 封闭的的性质
-(cdr list) -&gt; list -- map 利用了 cdr 是封闭运算的性质，所以可以递归
-data Tree a &#x3D; Node a Tree Tree | Nil   -- 利用了树是自相似的，所以可以遍历
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">(<span class="hljs-built_in">num</span> + <span class="hljs-built_in">num</span>) -&gt; <span class="hljs-built_in">num</span> <span class="hljs-comment">-- 连加利用了 + 封闭的的性质</span><br>(cdr list) -&gt; list <span class="hljs-comment">-- map 利用了 cdr 是封闭运算的性质，所以可以递归</span><br>data Tree <span class="hljs-keyword">a</span> = Node <span class="hljs-keyword">a</span> Tree Tree | Nil   <span class="hljs-comment">-- 利用了树是自相似的，所以可以遍历</span><br><br></code></pre></td></tr></table></figure>
 <p>两种构建抽象的方式</p>
 <p>自顶向下</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">					a
-					|
-	------------------
-	|       |        |
------   -----    ------
-|   |   |   |    |    |
-   ----
-   |  |<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">					a<br>					|<br><span class="hljs-string">	------------------</span><br><span class="hljs-string">	</span>|<span class="hljs-string">       </span>|<span class="hljs-string">        </span>|<br>-----   -----    ------<br>|<span class="hljs-string">   </span>|<span class="hljs-string">   </span>|<span class="hljs-string">   </span>|<span class="hljs-string">    </span>|<span class="hljs-string">    </span>|<br>   ----<br>   |<span class="hljs-string">  </span>|<br></code></pre></td></tr></table></figure>
 <p>分层dls</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">----------------------
-| language of 组合图像|
-----------------------
-          |
------------------------
-| language of 构建图像 |
------------------------
-				  |
------------------------
-| language of 点和向量 |
------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">----------------------<br>| language of 组合图像|<br>----------------------<br><span class="hljs-code">          |</span><br>-----------------------<br>| language of 构建图像 |<br>-----------------------<br><span class="hljs-code">				  |</span><br>-----------------------<br>| language of 点和向量 |<br>-----------------------<br></code></pre></td></tr></table></figure>
 <p>sicp 推荐使用 分层 dls 但是我觉得各有优势，自顶向下适合完成特定任务，分层dls 提供了更好的扩展性，支持随意组合。</p>
 <p>数学是一种分层 dls，感觉一些上古软件也有分层 dls 的感觉，比如说 vim。</p>
 <p>感觉挺多库的设计都使用了两种策略，比如 机器学习库 使用了 分层 dls 表示各种数据（矩阵 auto-grad 卷积)，但是在特定算法上使用了 自顶向下 ，比如人脸识别 分成 特征提取 和 分类器。</p>
@@ -442,30 +378,6 @@ data Tree a &#x3D; Node a Tree Tree | Nil   -- 利用了树是自相似的，所
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -502,8 +414,6 @@ data Tree a &#x3D; Node a Tree Tree | Nil   -- 利用了树是自相似的，所
 
 
   
-    
-  
 
 
 
@@ -522,8 +432,6 @@ data Tree a &#x3D; Node a Tree Tree | Nil   -- 利用了树是自相似的，所
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -556,13 +464,6 @@ data Tree a &#x3D; Node a Tree Tree | Nil   -- 利用了树是自相似的，所
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

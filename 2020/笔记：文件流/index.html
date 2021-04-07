@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -302,48 +284,38 @@
 </tbody>
 </table>
 <p>值得注意的是</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo 1.txt | cat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo 1.txt | cat<br></code></pre></td></tr></table></figure>
 <p>的输出是 1.txt ，因为这段代码相当于</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkfifo anonymiousPipe
-echo 1.txt &gt; anonymiousPipe
-cat anonymiousPipe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkfifo anonymiousPipe<br>echo 1.txt &gt; anonymiousPipe<br>cat anonymiousPipe<br></code></pre></td></tr></table></figure>
 <p>echo 1.txt 是把 1.txt 这串字符输入到了 一个匿名的管道中，之后用 cat 读取这个匿名管道。得到 1.txt 这段字符</p>
 <p>上面提到了 <code>mkfifo</code>，这个命令就是用来生成管道的。我们除了可以用 <code>|</code>作为匿名管道，我们也可以用有名管道。</p>
 <p>管道同样是一个文件</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkfifo myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkfifo myPipe<br></code></pre></td></tr></table></figure>
 <p>我们可以创建一个管道文件</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo &quot;hello&quot; &gt; myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;hello&quot; &gt; myPipe<br></code></pre></td></tr></table></figure>
 <p>向管道文件输入 “hello”</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cat myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat myPipe<br></code></pre></td></tr></table></figure>
 <p>从管道中获取输入</p>
 <h2 id="文件作为进程间通讯"><a class="markdownIt-Anchor" href="#文件作为进程间通讯"></a> 文件作为进程间通讯</h2>
 <h2 id="缓冲区"><a class="markdownIt-Anchor" href="#缓冲区"></a> 缓冲区</h2>
 <p>因为相对于 IO 操作来说，cpu 的速度太快了。所以我们一般是把要写的文件先存在缓冲区，之后再真正执行 IO 操作。比如说我们要向屏幕输出依次输出 <code>12345</code> 那么我们就要进行 5 次 IO。这样会拖慢速度，那么我们可以把 <code>12345</code> 先存到缓冲区，之后当缓冲区满了或者强制输出的时候，我们再把缓冲区的内容一并输出。</p>
 <h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
 <p>我们可以在外部更改默认的输出位置。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ python &gt;&gt; 1.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> python &gt;&gt; 1.txt</span><br></code></pre></td></tr></table></figure>
 <p>这样我们默认在交互式python中默认的输出位置是追加到 1.txt 这个文件。那么我们 print 的内容不会在屏幕中显示，反而会出现在 1.txt 这个文件中。</p>
 <p>这里就是我们让 shell 告诉 python 它的默认输出位置在 1.txt 这个文件。</p>
 <p>除此以外，我们也可以在 python 内部告诉程序应该从哪里获得输入输出。</p>
 <p>Python 中 print 函数的高级用法</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">print (value,...,sep&#x3D;&#39;&#39;,end&#x3D;&#39;\n&#39;,file&#x3D;sys.stdout,flush&#x3D;False)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-built_in">print</span> (value,...,sep=<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-keyword">end</span>=<span class="hljs-string">&#x27;\n&#x27;</span>,file=sys.<span class="hljs-built_in">stdout</span>,<span class="hljs-built_in">flush</span>=False)<br></code></pre></td></tr></table></figure>
 <p>其中的 file 参数就是输出的位置，sys.stdout 是默认输出到屏幕。</p>
 <p>那么我们可以打开一个文件，print 输出到这个文件。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"output.txt"</span><span class="token punctuation">,</span><span class="token string">"a"</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">,</span><span class="token builtin">file</span> <span class="token operator">=</span> f<span class="token punctuation">)</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;output.txt&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello world&quot;</span>,file = f)<br>f.close()<br></code></pre></td></tr></table></figure>
 <p>值得注意的是，只有在文件关闭或者缓冲区满了的时刻，文件的内容才会被修改。print 函数只是暂时把要修改的内容存到了缓冲区。</p>
 <p>我们还可以暂时把 stdout 换成一个文件</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"output.txt"</span><span class="token punctuation">,</span><span class="token string">"a"</span><span class="token punctuation">)</span>
-sys<span class="token punctuation">.</span>stdout <span class="token operator">=</span> f
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;output.txt&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>)<br>sys.stdout = f<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello world&quot;</span>)<br>f.close()<br></code></pre></td></tr></table></figure>
 <p>可惜文件关闭之后我们就不能向屏幕输出信息了。</p>
 <p>除此以外，我们也可以使用 stdin 来实现更底层的输入机制。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">sys<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">str</span> IP <span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span> 
-<span class="token comment"># 这里str IP 去掉最后的'\n'</span>
-<span class="token comment"># 和 input 不同，'\n' 不会默认去掉最后的换行</span>
-<span class="token comment"># 另外 stdin 不能输出提示，所以我们需要另外输出提示</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">sys.stdin.readline().<span class="hljs-built_in">str</span> IP (<span class="hljs-string">&#x27;\n&#x27;</span>) <br><span class="hljs-comment"># 这里str IP 去掉最后的&#x27;\n&#x27;</span><br><span class="hljs-comment"># 和 input 不同，&#x27;\n&#x27; 不会默认去掉最后的换行</span><br><span class="hljs-comment"># 另外 stdin 不能输出提示，所以我们需要另外输出提示</span><br></code></pre></td></tr></table></figure>
 <p>我认为 input 和 print 可以看作是 stdout 和 stdin 的包装。而 stdout 可以看作是一个只写文件， stdin 可以看作是一个只读文件。所以归根结底，我们都可以通过写入或者读取文件的方式使用以上这些函数。</p>
 <h2 id="stringio-与-bytesio"><a class="markdownIt-Anchor" href="#stringio-与-bytesio"></a> StringIO 与 BytesIO</h2>
 <p>Python 提供了 StringIO 和 BytesIO 用来在内存里模拟文件。</p>
@@ -450,30 +422,6 @@ f<span class="token punctuation">.</span>close<span class="token punctuation">(<
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -510,8 +458,6 @@ f<span class="token punctuation">.</span>close<span class="token punctuation">(<
 
 
   
-    
-  
 
 
 
@@ -530,8 +476,6 @@ f<span class="token punctuation">.</span>close<span class="token punctuation">(<
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -564,13 +508,6 @@ f<span class="token punctuation">.</span>close<span class="token punctuation">(<
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

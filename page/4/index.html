@@ -39,11 +39,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -51,7 +51,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -141,12 +141,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="可惜这里地方太小，写不下">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
               
             </span>
 
@@ -274,16 +274,14 @@ Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
            逻辑的发展
  逻辑三段论
 逻辑三段论可能是形式最简单、历史最悠久的逻辑了。一般来说它有以下形式
-大前提：所有 某类物体 都具有 某性质
-小前提：某个个体 是 某类物体
-结论：  某个个体具有某某性质
+123大前提：所有 某类物体 都具有 某性质小前提：某个个体 是 某类物体结论：  某个个体具有某某性质
 虽然它很简单，但是很有用。
 比如我们在试图反驳某些观点的时候，我们可以这样：
 反驳：板蓝根是中药，所以它没用
 这句话的大前提是 所有中药都是没用的
 小前提是 板蓝根是中药
 结论 板蓝根没用
-然而这是
+然而这
         </a>
       </p>
 
@@ -360,14 +358,7 @@ x\ti
            Python 的星号表达式，模拟 Haskell 模式匹配
 简略写写 星号表达式 的语法。
 首先是星号可以表示变长参数。
-def add_first_two(a,b,*args,key1,key2,**kwargs):
-    try:
-        print(key1)
-        print(key2)
-    except:
-        pass
-    finally:
-  
+123456789def add_first_two(a,b,*args,key1,key2,**kwargs):    try:        print(key1)        print(key2)    except:        pass    finally:
         </a>
       </p>
 
@@ -410,10 +401,7 @@ def add_first_two(a,b,*args,key1,key2,**kwargs):
 
 后来发现 functool 里内置了这个函数
 
-def memorise(func):
-    def warpper(*args):
-        if memory.get((*args,func)):
-            return
+12345678910def memorise(func):    def warpper(*args):        if memory.get((*args,func)):          
         </a>
       </p>
 
@@ -497,9 +485,7 @@ PS : 之后我接触了一下 Haskell，似乎这里所有的问题都解决了 
  函数调用作属性
 property 这个装饰器可以把函数调用当作对象的属性
 直接看例子会比较清楚
-class Matrix():
-    def __init__(self,data):
-        self._data 
+123456789class Matrix():    def __init__(self,data):        self
         </a>
       </p>
 
@@ -661,30 +647,6 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -721,8 +683,6 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
 
 
   
-    
-  
 
 
 
@@ -735,8 +695,6 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -211,14 +201,6 @@
 
   
   
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
 </div>
 
             
@@ -253,175 +235,43 @@
 <p>首先我们来聊聊最古老 C++ 里面的 this 指针。</p>
 <p>C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ 是没有自己的编译器的，所以当时想编译 C++ 程序，我们只能把 C++ 编译到 C 之后再编译到机器码。</p>
 <p>我们拿一个例子来解释：</p>
-<div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Cat</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span><span class="token operator">:</span>
-    <span class="token keyword">char</span> <span class="token operator">*</span>_name<span class="token punctuation">;</span>
-    
-    <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">void</span> <span class="token function">SetName</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> name<span class="token punctuation">)</span><span class="token operator">:</span>
-    <span class="token punctuation">&#123;</span>
-        _name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span>&#123;</span><br>    <span class="hljs-keyword">private</span>:<br>    <span class="hljs-keyword">char</span> *_name;<br>    <br>    <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SetName</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* name)</span>:</span><br><span class="hljs-function">    &#123;</span><br>        _name = name;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>如果希望编译到 C 的话，C 里面是没有 class 类型的，所以我们只能用类似的 struct 代替。</p>
-<div class="code-wrapper"><pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Cat&#123;
-    char *_name;
-&#125;;
-
-void SetName(struct Cat *this, char * name)&#123;
-    this-&gt;_name &#x3D; name
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Cat</span>&#123;</span><br>    <span class="hljs-keyword">char</span> *_name;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SetName</span><span class="hljs-params">(struct Cat *<span class="hljs-keyword">this</span>, <span class="hljs-keyword">char</span> * name)</span></span>&#123;<br>    <span class="hljs-keyword">this</span>-&gt;_name = name<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>因此，我们使用 this 指针来指代 当前的这个 object 。 在 C++ 中，大部分情况下，我们都可以省略 this 指针，直接操纵属性。</p>
 <h2 id="0x01-python"><a class="markdownIt-Anchor" href="#0x01-python"></a> 0x01 Python</h2>
 <p>和 C++ 类似，Python 也有一个指向自己的指针 self。但是这个 self 必须显式地表达。它的思想和 C++ 类似，Python 中的方法是类的方法，传入 self 则是把类的方法绑定到 实例 上。（这里和 JavaScript做对比）</p>
 <p>我们来举个例子看看</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Class_Name</span><span class="token punctuation">:</span>
-    
-    name <span class="token operator">=</span> <span class="token boolean">None</span>
-    
-    <span class="token keyword">def</span> <span class="token function">method_name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>name
-  
-Object_Name <span class="token operator">=</span> Class_Name<span class="token punctuation">(</span><span class="token punctuation">)</span>
-Object_Name<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"oBjEcT"</span>
-
-<span class="token comment">#我们调用</span>
-Object_Name<span class="token punctuation">.</span>method_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">#相当于调用</span>
-Class_Name<span class="token punctuation">.</span>method_name<span class="token punctuation">(</span>Object_Name<span class="token punctuation">)</span>
-
-<span class="token comment"># oBjEcT</span>
-<span class="token comment"># oBjEcT</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>Object_name<span class="token punctuation">.</span>method_name<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>Class_Name<span class="token punctuation">.</span>method_name<span class="token punctuation">)</span>
-
-<span class="token comment">#&lt;function method_name at 0x00000000000></span>
-<span class="token comment">#&lt;bound method method_name of &lt;__main__.Class_Name object at 0x00000000000>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Class_Name</span>:</span><br>    <br>    name = <span class="hljs-literal">None</span><br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method_name</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self.name<br>  <br>Object_Name = Class_Name()<br>Object_Name.name = <span class="hljs-string">&quot;oBjEcT&quot;</span><br><br><span class="hljs-comment">#我们调用</span><br>Object_Name.method_name()<br><span class="hljs-comment">#相当于调用</span><br>Class_Name.method_name(Object_Name)<br><br><span class="hljs-comment"># oBjEcT</span><br><span class="hljs-comment"># oBjEcT</span><br><br><span class="hljs-built_in">print</span>(Object_name.method_name)<br><span class="hljs-built_in">print</span>(Class_Name.method_name)<br><br><span class="hljs-comment">#&lt;function method_name at 0x00000000000&gt;</span><br><span class="hljs-comment">#&lt;bound method method_name of &lt;__main__.Class_Name object at 0x00000000000&gt;&gt;</span><br></code></pre></td></tr></table></figure>
 <p>self 就是把应该放到括号里的 object_name 放到了 Class_Name 的位置，在调用函数之前就确定了 self 指向的对象。（这里和 JavaScript做对比）</p>
 <p>另外这里提一嘴 动态类型语言 的特性，猴子补丁和鸭子类型</p>
 <p>别人说这两个是两个事，我觉得这两个是一个事，但是归根结底，这两个还是两个事。🐶狗头保命（</p>
 <h3 id="鸭子类型"><a class="markdownIt-Anchor" href="#鸭子类型"></a> 鸭子类型</h3>
 <p>鸭子类型是说一个 Python 不会强行检查一个类型，只要接口存在就能调用。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Dog</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>kind<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-        self<span class="token punctuation">.</span>kind <span class="token operator">=</span> kind
-        
-    <span class="token keyword">def</span> <span class="token function">bark</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"whoo~ whoo~ whoo~ </span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
-
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>nationality<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-        self<span class="token punctuation">.</span>nationality <span class="token operator">=</span> nationality
-        
-    <span class="token keyword">def</span> <span class="token function">say_hi</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"Hi, my name is </span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
-    
-    <span class="token keyword">def</span> <span class="token function">get_nationality</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>nationality
-    
-Dog_1 <span class="token operator">=</span> Dog<span class="token punctuation">(</span><span class="token string">"Dog_1"</span><span class="token punctuation">,</span><span class="token string">"Labrador retriever"</span><span class="token punctuation">)</span>
-Person_1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">"Person_1"</span><span class="token punctuation">,</span><span class="token string">"Atlantis"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>bark<span class="token punctuation">(</span>Person_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>say_hi<span class="token punctuation">(</span>Dog_1<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">#whoo~ whoo~ whoo~ Person_1</span>
-<span class="token comment">#Hi, my name is Dog_1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self,name,kind</span>):</span><br>        self.name = name<br>        self.kind = kind<br>        <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bark</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;whoo~ whoo~ whoo~ <span class="hljs-subst">&#123;self.name&#125;</span>&quot;</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self,name,nationality</span>):</span><br>        self.name = name<br>        self.nationality = nationality<br>        <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">say_hi</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;Hi, my name is <span class="hljs-subst">&#123;self.name&#125;</span>&quot;</span><br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_nationality</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self.nationality<br>    <br>Dog_1 = Dog(<span class="hljs-string">&quot;Dog_1&quot;</span>,<span class="hljs-string">&quot;Labrador retriever&quot;</span>)<br>Person_1 = Person(<span class="hljs-string">&quot;Person_1&quot;</span>,<span class="hljs-string">&quot;Atlantis&quot;</span>)<br><br><span class="hljs-built_in">print</span>(Dog.bark(Person_1))<br><span class="hljs-built_in">print</span>(Person.say_hi(Dog_1))<br><br><span class="hljs-comment">#whoo~ whoo~ whoo~ Person_1</span><br><span class="hljs-comment">#Hi, my name is Dog_1</span><br></code></pre></td></tr></table></figure>
 <p>这里狗调用了人的方法，人调用了狗的方法，但是因为人和狗都有 name 属性，所以人和狗都没有报错。</p>
 <p>但是如果狗想调用人的getnationality方法，就会报错。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">Person<span class="token punctuation">.</span>get_nationality<span class="token punctuation">(</span>Dog_1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Person.get_nationality(Dog_1)<br></code></pre></td></tr></table></figure>
 <h3 id="猴子补丁"><a class="markdownIt-Anchor" href="#猴子补丁"></a> 猴子补丁</h3>
 <p>鸭子类型是猴子补丁的基础</p>
 <p>如果我们想让狗成精，让狗开始说人话，我们不需要改动狗类的定义。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">Dog<span class="token punctuation">.</span>bark <span class="token operator">=</span> Person<span class="token punctuation">.</span>say_hi
-
-Dog_1<span class="token punctuation">.</span>bark<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">#Hi, my name is Dog_1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Dog.bark = Person.say_hi<br><br>Dog_1.bark()<br><span class="hljs-comment">#Hi, my name is Dog_1</span><br></code></pre></td></tr></table></figure>
 <p>这里动态修改了狗的 bark 方法的那么这时，狗说的就是人话。</p>
 <p>上面修改了所有狗的 bark 方法，那么如果我想让单独一只狗会飞怎么办呢？</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fly</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">_fly</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string"> is flying"</span></span>
-   	<span class="token keyword">return</span> _fly
-
-Dog_1<span class="token punctuation">.</span>fly <span class="token operator">=</span> fly<span class="token punctuation">(</span>Dog_1<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>Dog_1<span class="token punctuation">.</span>fly<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Dog_1 is flying</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fly</span>(<span class="hljs-params">self</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_fly</span>(<span class="hljs-params">*args,**kwargs</span>):</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;self.name&#125;</span> is flying&quot;</span><br>   	<span class="hljs-keyword">return</span> _fly<br><br>Dog_1.fly = fly(Dog_1)<br><br><span class="hljs-built_in">print</span>(Dog_1.fly())<br><br><span class="hljs-comment"># Dog_1 is flying</span><br></code></pre></td></tr></table></figure>
 <p>这样这只狗就飞了。</p>
 <p>看起来猴子补丁没得卵用对吧，但是实际上还是有用的。比如我在调用别人的代码，但是不知道源码的情况下，我可以给原作者定义的类增加或修改功能。或者在做复杂的逻辑的时候，遇到了意外的bug，可以让代码暂停，修改bug之后从出问题的地方继续运行。</p>
 <p>值得注意的是，<code>self</code> 并不是 Python 的一个关键字，我们完全可以用 <code>this</code> 甚至是 <code>_</code>代替。但是，为了程序的可读性，我们按照习惯，依然使用 <code>self</code>。</p>
 <h2 id="0x02-javascript"><a class="markdownIt-Anchor" href="#0x02-javascript"></a> 0x02 JavaScript</h2>
 <p>相比 Python 和 C++ ， JavaScript 是更为灵活的语言，就OOP方面来讲。对于JavaScript 它也支持类似 Python 的猴子补丁和鸭子类型，而且更进一步，它的 this 指针是在函数运行时绑定的，这给了 JavaScript 更强的表现力（也更容易出错）。</p>
-<div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> object1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    name<span class="token operator">:</span><span class="token string">"ob1"</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">getName</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-object1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment">// ob1</span>
-
-<span class="token keyword">var</span> object2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    name<span class="token operator">:</span><span class="token string">"ob2"</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-object2<span class="token punctuation">.</span>getName <span class="token operator">=</span> object1<span class="token punctuation">.</span>getName
-object2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">// ob2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> object1 = &#123;<br>    name:<span class="hljs-string">&quot;ob1&quot;</span>,<br>    getName:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name);<br>	&#125;<br>&#125;;<br><br>object1.getName()<br><br><span class="hljs-comment">// ob1</span><br><br><span class="hljs-keyword">var</span> object2 = &#123;<br>    name:<span class="hljs-string">&quot;ob2&quot;</span>,<br>&#125;;<br><br>object2.getName = object1.getName<br>object2.getName()<br><span class="hljs-comment">// ob2</span><br></code></pre></td></tr></table></figure>
 <p>像 C++，JavaScript 在定义函数时不需要显式传入 this 指针。但是在调用 实例 的 属性 时，必须使用 this 指针，这里像 Python 。但是和 Python 不一样的是 JavaScript 的指针不是在调用之前就传入的，而是在函数运行时动态传入的。</p>
-<div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Python</span>
-
-Person_1<span class="token punctuation">.</span>bark <span class="token operator">=</span> Dog_1<span class="token punctuation">.</span>bark
-Person_1<span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token comment">//Dog_1 已经和 bark 里的 self 指针绑定了</span>
-<span class="token comment">//所以还是 Dog_1</span>
-<span class="token comment">//whoo~ whoo~ whoo~ Dog_1</span>
-
-<span class="token comment">//JavaScript</span>
-
-object2<span class="token punctuation">.</span>getName <span class="token operator">=</span> object1<span class="token punctuation">.</span>getName
-object2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">//object1.getName 还没有和 object1绑定</span>
-<span class="token comment">//在运行时才检查是谁调用了这个方法，所以和 object2 绑定</span>
-<span class="token comment">// ob2</span>
-
-<span class="token comment">//Python 的等价代码</span>
-
-Person_1<span class="token punctuation">.</span>bark <span class="token operator">=</span> Dog<span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span>Person_1<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//Python</span><br><br>Person_1.bark = Dog_1.bark<br>Person_1.bark() <br><span class="hljs-comment">//Dog_1 已经和 bark 里的 self 指针绑定了</span><br><span class="hljs-comment">//所以还是 Dog_1</span><br><span class="hljs-comment">//whoo~ whoo~ whoo~ Dog_1</span><br><br><span class="hljs-comment">//JavaScript</span><br><br>object2.getName = object1.getName<br>object2.getName()<br><span class="hljs-comment">//object1.getName 还没有和 object1绑定</span><br><span class="hljs-comment">//在运行时才检查是谁调用了这个方法，所以和 object2 绑定</span><br><span class="hljs-comment">// ob2</span><br><br><span class="hljs-comment">//Python 的等价代码</span><br><br>Person_1.bark = Dog.bark(Person_1)<br><br></code></pre></td></tr></table></figure>
 <p>JavaScript 在使用猴子补丁的时候比 Python 潇洒一些，不用使用闭包来传入对象指针。可惜这样虽然灵活，但是容易在实际编程的时候指针指向奇怪的地方。</p>
-<div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> Persona_A <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    name<span class="token operator">:</span><span class="token string">"persona_a"</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">getName</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-    	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-   	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span>
-
-Persona_A<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">//undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> Persona_A = &#123;<br>    name:<span class="hljs-string">&quot;persona_a&quot;</span>,<br>    getName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>        	<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name)<br>    	&#125;)<br>   	&#125;,<br>&#125;<br><br>Persona_A.getName()<br><span class="hljs-comment">//undefined</span><br></code></pre></td></tr></table></figure>
 <p>因为 this 指针默认指向函数调用外面一层环境，setTimeout 的环境是 window ，没有 name 属性，所以会输出 undefined。</p>
 <p>我们可以用多种方法解决这个问题，比较简单并且和 Python C++ 相似的一种是使用 that 接管 this 指针。</p>
-<div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> Persona_A <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    name<span class="token operator">:</span><span class="token string">"persona_a"</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">getName</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        that <span class="token operator">=</span> <span class="token keyword">this</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>that<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-    	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-   	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span>
-
-Persona_A<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">//persona_a</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> Persona_A = &#123;<br>    name:<span class="hljs-string">&quot;persona_a&quot;</span>,<br>    getName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>        that = <span class="hljs-built_in">this</span><br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>        	<span class="hljs-built_in">console</span>.log(that.name)<br>    	&#125;)<br>   	&#125;,<br>&#125;<br><br>Persona_A.getName()<br><span class="hljs-comment">//persona_a</span><br></code></pre></td></tr></table></figure>
 <h2 id="0x03-总结"><a class="markdownIt-Anchor" href="#0x03-总结"></a> 0x03 总结</h2>
 <p>C++ 和 Python 的 实例 都是基于类的 实例。他们的 方法 都是 类 的 方法。在 实例 调用 方法 时，是在调用类的方法，并把 实例 绑定到 类 的 方法 上。</p>
 <p>相较于 C++ 可隐式使用 this 指针，Python 的 self 带来了更好的可读性和语法统一性。（<code>object_name.method_name()</code> 是 <code>Class_Name.method_name(self)</code> 的语法糖）同时也提供了一种实现猴子补丁的实现方法。</p>
@@ -527,30 +377,6 @@ Persona_A<span class="token punctuation">.</span><span class="token function">ge
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -587,8 +413,6 @@ Persona_A<span class="token punctuation">.</span><span class="token function">ge
 
 
   
-    
-  
 
 
 
@@ -607,8 +431,6 @@ Persona_A<span class="token punctuation">.</span><span class="token function">ge
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -641,13 +463,6 @@ Persona_A<span class="token punctuation">.</span><span class="token function">ge
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

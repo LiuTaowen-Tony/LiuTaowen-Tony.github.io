@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      372 字
+      373 字
     </span>
   
 
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -257,36 +239,9 @@
 <p>这样输入输出的期望值不会变化</p>
 <p>因为丢弃同一层参数的可能是一样的，所以神经网络在学习的时候不会过度依赖一层中特定一个神经元。起到了正则化的作用。</p>
 <h2 id="0x01-在mxnet中的实现"><a class="markdownIt-Anchor" href="#0x01-在mxnet中的实现"></a> 0x01 在mxnet中的实现</h2>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> mxnet <span class="token keyword">import</span> autograd<span class="token punctuation">,</span>gluon<span class="token punctuation">,</span>init<span class="token punctuation">,</span>nd
-<span class="token keyword">from</span> mxnet<span class="token punctuation">.</span>gluon <span class="token keyword">import</span> loss <span class="token keyword">as</span> gloss<span class="token punctuation">,</span>nn
-
-<span class="token keyword">def</span> <span class="token function">dropout</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span>drop_prob<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">assert</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> drop_prob <span class="token operator">&lt;=</span> <span class="token number">1</span>
-    keep_prob <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span>drop_prob
-    mask <span class="token operator">=</span> nd<span class="token punctuation">.</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>X<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token operator">&lt;</span> keep_prob
-    <span class="token keyword">return</span> mask <span class="token operator">*</span> X <span class="token operator">/</span> keep_prob
-
-<span class="token keyword">def</span> <span class="token function">net</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    X <span class="token operator">=</span> X<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>num_inputs<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    H1 <span class="token operator">=</span> <span class="token punctuation">(</span>nd<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>X<span class="token punctuation">,</span>W1<span class="token punctuation">)</span><span class="token operator">+</span>b1<span class="token punctuation">)</span><span class="token punctuation">.</span>relu<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#nd.对象直接.relu</span>
-    <span class="token keyword">if</span> autograd<span class="token punctuation">.</span>is_training<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment">#只在训练的时候dropout，为了在test的时候保持稳定</span>
-        H1 <span class="token operator">=</span> dropout<span class="token punctuation">(</span>H1<span class="token punctuation">,</span>drop_prob1<span class="token punctuation">)</span>
-    H2 <span class="token operator">=</span> <span class="token punctuation">(</span>nd<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>H1<span class="token punctuation">,</span>W2<span class="token punctuation">)</span><span class="token operator">+</span>b2<span class="token punctuation">)</span><span class="token punctuation">.</span>relu<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> autograd<span class="token punctuation">.</span>is_training<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        H2 <span class="token operator">=</span> dropout<span class="token punctuation">(</span>H2<span class="token punctuation">,</span>drop_prob2<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> nd<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>H2<span class="token punctuation">,</span>W3<span class="token punctuation">)</span><span class="token operator">+</span>b3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> mxnet <span class="hljs-keyword">import</span> autograd,gluon,init,nd<br><span class="hljs-keyword">from</span> mxnet.gluon <span class="hljs-keyword">import</span> loss <span class="hljs-keyword">as</span> gloss,nn<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dropout</span>(<span class="hljs-params">X,drop_prob</span>):</span><br>    <span class="hljs-keyword">assert</span> <span class="hljs-number">0</span> &lt;= drop_prob &lt;= <span class="hljs-number">1</span><br>    keep_prob = <span class="hljs-number">1</span> -drop_prob<br>    mask = nd.random.uniform(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,X.shape) &lt; keep_prob<br>    <span class="hljs-keyword">return</span> mask * X / keep_prob<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">net</span>(<span class="hljs-params">X</span>):</span><br>    X = X.reshape((-<span class="hljs-number">1</span>,num_inputs))<br>    H1 = (nd.dot(X,W1)+b1).relu() <span class="hljs-comment">#nd.对象直接.relu</span><br>    <span class="hljs-keyword">if</span> autograd.is_training():<br>        <span class="hljs-comment">#只在训练的时候dropout，为了在test的时候保持稳定</span><br>        H1 = dropout(H1,drop_prob1)<br>    H2 = (nd.dot(H1,W2)+b2).relu()<br>    <span class="hljs-keyword">if</span> autograd.is_training():<br>        H2 = dropout(H2,drop_prob2)<br>    <span class="hljs-keyword">return</span> nd.dot(H2,W3)+b3<br></code></pre></td></tr></table></figure>
 <h2 id="0x02-也可以调用nn模块实现"><a class="markdownIt-Anchor" href="#0x02-也可以调用nn模块实现"></a> 0x02 也可以调用nn模块实现</h2>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">net <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span><span class="token punctuation">)</span>
-nn<span class="token punctuation">.</span>add<span class="token punctuation">(</span>
-	nn<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span>activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-	nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>drop_prob1<span class="token punctuation">)</span><span class="token punctuation">,</span>
-	nn<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span>activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-	nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>drop_prob2<span class="token punctuation">)</span><span class="token punctuation">,</span>
-	nn<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-net<span class="token punctuation">.</span>initialize<span class="token punctuation">(</span>init<span class="token punctuation">.</span>Normal<span class="token punctuation">(</span>sigma<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">net = nn.Sequential()<br>nn.add(<br>	nn.Dense(<span class="hljs-number">256</span>,activation=<span class="hljs-string">&quot;relu&quot;</span>),<br>	nn.Dropout(drop_prob1),<br>	nn.Dense(<span class="hljs-number">256</span>,activation=<span class="hljs-string">&quot;relu&quot;</span>),<br>	nn.Dropout(drop_prob2),<br>	nn.Dense(<span class="hljs-number">10</span>)<br>)<br>net.initialize(init.Normal(sigma=<span class="hljs-number">0.1</span>))<br><br></code></pre></td></tr></table></figure>
 <h2 id="eof"><a class="markdownIt-Anchor" href="#eof"></a> EOF</h2>
 
             </div>
@@ -385,30 +340,6 @@ net<span class="token punctuation">.</span>initialize<span class="token punctuat
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -445,8 +376,6 @@ net<span class="token punctuation">.</span>initialize<span class="token punctuat
 
 
   
-    
-  
 
 
 
@@ -465,8 +394,6 @@ net<span class="token punctuation">.</span>initialize<span class="token punctuat
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -499,13 +426,6 @@ net<span class="token punctuation">.</span>initialize<span class="token punctuat
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

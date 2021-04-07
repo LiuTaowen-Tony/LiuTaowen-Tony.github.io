@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -63,11 +53,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -75,7 +65,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -165,7 +155,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -212,166 +202,9 @@
 <li>环境、干扰多样</li>
 </ul>
 <p>训练</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> cv2
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-
-<span class="token comment">#1. 参数</span>
-PosNum <span class="token operator">=</span> <span class="token number">820</span>
-NegNum <span class="token operator">=</span> <span class="token number">1931</span>
-winSize <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">)</span> <span class="token comment"># 这是小狮子图像的大小</span>
-blockStride <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span>
-blockStride <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
-cellSize <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
-nBin <span class="token operator">=</span> <span class="token number">9</span>
-
-<span class="token comment">#2. hog</span>
-
-hog <span class="token operator">=</span> cv2<span class="token punctuation">.</span>HOGDescriptor<span class="token punctuation">(</span>winSize<span class="token punctuation">,</span>blockSize<span class="token punctuation">,</span>blockStride<span class="token punctuation">,</span>
-                        cellStride<span class="token punctuation">,</span>cellSize<span class="token punctuation">,</span>nBin<span class="token punctuation">)</span>
-
-<span class="token comment">#3. svm</span>
-
-svm <span class="token operator">=</span> cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_create<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment">#4. compute hog</span>
-
-featureNum <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">8</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">8</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token comment">#3780</span>
-featureArray <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>PosNum<span class="token operator">+</span>NegNum<span class="token punctuation">)</span><span class="token punctuation">,</span>featureNum<span class="token punctuation">)</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-labelArray <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>PosNum<span class="token operator">+</span>NegNum<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>PosNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    fileName <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"pos\</span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">.jpg"</span></span>
-    img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>fileName<span class="token punctuation">)</span>
-    hist <span class="token operator">=</span> hog<span class="token punctuation">.</span>compute<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>featureNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        featureArray<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> hist<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-    labelArray<span class="token punctuation">[</span>i<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-    
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>NegNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    fileName <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'neg\</span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">.jpg'</span></span>
-    img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>fileName<span class="token punctuation">)</span>
-    hist <span class="token operator">=</span> hog<span class="token punctuation">.</span>compute<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>featureNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        featureArray<span class="token punctuation">[</span>i<span class="token operator">+</span>PosNum<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> hist<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-    labelArray<span class="token punctuation">[</span>i<span class="token operator">+</span>PosNum<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
-
-<span class="token comment">#5. label</span>
-
-svm<span class="token punctuation">.</span>setType<span class="token punctuation">(</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_C_SVC<span class="token punctuation">)</span>
-svm<span class="token punctuation">.</span>setKernel<span class="token punctuation">(</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_LINEAR<span class="token punctuation">)</span>
-svm<span class="token punctuation">.</span>setC<span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">)</span>
-
-<span class="token comment">#6. train</span>
-ret <span class="token operator">=</span> svm<span class="token punctuation">.</span>train<span class="token punctuation">(</span>featureArray<span class="token punctuation">,</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>ROW_SAMPLE<span class="token punctuation">,</span>labelArray<span class="token punctuation">)</span>
-<span class="token comment">#7. pred</span>
-
-alpha <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-rho <span class="token operator">=</span> svm<span class="token punctuation">.</span>getDecisionFunction<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>alpha<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>rho<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>alpha<span class="token punctuation">)</span>
-aphaArray <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-support
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment">#1. 参数</span><br>PosNum = <span class="hljs-number">820</span><br>NegNum = <span class="hljs-number">1931</span><br>winSize = (<span class="hljs-number">64</span>,<span class="hljs-number">128</span>) <span class="hljs-comment"># 这是小狮子图像的大小</span><br>blockStride = (<span class="hljs-number">16</span>,<span class="hljs-number">16</span>)<br>blockStride = (<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br>cellSize = (<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br>nBin = <span class="hljs-number">9</span><br><br><span class="hljs-comment">#2. hog</span><br><br>hog = cv2.HOGDescriptor(winSize,blockSize,blockStride,<br>                        cellStride,cellSize,nBin)<br><br><span class="hljs-comment">#3. svm</span><br><br>svm = cv2.ml.SVM_create()<br><br><span class="hljs-comment">#4. compute hog</span><br><br>featureNum = <span class="hljs-built_in">int</span>(((<span class="hljs-number">128</span>-<span class="hljs-number">16</span>)/<span class="hljs-number">8</span>+<span class="hljs-number">1</span>)*((<span class="hljs-number">64</span>-<span class="hljs-number">16</span>)/<span class="hljs-number">8</span>+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">9</span>) <span class="hljs-comment">#3780</span><br>featureArray = np.zeros(((PosNum+NegNum),featureNum),np.float32)<br>labelArray = np.zeros(((PosNum+NegNum),<span class="hljs-number">1</span>),np.float32)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,PosNum):<br>    fileName = <span class="hljs-string">f&quot;pos\&#123;str(i+1)&#125;.jpg&quot;</span><br>    img = cv2.imread(fileName)<br>    hist = hog.compute(img,(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>))<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,featureNum):<br>        featureArray[i,j] = hist[j]<br>    labelArray[i,<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br>    <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,NegNum):<br>    fileName = <span class="hljs-string">f&#x27;neg\&#123;str(i+1)&#125;.jpg&#x27;</span><br>    img = cv2.imread(fileName)<br>    hist = hog.compute(img,(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>))<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,featureNum):<br>        featureArray[i+PosNum,j] = hist[j]<br>    labelArray[i+PosNum,<span class="hljs-number">0</span>] = -<span class="hljs-number">1</span><br><br><span class="hljs-comment">#5. label</span><br><br>svm.setType(cv2.ml.SVM_C_SVC)<br>svm.setKernel(cv2.ml.SVM_LINEAR)<br>svm.setC(<span class="hljs-number">0.01</span>)<br><br><span class="hljs-comment">#6. train</span><br>ret = svm.train(featureArray,cv2.ml.ROW_SAMPLE,labelArray)<br><span class="hljs-comment">#7. pred</span><br><br>alpha = np.zeros((<span class="hljs-number">1</span>),np.float32)<br>rho = svm.getDecisionFunction(<span class="hljs-number">0</span>,alpha)<br><span class="hljs-built_in">print</span>(rho)<br><span class="hljs-built_in">print</span>(alpha)<br>aphaArray = np.zeros((<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),np.float32)<br>support<br><br></code></pre></td></tr></table></figure>
 <p>svm</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> cv2
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-
-rand1 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">[</span><span class="token number">155</span><span class="token punctuation">,</span><span class="token number">48</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">159</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">164</span><span class="token punctuation">,</span><span class="token number">53</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">168</span><span class="token punctuation">,</span><span class="token number">56</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">172</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">]</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">#女生身高体重</span>
-
-rand2 <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">[</span><span class="token number">152</span><span class="token punctuation">,</span><span class="token number">53</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">156</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">160</span><span class="token punctuation">,</span><span class="token number">56</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">172</span><span class="token punctuation">,</span><span class="token number">56</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token number">176</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">]</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">#男生身高体重</span>
-
-label <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-data <span class="token operator">=</span> np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span><span class="token punctuation">(</span>rand1<span class="token punctuation">,</span>rand2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>data<span class="token punctuation">,</span>dtype <span class="token operator">=</span> <span class="token string">'float32'</span><span class="token punctuation">)</span><span class="token comment">#转化成float32</span>
-
-<span class="token comment"># 0 负样本 1 正样本</span>
-
-<span class="token comment">#生成svm</span>
-
-svm <span class="token operator">=</span> cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_create<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment"># 属性设置</span>
-<span class="token triple-quoted-string string">"""
-类型有
-C_SVC -->多分类
-NU_SVC -->多分类
-ONE_CLASS -->一个样本，用来找样本边界
-EPS_SVR ---> 回归
-NU_SVR -->回归
-
-核
-LINEAR
-POLY 多项式
-RBF
-SIGMOID
-CHI2
-INTER
-"""</span>
-svm<span class="token punctuation">.</span>setType<span class="token punctuation">(</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_C_SVC<span class="token punctuation">)</span>
-svm<span class="token punctuation">.</span>setKernel<span class="token punctuation">(</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>SVM_LINEAR<span class="token punctuation">)</span>
-svm<span class="token punctuation">.</span>setC<span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">)</span>
-<span class="token comment">#C svm</span>
-
-
-<span class="token comment">#xunlian</span>
-result <span class="token operator">=</span> svm<span class="token punctuation">.</span>train<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cv2<span class="token punctuation">.</span>ml<span class="token punctuation">.</span>ROW_SAMPLE<span class="token punctuation">,</span>label<span class="token punctuation">)</span>
-
-<span class="token comment"># visualize the data</span>
-
-width <span class="token operator">=</span> <span class="token number">50</span>
-height <span class="token operator">=</span> <span class="token number">50</span>
-image <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span>height<span class="token punctuation">,</span> width<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span>
-
-<span class="token comment"># show the decision region</span>
-
-
-red <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span>
-blue <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>image<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>image<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        sampleMat <span class="token operator">=</span> np<span class="token punctuation">.</span>matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">140</span><span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-        response <span class="token operator">=</span> svm<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>sampleMat<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> response <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            image<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> red
-        <span class="token keyword">elif</span> response <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            image<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> blue
-
-<span class="token comment"># show the training data</span>
-
-black <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
-white <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span>
-
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    cv2<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">140</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">(</span>black <span class="token keyword">if</span> label<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> white<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-
-<span class="token comment"># show image</span>
-
-image <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-cv2<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span>image<span class="token punctuation">)</span>
-cv2<span class="token punctuation">.</span>waitKey<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-
-pt_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">167</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">162</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>pt_data<span class="token punctuation">)</span>
-pt_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>pt_data<span class="token punctuation">,</span>dtype <span class="token operator">=</span> <span class="token string">"float32"</span><span class="token punctuation">)</span>
-
-par1<span class="token punctuation">,</span>par2 <span class="token operator">=</span> svm<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>pt_data<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>par2<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>par1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>rand1 = np.array([<br>    [<span class="hljs-number">155</span>,<span class="hljs-number">48</span>],<br>    [<span class="hljs-number">159</span>,<span class="hljs-number">50</span>],<br>    [<span class="hljs-number">164</span>,<span class="hljs-number">53</span>],<br>    [<span class="hljs-number">168</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">172</span>,<span class="hljs-number">60</span>]<br>])<span class="hljs-comment">#女生身高体重</span><br><br>rand2 = np.array([<br>    [<span class="hljs-number">152</span>,<span class="hljs-number">53</span>],<br>    [<span class="hljs-number">156</span>,<span class="hljs-number">55</span>],<br>    [<span class="hljs-number">160</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">172</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">176</span>,<span class="hljs-number">65</span>]<br>])<span class="hljs-comment">#男生身高体重</span><br><br>label = np.array([[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>]])<br><br>data = np.vstack((rand1,rand2))<br>data = np.array(data,dtype = <span class="hljs-string">&#x27;float32&#x27;</span>)<span class="hljs-comment">#转化成float32</span><br><br><span class="hljs-comment"># 0 负样本 1 正样本</span><br><br><span class="hljs-comment">#生成svm</span><br><br>svm = cv2.ml.SVM_create()<br><br><span class="hljs-comment"># 属性设置</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">类型有</span><br><span class="hljs-string">C_SVC --&gt;多分类</span><br><span class="hljs-string">NU_SVC --&gt;多分类</span><br><span class="hljs-string">ONE_CLASS --&gt;一个样本，用来找样本边界</span><br><span class="hljs-string">EPS_SVR ---&gt; 回归</span><br><span class="hljs-string">NU_SVR --&gt;回归</span><br><span class="hljs-string"></span><br><span class="hljs-string">核</span><br><span class="hljs-string">LINEAR</span><br><span class="hljs-string">POLY 多项式</span><br><span class="hljs-string">RBF</span><br><span class="hljs-string">SIGMOID</span><br><span class="hljs-string">CHI2</span><br><span class="hljs-string">INTER</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>svm.setType(cv2.ml.SVM_C_SVC)<br>svm.setKernel(cv2.ml.SVM_LINEAR)<br>svm.setC(<span class="hljs-number">0.01</span>)<br><span class="hljs-comment">#C svm</span><br><br><br><span class="hljs-comment">#xunlian</span><br>result = svm.train(data,cv2.ml.ROW_SAMPLE,label)<br><br><span class="hljs-comment"># visualize the data</span><br><br>width = <span class="hljs-number">50</span><br>height = <span class="hljs-number">50</span><br>image = np.zeros((height, width, <span class="hljs-number">3</span>), dtype=np.uint8)<br><br><span class="hljs-comment"># show the decision region</span><br><br><br>red = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">255</span>)<br>blue = (<span class="hljs-number">255</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(image.shape[<span class="hljs-number">0</span>]):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(image.shape[<span class="hljs-number">1</span>]):<br>        sampleMat = np.matrix([[j+<span class="hljs-number">140</span>,i+<span class="hljs-number">40</span>]], dtype=np.float32)<br>        response = svm.predict(sampleMat)[<span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">if</span> response == <span class="hljs-number">1</span>:<br>            image[i,j] = red<br>        <span class="hljs-keyword">elif</span> response == <span class="hljs-number">0</span>:<br>            image[i,j] = blue<br><br><span class="hljs-comment"># show the training data</span><br><br>black = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)<br>white = (<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    cv2.circle(image,(<span class="hljs-built_in">int</span>(data[i][<span class="hljs-number">0</span>]-<span class="hljs-number">140</span>),<span class="hljs-built_in">int</span>(data[i][<span class="hljs-number">1</span>]-<span class="hljs-number">40</span>)),<span class="hljs-number">3</span>,(black <span class="hljs-keyword">if</span> label[i][<span class="hljs-number">0</span>]==<span class="hljs-number">0</span> <span class="hljs-keyword">else</span> white), -<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># show image</span><br><br>image = cv2.resize(image,(<span class="hljs-number">200</span>,<span class="hljs-number">200</span>))<br>cv2.imshow(<span class="hljs-string">&quot;&quot;</span>,image)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br>pt_data = np.array([[<span class="hljs-number">167</span>,<span class="hljs-number">55</span>],[<span class="hljs-number">162</span>,<span class="hljs-number">60</span>]])<br><span class="hljs-built_in">print</span>(pt_data)<br>pt_data = np.array(pt_data,dtype = <span class="hljs-string">&quot;float32&quot;</span>)<br><br>par1,par2 = svm.predict(pt_data)<br><span class="hljs-built_in">print</span>(par2)<br><span class="hljs-built_in">print</span>(par1)<br></code></pre></td></tr></table></figure>
 </div>
 
               </div>
@@ -419,30 +252,6 @@ par1<span class="token punctuation">,</span>par2 <span class="token operator">=<
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -479,8 +288,6 @@ par1<span class="token punctuation">,</span>par2 <span class="token operator">=<
 
 
   
-    
-  
 
 
 
@@ -495,8 +302,6 @@ par1<span class="token punctuation">,</span>par2 <span class="token operator">=<
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

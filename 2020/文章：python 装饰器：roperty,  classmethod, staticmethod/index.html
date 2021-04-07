@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -204,20 +194,12 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      15
        分钟
     </span>
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -253,33 +235,15 @@
 <h3 id="函数调用作属性"><a class="markdownIt-Anchor" href="#函数调用作属性"></a> 函数调用作属性</h3>
 <p>property 这个装饰器可以把函数调用当作对象的属性</p>
 <p>直接看例子会比较清楚</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_data <span class="token operator">=</span> data
-        self<span class="token punctuation">.</span>_r <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>_c <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    
-    <span class="token decorator annotation punctuation">@property</span>
-    <span class="token keyword">def</span> <span class="token function">shape</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>_r<span class="token punctuation">,</span>self<span class="token punctuation">.</span>_c<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Matrix</span>():</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self,data</span>):</span><br>        self._data = data<br>        self._r = <span class="hljs-built_in">len</span>(data)<br>        self._c = <span class="hljs-built_in">len</span>(data[<span class="hljs-number">0</span>])<br>    <br><span class="hljs-meta">    @property</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shape</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> (self._r,self._c)<br></code></pre></td></tr></table></figure>
 <p>这里如果我们想看看 Matrix 的形状，那么我们直接执行</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token comment">#不是 a.shape()</span>
-
-<span class="token comment">#(2,2)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = Matrix([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])<br><span class="hljs-built_in">print</span>(a.shape) <span class="hljs-comment">#不是 a.shape()</span><br><br><span class="hljs-comment">#(2,2)</span><br></code></pre></td></tr></table></figure>
 <p>这样的好处是我们希望得到的是一个属性，用获得属性的方式去取的比较符合直觉</p>
 <p>而且使用 @property 装饰器我们不用担心属性被修改</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token punctuation">.</span>shape <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>
-<span class="token comment">#AttributeError: can't set attribute</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a.shape = (<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)<br><span class="hljs-comment">#AttributeError: can&#x27;t set attribute</span><br></code></pre></td></tr></table></figure>
 <h3 id="提升性能"><a class="markdownIt-Anchor" href="#提升性能"></a> 提升性能</h3>
 <p>@property 的另一个作用是延迟一些计算，让程序的性能更好</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@property</span>
-<span class="token keyword">def</span> <span class="token function">T</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_T
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_T <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>_data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_r<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_c<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_T<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@property</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">T</span>(<span class="hljs-params">self</span>):</span><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">return</span> self._T<br>    <span class="hljs-keyword">else</span>:<br>        self._T = Matrix([[self._data[i][j] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self._r)] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self._c)])<br>        <span class="hljs-keyword">return</span> self._T<br></code></pre></td></tr></table></figure>
 <p>这里动态的给 Matrix Object 增加了一个 <code>_T</code> 属性，如果我们在整个程序里不需要求某个矩阵的转制，那么我们就不去求。</p>
 <p>如果我们需要一个矩阵的转制，那么我们只在第一次使用的时候求它的转制，之后我们会把运算好的结果储存起来，方便下次调用。</p>
 <p>三种方法对比</p>
@@ -310,101 +274,34 @@
 </tbody>
 </table>
 <p>当然 python 支持动态为 object 添加属性，所以我们可以</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token punctuation">.</span>T <span class="token operator">=</span> a<span class="token punctuation">.</span>T<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">a.T = a.T()<br></code></pre></td></tr></table></figure>
 <p>但是这样的缺点是程序的维护性不够好，容易忘掉那些矩阵求过转制，哪些没有。@propert 解决了这些烦恼</p>
 <h2 id="0x01-classmethod"><a class="markdownIt-Anchor" href="#0x01-classmethod"></a> 0x01 @classmethod</h2>
 <h3 id="提供不同的初始化方式"><a class="markdownIt-Anchor" href="#提供不同的初始化方式"></a> 提供不同的初始化方式</h3>
 <p>@classmethod 的第一大用途是支持各种不同初始化方式，同样的，我们直接看例子</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@classmethod</span>
-   <span class="token keyword">def</span> <span class="token function">zeros</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span>shape<span class="token punctuation">)</span><span class="token punctuation">:</span>
-       r <span class="token operator">=</span> shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-       c <span class="token operator">=</span> shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-       <span class="token keyword">return</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@classmethod</span><br>   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zeros</span>(<span class="hljs-params">cls,shape</span>):</span><br>       r = shape[<span class="hljs-number">0</span>]<br>       c = shape[<span class="hljs-number">1</span>]<br>       <span class="hljs-keyword">return</span> Matrix([[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(c)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(r)])<br></code></pre></td></tr></table></figure>
 <p>Classmethod 相当于给 “类实例” (Class Object) 附上了一个方法，这里这个方法返回的是 Matrix 的构造函数。有点类似于 Cpp 里面的函数重载。</p>
 <p>Python 中的类都是 <code>type</code> 类型的实例，所以我们可以给类附上方法。（类 与 元类 23333）</p>
 <p>调用的话和看起来和我们熟悉的 numpy 类似</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>Matrix<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [0.00, 0.00,   0.00,   ],</span>
-<span class="token comment"># [0.00, 0.00,   0.00,   ],</span>
-<span class="token comment">#]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(Matrix.zeros((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)))<br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [0.00, 0.00,   0.00,   ],</span><br><span class="hljs-comment"># [0.00, 0.00,   0.00,   ],</span><br><span class="hljs-comment">#]</span><br></code></pre></td></tr></table></figure>
 <p>这里我写过 Matrix 的 <code>__str__</code> 方法，所以打印出来会比较好看。</p>
 <h3 id="函数包装进类"><a class="markdownIt-Anchor" href="#函数包装进类"></a> 函数包装进类</h3>
 <p>另外我们也可以用 classmethod 写一些操作 Matrix 的函数。</p>
 <p>比如我们在实现好矩阵的 <code>__mul__</code>方法以后，我们可以通过 classmethod 用另一种方式调用</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@classmethod</span>
-   <span class="token keyword">def</span> <span class="token function">dot</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span><span class="token punctuation">:</span>
-       <span class="token keyword">return</span> A <span class="token operator">*</span> B <span class="token comment">#这里实现好了__mul__ 方法，可以直接调用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@classmethod</span><br>   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dot</span>(<span class="hljs-params">cls,A,B</span>):</span><br>       <span class="hljs-keyword">return</span> A * B <span class="hljs-comment">#这里实现好了__mul__ 方法，可以直接调用</span><br></code></pre></td></tr></table></figure>
 <p>那么调用是这样的</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-Matrix<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>a<span class="token punctuation">,</span>a<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token comment">#等同于 a * a.T</span>
-<span class="token comment"># [[30]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = Matrix([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>])<br><br>Matrix.dot(a,a.T) <span class="hljs-comment">#等同于 a * a.T</span><br><span class="hljs-comment"># [[30]]</span><br></code></pre></td></tr></table></figure>
 <p>这样在我们在另一个程序里需要调用 Matrix 类的时候，我们只需要调用 Matrix 这一个类，里面就有所有对 Matrix 操作的函数。</p>
 <h2 id="0x02-staticmethod"><a class="markdownIt-Anchor" href="#0x02-staticmethod"></a> 0x02 @staticmethod</h2>
 <p>还有的用处是更改一些通用函数的表现</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    layout <span class="token operator">=</span> <span class="token string">"%5.1f,"</span>
-    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        out <span class="token operator">=</span> <span class="token string">"[\n"</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_r<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            out <span class="token operator">+=</span><span class="token string">" ["</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_c<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                out <span class="token operator">+=</span> self<span class="token punctuation">.</span>layout<span class="token operator">%</span>self<span class="token punctuation">.</span>_data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-            out <span class="token operator">+=</span><span class="token string">"],\n"</span>
-        out<span class="token operator">+=</span> <span class="token string">"]"</span>
-        <span class="token keyword">return</span> out
-    
-    <span class="token decorator annotation punctuation">@staticmethod</span>
-    <span class="token keyword">def</span> <span class="token function">change_layout</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>precision<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        Matrix<span class="token punctuation">.</span>layout <span class="token operator">=</span> <span class="token string">"%%%d.%df,"</span><span class="token operator">%</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>precision<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Matrix</span>():</span><br>    layout = <span class="hljs-string">&quot;%5.1f,&quot;</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span>(<span class="hljs-params">self</span>):</span><br>        out = <span class="hljs-string">&quot;[\n&quot;</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self._r):<br>            out +=<span class="hljs-string">&quot; [&quot;</span><br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self._c):<br>                out += self.layout%self._data[i][j]<br>            out +=<span class="hljs-string">&quot;],\n&quot;</span><br>        out+= <span class="hljs-string">&quot;]&quot;</span><br>        <span class="hljs-keyword">return</span> out<br>    <br><span class="hljs-meta">    @staticmethod</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_layout</span>(<span class="hljs-params">width,precision</span>):</span><br>        Matrix.layout = <span class="hljs-string">&quot;%%%d.%df,&quot;</span>%(width,precision)<br></code></pre></td></tr></table></figure>
 <p>我们来运行一下</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">400</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> Matrix<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-    
-<span class="token comment">#[</span>
-<span class="token comment"># [  1.0,   2.0,   3.0, 400.0, ],</span>
-<span class="token comment">#]</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [  0.0,   0.0,   0.0, ],</span>
-<span class="token comment"># [  0.0,   0.0,   0.0, ],</span>
-<span class="token comment">#]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">a = Matrix([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">400</span>]])<br>b = Matrix.zeros((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br>    <br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [  1.0,   2.0,   3.0, 400.0, ],</span><br><span class="hljs-comment">#]</span><br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [  0.0,   0.0,   0.0, ],</span><br><span class="hljs-comment"># [  0.0,   0.0,   0.0, ],</span><br><span class="hljs-comment">#]</span><br></code></pre></td></tr></table></figure>
 <p>如果我们希望改变输出格式，我们可以使用任意对象修改全局 layout</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token punctuation">.</span>change_layout<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>T<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [1.00000000,],</span>
-<span class="token comment"># [2.00000000,],</span>
-<span class="token comment"># [3.00000000,],</span>
-<span class="token comment"># [400.00000000,],</span>
-<span class="token comment">#]</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [0.00000000,0.00000000,0.00000000,],</span>
-<span class="token comment"># [0.00000000,0.00000000,0.00000000,],</span>
-<span class="token comment">#]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">a.change_layout(<span class="hljs-number">6</span>,<span class="hljs-number">8</span>)<br><br><span class="hljs-built_in">print</span>(a.T)<br><span class="hljs-built_in">print</span>(b)<br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [1.00000000,],</span><br><span class="hljs-comment"># [2.00000000,],</span><br><span class="hljs-comment"># [3.00000000,],</span><br><span class="hljs-comment"># [400.00000000,],</span><br><span class="hljs-comment">#]</span><br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [0.00000000,0.00000000,0.00000000,],</span><br><span class="hljs-comment"># [0.00000000,0.00000000,0.00000000,],</span><br><span class="hljs-comment">#]</span><br></code></pre></td></tr></table></figure>
 <p>可以发现所有对象的输出方式都被改变了</p>
 <p>如果我们也可以调用 Matrix.change_layout 效果是一样的</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">Matrix<span class="token punctuation">.</span>change_layout<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [  1,  2,  3,400,],</span>
-<span class="token comment">#]</span>
-
-<span class="token comment">#[</span>
-<span class="token comment"># [  0,  0,  0,],</span>
-<span class="token comment"># [  0,  0,  0,],</span>
-<span class="token comment">#]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">Matrix.change_layout(<span class="hljs-number">3</span>,<span class="hljs-number">0</span>)<br><br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [  1,  2,  3,400,],</span><br><span class="hljs-comment">#]</span><br><br><span class="hljs-comment">#[</span><br><span class="hljs-comment"># [  0,  0,  0,],</span><br><span class="hljs-comment"># [  0,  0,  0,],</span><br><span class="hljs-comment">#]</span><br></code></pre></td></tr></table></figure>
 <p>就我目前遇到的问题来说，classmethod 还是挺好代替 staticmethod 的。可能在元编程方面，staticmethod 会用到的比较多。在构造类装饰器和单例模式中应该有用。</p>
 <blockquote>
 <p>python 还是挺有意思的，我希望更进一步能看懂这些装饰器的源码实现。把坑先挖在这，回头慢慢填吧。</p>
@@ -507,30 +404,6 @@ b <span class="token operator">=</span> Matrix<span class="token punctuation">.<
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -567,8 +440,6 @@ b <span class="token operator">=</span> Matrix<span class="token punctuation">.<
 
 
   
-    
-  
 
 
 
@@ -587,8 +458,6 @@ b <span class="token operator">=</span> Matrix<span class="token punctuation">.<
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -621,13 +490,6 @@ b <span class="token operator">=</span> Matrix<span class="token punctuation">.<
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

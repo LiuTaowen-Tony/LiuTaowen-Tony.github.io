@@ -39,11 +39,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -51,7 +51,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -141,12 +141,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="可惜这里地方太小，写不下">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
               
             </span>
 
@@ -282,14 +282,8 @@ emm 这应该是第一篇含有我的个人观点的博客，之前我一直不�
             
           
           求导可以看作是作用在函数 f 上的一个高阶函数
-D :: (R -> R) -> (R -> R)
-D(f) = g
-  where
-  g x =
-      lim (x1 -> x0 ; x1 : (R - &#123;x1&#125;))
-        ((f(x0) - f(x1)) / (x0 - x1))
-之前我定义过实数了，现在应该可以定义一个永远算不完的极限。
-数学就是这么讨厌
+123456D :: (R -&gt; R) -&gt; (R -&gt; R)D(f) = g  where  g x =      lim (x1 -&gt; x0 ; x1 : (R - &#123;x1&#125;))        ((f(x0) - f(x1)) / (x0 - x1))
+之前我定义过实数了，现在应该可以定义一个永远算不完
         </a>
       </p>
 
@@ -456,7 +450,7 @@ L[y]=∑i=0kαi(x)Dk[y]\mathcal L [y] = \sum^{k}_{i=0}\alpha_{i}(x)\
 我们用 BNF 定义句法
 原子是可以赋布尔值的变量
 T 和 反T 是逻辑关联词！！！没有任何含义
-atom : &quot;a&quot; | &quot;b&quot
+1234567891011121314151617atom : &qu
         </a>
       </p>
 
@@ -535,9 +529,7 @@ atom : &quot;a&quot; | &quot;b&quot
 目前的解决方案是用 tmux 开三个小窗口，一个预览文档，一个显示目录，一个作为终端。
  代码
 有三（四）个小程序与之对应
-# nls.py (newlist)
-
-import sys, o
+12345678910111213# nls.py (newlis
         </a>
       </p>
 
@@ -655,30 +647,6 @@ import sys, o
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -715,8 +683,6 @@ import sys, o
 
 
   
-    
-  
 
 
 
@@ -729,8 +695,6 @@ import sys, o
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

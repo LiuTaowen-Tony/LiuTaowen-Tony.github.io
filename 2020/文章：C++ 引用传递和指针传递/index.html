@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      465 字
+      477 字
     </span>
   
 
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -249,52 +231,16 @@
 <h2 id="0x00-指针传递"><a class="markdownIt-Anchor" href="#0x00-指针传递"></a> 0x00 指针传递</h2>
 <p>指针传递让函数在内部操作外部的数据，同时在一定程度上也减少了内存的消耗。</p>
 <p>这类函数接受指针作为输入，内部可以对指针指向的值做更改。</p>
-<div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap_ptr</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>x<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token operator">*</span>x<span class="token punctuation">;</span>
-    <span class="token operator">*</span>x <span class="token operator">=</span> <span class="token operator">*</span>y<span class="token punctuation">;</span>
-    <span class="token operator">*</span>y <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap_ptr</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x, <span class="hljs-keyword">int</span> *y)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> temp = *x;<br>    *x = *y;<br>    *y = temp;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>相当于构造了两个局部指针变量，x，y。这个x，y和原调函数的x，y的地址是不一样的，因为他把输入转化为了指针，但是引用传递里面的变量的地址和原调函数里面变量的地址是一样的。</p>
 <p>然后取x，y的值进行交换操作，存在原来的地址上。</p>
 <p>对于数组来说，cpp只使用指针变量。这样不需要复制一份数组的内容，之后才传入，可以减少开销。</p>
 <h2 id="0x01-引用参数"><a class="markdownIt-Anchor" href="#0x01-引用参数"></a> 0x01 引用参数</h2>
 <p>普通的函数是值传递，函数内部的变量是不会影响外部的。</p>
 <p>但是引用传递的话，被调函数变量的变化直接反映在主调函数的变量上。相当于对主调函数里的变量的指针指向的值直接做修改。</p>
-<div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">void</span> <span class="token function">swap_ref</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span> x<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&amp;</span> y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\ninside swap_ref, x,y address: %p,%p\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> temp <span class="token operator">=</span>x<span class="token punctuation">;</span>
-    x <span class="token operator">=</span> y<span class="token punctuation">;</span>
-    y <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\ninside swap, x,y address, %p,%p\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> temp <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    x <span class="token operator">=</span> y<span class="token punctuation">;</span>
-    y <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"before swapping: %d,%d\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"x,y address: %p,%p\n"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">swap</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"    after ordinary swap: %d,%d (unchanged) \n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">swap_ref</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"    after reference swap: %d,%d\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap_ref</span><span class="hljs-params">(<span class="hljs-keyword">int</span>&amp; x,<span class="hljs-keyword">int</span>&amp; y)</span></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\ninside swap_ref, x,y address: %p,%p\n&quot;</span>,&amp;x,&amp;y);<br>    <span class="hljs-keyword">int</span> temp =x;<br>    x = y;<br>    y = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y)</span></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\ninside swap, x,y address, %p,%p\n&quot;</span>,&amp;x,&amp;y);<br>    <span class="hljs-keyword">int</span> temp = x;<br>    x = y;<br>    y = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">int</span> y = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;before swapping: %d,%d\n&quot;</span>,x,y);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x,y address: %p,%p\n&quot;</span>,&amp;x,&amp;y);<br>    <span class="hljs-built_in">swap</span>(x,y);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;    after ordinary swap: %d,%d (unchanged) \n&quot;</span>,x,y);<br>    <span class="hljs-built_in">swap_ref</span>(x,y);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;    after reference swap: %d,%d\n&quot;</span>,x,y);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>输出在这里</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">before swapping: 5,10
-x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
-
-inside swap, x,y address, 0x7ffee2ef26ac,0x7ffee2ef26a8
-    after ordinary swap: 5,10 (unchanged) 
-
-inside swap_ref, x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
-    after reference swap: 10,5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">before</span> swapping: <span class="hljs-number">5</span>,<span class="hljs-number">10</span><br><span class="hljs-attribute">x</span>,y address: <span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>dc,<span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>d<span class="hljs-number">8</span><br><br><span class="hljs-attribute">inside</span> swap, x,y address, <span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>ac,<span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>a<span class="hljs-number">8</span><br>    <span class="hljs-attribute">after</span> ordinary swap: <span class="hljs-number">5</span>,<span class="hljs-number">10</span> (unchanged) <br><br><span class="hljs-attribute">inside</span> swap_ref, x,y address: <span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>dc,<span class="hljs-number">0</span>x<span class="hljs-number">7</span>ffee<span class="hljs-number">2</span>ef<span class="hljs-number">26</span>d<span class="hljs-number">8</span><br>    <span class="hljs-attribute">after</span> reference swap: <span class="hljs-number">10</span>,<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -392,30 +338,6 @@ inside swap_ref, x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -452,8 +374,6 @@ inside swap_ref, x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
 
 
   
-    
-  
 
 
 
@@ -472,8 +392,6 @@ inside swap_ref, x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -506,13 +424,6 @@ inside swap_ref, x,y address: 0x7ffee2ef26dc,0x7ffee2ef26d8
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -63,11 +53,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -75,7 +65,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -165,7 +155,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -208,9 +198,9 @@
 <h2 id="hexo-的安装"><a class="markdownIt-Anchor" href="#hexo-的安装"></a> Hexo 的安装</h2>
 <p>Hexo 的安装很容易, 但是外那之前, 我们需要先检查是否已经安装了 Hexo 的依赖.</p>
 <p>首先, 我们检查是否安装了 Git, 在命令台输入:</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git --version <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">git <span class="hljs-comment">--version </span><br></code></pre></td></tr></table></figure>
 <p>之后检查 Node.js :</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">node -v <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span> <br></code></pre></td></tr></table></figure>
 <p>如果显示了版本即位安装完成.</p>
 <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 和  <a target="_blank" rel="noopener" href="https://nodejs.org/en/about/">Node.js</a> 安装的网站. Node.js 安装过程是图形化的, 所以比较容易.</p>
 <h3 id="git-的配置"><a class="markdownIt-Anchor" href="#git-的配置"></a> Git 的配置</h3>
@@ -218,16 +208,15 @@
 <blockquote>
 <p>在安装 Git 的时候可能需要 Xcode 的依赖, 这部分可以上网搜索解决.</p>
 </blockquote>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;&lt;your_name&gt;&quot;
-git config --global user.email &quot;&lt;your_email_address&gt;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;&lt;your_name&gt;&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">&quot;&lt;your_email_address&gt;&quot;</span><br></code></pre></td></tr></table></figure>
 <p>我们要先“注册个账号”. 这里的名字和邮箱建议用比较正经的, 因为未来你很有可能继续使用 Git 和你的同事管理版本.</p>
 <p>之后我们把github 仓库和本地仓库用ssh链接起来,这样就可以用一条命令上传博客了. 使用 ssh 我们就不用在部署博客的时候每次都输密码. 我们生成 ssh 密钥连接 Git 和 Github. 使用 ssh-keygen 命令生成 密钥和公钥:</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;&lt;your_email_address&gt;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">&quot;&lt;your_email_address&gt;&quot;</span><br></code></pre></td></tr></table></figure>
 <p>按照提示创建密码, 或者回车不使用密码. 密码要牢记, 忘了就得重新生成 ssh 密钥对了.</p>
 <p>密钥对存在用户目录的 ~/.ssh 目录下. <code>/Users/&lt;user_name&gt;/.ssh</code>, 其中 &lt;user_name&gt; 是电脑用户的名称.</p>
 <p>我们需要把公钥拷贝到 Github 上. 打开Github_Settings_keys 页面, 粘贴进去就可以了. 这部分参考 <a target="_blank" rel="noopener" href="https://help.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh">这里</a></p>
 <p>之后, 我们就可以使用</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ssh github@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">ssh <span class="hljs-symbol">github@</span>github.com<br></code></pre></td></tr></table></figure>
 <p>命令测试是否正常连接. 正常连接的话会显示 Hi &lt;your name&gt;</p>
 <h2 id="hexo-的安装-2"><a class="markdownIt-Anchor" href="#hexo-的安装-2"></a> Hexo 的安装</h2>
 <p>现在转移到 Hexo 的安装过程. 在安装好依赖之后, 我们可以一行命令安装. 一般不会出现什么问题.</p>
@@ -235,30 +224,15 @@ git config --global user.email &quot;&lt;your_email_address&gt;&quot;<span aria-
 <h2 id="hexo-建站"><a class="markdownIt-Anchor" href="#hexo-建站"></a> Hexo 建站</h2>
 <p>完成 Hexo 的安装之后, 我们需要现在本地准备好我们的网站的所有文档.</p>
 <p>首先我们来到我们想要开始建站的目录, 比如 ~\Document.</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">hexo init &lt;folder&gt;
-cd &lt;folder&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs swift">hexo <span class="hljs-function"><span class="hljs-keyword">init</span> &lt;folder&gt;</span><br>cd <span class="hljs-operator">&lt;</span>folder<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
 <p>&lt;folder&gt; 填你的博客文件夹的名字 比如 hexo-blog-folder. 做好之后文件夹内的目录应该是这样.</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">.
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sqf">.<br>├── <span class="hljs-variable">_config</span>.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── <span class="hljs-variable">_drafts</span><br>|   └── <span class="hljs-variable">_posts</span><br>└── themes<br></code></pre></td></tr></table></figure>
 <p>我们的文件已经生成好了. 现在我们需要对站点进行配置.</p>
 <p>我们修改 _config.yml 文档.</p>
 <p>参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">这个</a> 网站.</p>
 <p>比较重要需要修改的是 title, subtitle, author, language, theme, 以及deploy.</p>
 <p>值得注意的是,  deploy 部分容易出现问题. 这里提供一个简单的例子.</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">deploy:
-
-     type: git
-
-     repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;your-name&gt;&#x2F;&lt;your-name&gt;.github.io.git
-
-     branch: master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><br><span class="hljs-symbol">     type:</span> git<br><br><span class="hljs-symbol">     repo:</span> https:<span class="hljs-comment">//github.com/&lt;your-name&gt;/&lt;your-name&gt;.github.io.git</span><br><br><span class="hljs-symbol">     branch:</span> master<br><br></code></pre></td></tr></table></figure>
 <p>&lt;your-name&gt; 填你的 Github 用户名.</p>
 <p>这里我们的网站就建好了.</p>
 <p>我们用 <code>hexo server</code> 命令来检查网站搭建进度.</p>
@@ -348,30 +322,6 @@ cd &lt;folder&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -408,8 +358,6 @@ cd &lt;folder&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 
   
-    
-  
 
 
 
@@ -424,8 +372,6 @@ cd &lt;folder&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

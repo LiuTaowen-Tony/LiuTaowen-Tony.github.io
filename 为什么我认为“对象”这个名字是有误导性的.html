@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -63,11 +53,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -75,7 +65,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -165,7 +155,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -205,20 +195,7 @@
 <p>可是我现在都快忘了我当时的困惑了。我真的好担心我学的多了之后，习惯了新的思维方式，就把我以前遇到的困难忘记了。</p>
 <p>除此以外，我当时还不能理解为什么我们需要区分类和对象。因为我当时不能理解类其实衍生自 struct, 而 struct 其实储存的是各个 field 的偏移量。所以高级语言照搬了这个 struct，用类来表示对象的模版。</p>
 <p>但是我觉得对初学者来说， javascript 中的对象才是它应该是的样子。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-  
-  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-    self<span class="token punctuation">.</span>friends <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-   
- <span class="token keyword">def</span> <span class="token function">make_friend</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> friend<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   self<span class="token punctuation">.</span>friends<span class="token punctuation">.</span>append<span class="token punctuation">(</span>friend<span class="token punctuation">)</span>
-    
-persona <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
-persono <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-persona<span class="token punctuation">.</span>make_friend<span class="token punctuation">(</span>persono<span class="token punctuation">)</span>
-persono<span class="token punctuation">.</span>make_friend<span class="token punctuation">(</span>persona<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span><br>  <br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, name</span>):</span><br>    self.name = name<br>    self.friends = []<br>   <br> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_friend</span>(<span class="hljs-params">self, friend</span>):</span><br>   self.friends.append(friend)<br>    <br>persona = Person()<br>persono = Person()<br><br>persona.make_friend(persono)<br>persono.make_friend(persona)<br></code></pre></td></tr></table></figure>
 <p>这段代码看上去很正常，但是仔细想想是有问题的。</p>
 <p>如果我们认为 object 是一个 真的物体 的话，那么 persona 内部装着一个 persono,  而 persono 内部装着一个 persona 这怎么可能。</p>
 <p>就像 盒子A 内部装着 盒子B，盒子B 内部装着 盒子A。</p>
@@ -226,17 +203,7 @@ persono<span class="token punctuation">.</span>make_friend<span class="token pun
 <p>虽然我觉得学编程的时候，花几个小时，就能熟悉这些特性。但是我认为除非学过指针，不然不可能理解对象的本质。</p>
 <p>但是这又很矛盾，一部分人对计算机科学本身感兴趣，比如说我。这部分人可以为了一个概念从哪来的、为什么语言要这样设计深究很久。另一部分人则把计算机作为一种工具，对于他们来说，只要它能完成我想要的工作，那么语言为啥这么设计，根本不重要。</p>
 <p>对我来说，理解类是 struct 的扩充版，只是需要多花一点时间，在学 OOP 语言的时候看一下 C 语言就行了。但是对于第二类人来说，class 的设计简直不可理喻。他们能做的只有背下来这个语法，然后应用。但是这很不直观。</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Apple</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-  
-  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    self<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token string">"new"</span>
-    
-  <span class="token keyword">def</span> <span class="token function">bite</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-		self<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token string">"bitten"</span>  
-    
-apple <span class="token operator">=</span> Apple<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-A_belongings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"something"</span><span class="token punctuation">,</span> <span class="token string">"someOtherThings"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>  <br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>    self.state = <span class="hljs-string">&quot;new&quot;</span><br>    <br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bite</span>(<span class="hljs-params">self</span>):</span><br>		self.state = <span class="hljs-string">&quot;bitten&quot;</span>  <br>    <br>apple = Apple()<br><br>A_belongings = [<span class="hljs-string">&quot;something&quot;</span>, <span class="hljs-string">&quot;someOtherThings&quot;</span>]<br></code></pre></td></tr></table></figure>
 
 </div>
 
@@ -285,30 +252,6 @@ A_belongings <span class="token operator">=</span> <span class="token punctuatio
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -345,8 +288,6 @@ A_belongings <span class="token operator">=</span> <span class="token punctuatio
 
 
   
-    
-  
 
 
 
@@ -361,8 +302,6 @@ A_belongings <span class="token operator">=</span> <span class="token punctuatio
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

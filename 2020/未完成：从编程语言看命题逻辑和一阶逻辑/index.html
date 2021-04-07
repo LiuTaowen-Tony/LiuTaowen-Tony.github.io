@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.6k 字
     </span>
   
 
@@ -204,20 +194,12 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      19
        分钟
     </span>
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -248,9 +230,7 @@
               <h2 id="逻辑的发展"><a class="markdownIt-Anchor" href="#逻辑的发展"></a> 逻辑的发展</h2>
 <h2 id="逻辑三段论"><a class="markdownIt-Anchor" href="#逻辑三段论"></a> 逻辑三段论</h2>
 <p>逻辑三段论可能是形式最简单、历史最悠久的逻辑了。一般来说它有以下形式</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">大前提：所有 某类物体 都具有 某性质
-小前提：某个个体 是 某类物体
-结论：  某个个体具有某某性质<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">大前提：所有 某类物体 都具有 某性质<br>小前提：某个个体 是 某类物体<br>结论：  某个个体具有某某性质<br></code></pre></td></tr></table></figure>
 <p>虽然它很简单，但是很有用。</p>
 <p>比如我们在试图反驳某些观点的时候，我们可以这样：</p>
 <p>反驳：板蓝根是中药，所以它没用</p>
@@ -267,23 +247,10 @@
 <h2 id="命题逻辑"><a class="markdownIt-Anchor" href="#命题逻辑"></a> 命题逻辑</h2>
 <p>对于主流的计算机语言，一般都会支持命题逻辑。因此后面用一些计算机上的符号。</p>
 <p>命题逻辑只能处理逻辑命题，其中命题必须能规约到 true 或者 false。</p>
-<div class="code-wrapper"><pre class="line-numbers language-Haskell" data-language="Haskell"><code class="language-Haskell">data Logic_Exp &#x3D; 
-	  Atom Prop
-	| (Logic_Exp And Logic_Exp)
-	| (Logic_Exp Or Logic_Exp)
-	| (Not Logic_Exp)
-data Prop &#x3D; 
-	  Tt
-	| Ff
-	| Var String<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Logic_Exp</span> = </span><br>	  <span class="hljs-type">Atom</span> <span class="hljs-type">Prop</span><br>	| (<span class="hljs-type">Logic_Exp</span> <span class="hljs-type">And</span> <span class="hljs-type">Logic_Exp</span>)<br>	| (<span class="hljs-type">Logic_Exp</span> <span class="hljs-type">Or</span> <span class="hljs-type">Logic_Exp</span>)<br>	| (<span class="hljs-type">Not</span> <span class="hljs-type">Logic_Exp</span>)<br><span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Prop</span> = </span><br>	  <span class="hljs-type">Tt</span><br>	| <span class="hljs-type">Ff</span><br>	| <span class="hljs-type">Var</span> <span class="hljs-type">String</span><br></code></pre></td></tr></table></figure>
 <p>我们可以书写任意复合语法的命题逻辑表达式，但是表达式本身是无意义的。我们必须对表达式进行求值来计算表达式的意义。</p>
 <p>下面用 haskell 代码来表示</p>
-<div class="code-wrapper"><pre class="line-numbers language-haskell" data-language="haskell"><code class="language-haskell"><span class="token hvariable">eval</span> <span class="token operator">::</span> <span class="token constant">Logic_Exp</span> <span class="token operator">-></span> <span class="token constant">Bool</span>
-<span class="token hvariable">eval</span> <span class="token punctuation">(</span><span class="token constant">Atom</span> <span class="token constant">Tt</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token constant">True</span>
-<span class="token hvariable">eval</span> <span class="token punctuation">(</span><span class="token constant">Atom</span> <span class="token constant">Ff</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token constant">False</span>
-<span class="token hvariable">eval</span> <span class="token punctuation">(</span><span class="token constant">Atom</span> <span class="token punctuation">(</span><span class="token constant">Var</span> <span class="token hvariable">x</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token builtin">lookup</span><span class="token punctuation">(</span><span class="token hvariable">x</span><span class="token punctuation">,</span><span class="token hvariable">env</span><span class="token punctuation">)</span>
-<span class="token hvariable">eval</span> <span class="token punctuation">(</span><span class="token hvariable">expr</span> <span class="token constant">And</span> <span class="token hvariable">expr</span>'<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token hvariable">eval</span>
-	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">eval</span> :: <span class="hljs-type">Logic_Exp</span> -&gt; <span class="hljs-type">Bool</span><br><span class="hljs-title">eval</span> (<span class="hljs-type">Atom</span> <span class="hljs-type">Tt</span>) = <span class="hljs-type">True</span><br><span class="hljs-title">eval</span> (<span class="hljs-type">Atom</span> <span class="hljs-type">Ff</span>) = <span class="hljs-type">False</span><br><span class="hljs-title">eval</span> (<span class="hljs-type">Atom</span> (<span class="hljs-type">Var</span> x)) = lookup(x,env)<br><span class="hljs-title">eval</span> (expr <span class="hljs-type">And</span> expr&#x27;) = eval<br>	<br></code></pre></td></tr></table></figure>
 <p>我知道这看起来很奇怪，我用 haskell 内置的逻辑语言重新定义了一个我自己的命题逻辑。然而计算机内部的逻辑本身就是用 命题逻辑 的形式表达的，我觉得我很难绕开这一部分。或许我下次可以使用</p>
 <p>但是我在这里想表达的意思是 逻辑语言的形式 和 逻辑语言的语义 应该是分开的。在命题逻辑这里把它们混在一起还可以接受，然而，如果是一阶逻辑，那么把语义和形式放在一起讲就会比较混乱。</p>
 <p>逻辑等价和重言式</p>
@@ -306,42 +273,11 @@ data Prop &#x3D;
 <p>这里用了 布尔加法 和 布尔乘法 代替 一连串or 和 一连串and。</p>
 <p>因此这样我们就可以把一阶逻辑规约到谓词逻辑了。我们用德摩根律把所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∀</mi></mrow><annotation encoding="application/x-tex">\forall</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">∀</span></span></span></span> 都换成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∃</mi></mrow><annotation encoding="application/x-tex">\exist</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">∃</span></span></span></span> 然后看sum of product形式是不是一样的。问题是没有办法处理equal，只能把它作为一个命题来看待。</p>
 <p>那么我们可以写出等价的 python 代码:</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 先定义 situation </span>
-
-<span class="token comment">## 定义 sort</span>
-
-Natural <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"carrot"</span><span class="token punctuation">&#125;</span>
-Industrial <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"pizza"</span><span class="token punctuation">,</span> <span class="token string">"coke"</span><span class="token punctuation">,</span> <span class="token string">"sprite"</span><span class="token punctuation">&#125;</span>
-Whole <span class="token operator">=</span> Natural <span class="token operator">&amp;</span> Industrial
-
-<span class="token comment">## 定义语义</span>
-
-<span class="token keyword">def</span> <span class="token function">Food</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">return</span> x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"carrot"</span><span class="token punctuation">,</span> <span class="token string">"pizza"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">Drink</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">return</span> x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">"coke"</span><span class="token punctuation">,</span> <span class="token string">"sprite"</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">Dilicious</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">return</span> x <span class="token keyword">in</span> Whole
-
-<span class="token comment"># 所有Natural</span>
-<span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>P<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> S<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment"># exist x in S, Q(x)</span>
-<span class="token builtin">any</span><span class="token punctuation">(</span><span class="token punctuation">[</span>Q<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> S<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 先定义 situation </span><br><br><span class="hljs-comment">## 定义 sort</span><br><br>Natural = &#123;<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;carrot&quot;</span>&#125;<br>Industrial = &#123;<span class="hljs-string">&quot;pizza&quot;</span>, <span class="hljs-string">&quot;coke&quot;</span>, <span class="hljs-string">&quot;sprite&quot;</span>&#125;<br>Whole = Natural &amp; Industrial<br><br><span class="hljs-comment">## 定义语义</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Food</span>(<span class="hljs-params">x</span>):</span><br>  <span class="hljs-keyword">return</span> x <span class="hljs-keyword">in</span> (<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;carrot&quot;</span>, <span class="hljs-string">&quot;pizza&quot;</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Drink</span>(<span class="hljs-params">x</span>):</span><br>  <span class="hljs-keyword">return</span> x <span class="hljs-keyword">in</span> (<span class="hljs-string">&quot;coke&quot;</span>, <span class="hljs-string">&quot;sprite&quot;</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Dilicious</span>(<span class="hljs-params">x</span>):</span><br>  <span class="hljs-keyword">return</span> x <span class="hljs-keyword">in</span> Whole<br><br><span class="hljs-comment"># 所有Natural</span><br><span class="hljs-built_in">all</span>([P(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> S])<br><br><span class="hljs-comment"># exist x in S, Q(x)</span><br><span class="hljs-built_in">any</span>([Q(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> S])<br></code></pre></td></tr></table></figure>
 <p>python 中有一个非常好的性质，他的immutable type自动实现了 <code>__eq__</code> 方法，因此不需要重新实现一遍。</p>
 <p>我们可以这样引入多元命题</p>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> b <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> a <span class="token operator">==</span> b
-<span class="token boolean">True</span>
-<span class="token operator">>></span><span class="token operator">></span> <span class="token builtin">id</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token number">140571992488688</span>
-<span class="token operator">>></span><span class="token operator">></span> <span class="token builtin">id</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">a &#x3D; set((&quot;a&quot;,&quot;b&quot;),(&quot;c&quot;,&quot;d&quot;))
-a.add((&quot;a&quot;,&quot;b&quot;))
-# set((&quot;a&quot;,&quot;b&quot;),(&quot;c&quot;,&quot;d&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>a = (<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>b = (<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>a == b<br><span class="hljs-literal">True</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">id</span>(a)<br><span class="hljs-number">140571992488688</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">id</span>(b)<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">a = <span class="hljs-keyword">set</span>((&quot;a&quot;,&quot;b&quot;),(&quot;c&quot;,&quot;d&quot;))<br>a.<span class="hljs-keyword">add</span>((&quot;a&quot;,&quot;b&quot;))<br># <span class="hljs-keyword">set</span>((&quot;a&quot;,&quot;b&quot;),(&quot;c&quot;,&quot;d&quot;))<br></code></pre></td></tr></table></figure>
 <p>我们可以这样用有限域中的万有分类定理</p>
 <p>分离公理(又称为分离公理）：</p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>∈</mo><mo stretchy="false">{</mo><mi>x</mi><mo>∈</mo><mi>A</mi><mi mathvariant="normal">∣</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo><mo>⇔</mo><mo stretchy="false">(</mo><mi>y</mi><mo>∈</mo><mi>A</mi><mo>&amp;</mo><mi>P</mi><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y \in \{ x \in A | P(x) \} \Leftrightarrow (y \in A \And P(y))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⇔</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&amp;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></p>
@@ -447,30 +383,6 @@ a.add((&quot;a&quot;,&quot;b&quot;))
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -507,8 +419,6 @@ a.add((&quot;a&quot;,&quot;b&quot;))
 
 
   
-    
-  
 
 
 
@@ -527,8 +437,6 @@ a.add((&quot;a&quot;,&quot;b&quot;))
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -561,13 +469,6 @@ a.add((&quot;a&quot;,&quot;b&quot;))
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 

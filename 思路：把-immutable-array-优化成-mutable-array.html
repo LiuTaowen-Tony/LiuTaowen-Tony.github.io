@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -63,11 +53,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -75,7 +65,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -165,7 +155,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -196,17 +186,7 @@
 
 <div class="page-content">
   <p>需要 pattern matching 确定一个函数是否是安全的</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">def foo(x, y, z):
-	...
-	body
-	...
-	return y, x
-	
-def main(args):
-	...
-	y, x &#x3D; foo(x, y, z)
-	...
-	return 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sas">def foo(<span class="hljs-meta">x</span>, y, z):<br>	...<br>	body<br>	...<br>	<span class="hljs-meta">return</span> y, <span class="hljs-meta">x</span><br>	<br>def ma<span class="hljs-meta">in(</span>args):<br>	...<br>	y, <span class="hljs-meta">x</span> = foo(<span class="hljs-meta">x</span>, y, z)<br>	...<br>	<span class="hljs-meta">return</span> 0<br></code></pre></td></tr></table></figure>
 <p>对于所有包含数组的函数，只有两种情况</p>
 <ol>
 <li>数组“穿过”函数
@@ -218,19 +198,11 @@ def main(args):
 <li>数组在这个函数中被生成</li>
 </ol>
 <p>首先确定在函数内部确定能不能在同一个 scope 里无冲突。</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">def bar(x, y):
-	x &#x3D; x.add(1)
-	x &#x3D; x.add(2)
-	return x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sas">def bar(<span class="hljs-meta">x</span>, y):<br>	<span class="hljs-meta">x</span> = <span class="hljs-meta">x</span>.<span class="hljs-meta">add</span>(1)<br>	<span class="hljs-meta">x</span> = <span class="hljs-meta">x</span>.<span class="hljs-meta">add</span>(2)<br>	<span class="hljs-meta">return</span> <span class="hljs-meta">x</span><br></code></pre></td></tr></table></figure>
 <p>那么这个函数对于 输入 <code>param1</code> 和 输出 <code>ret1</code> 是安全的，如果输入 <code>param1</code> 和 输出 <code>ret1</code> 是同一个 symbol, 那么可以复用一个数组。</p>
 <p>如果有递归调用，那么就是一个sat问题。</p>
 <p>对于最外层函数（生成 array 的函数）</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">def baz(x, y):
-	x &#x3D; new Array(5)
-	x &#x3D; x.add(x)
-	x &#x3D; bar(x, x) &#x2F;&#x2F; 安全函数调用
-	print(x)
-	return None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sas">def baz(<span class="hljs-meta">x</span>, y):<br>	<span class="hljs-meta">x</span> = new <span class="hljs-meta">Array</span>(5)<br>	<span class="hljs-meta">x</span> = <span class="hljs-meta">x</span>.<span class="hljs-meta">add</span>(<span class="hljs-meta">x</span>)<br>	<span class="hljs-meta">x</span> = bar(<span class="hljs-meta">x</span>, <span class="hljs-meta">x</span>) // 安全函数调用<br>	p<span class="hljs-meta">rint(</span><span class="hljs-meta">x</span>)<br>	<span class="hljs-meta">return</span> None<br></code></pre></td></tr></table></figure>
 
 </div>
 
@@ -279,30 +251,6 @@ def main(args):
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -339,8 +287,6 @@ def main(args):
 
 
   
-    
-  
 
 
 
@@ -355,8 +301,6 @@ def main(args):
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

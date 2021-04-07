@@ -29,17 +29,7 @@
     
     
       
-      
-        
-          
-          
-          
-        
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
     
   
 
@@ -65,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -77,7 +67,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -167,7 +157,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -194,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      431 字
+      424 字
     </span>
   
 
@@ -210,14 +200,6 @@
   
 
   
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
   
 </div>
 
@@ -252,26 +234,10 @@
 <p>我们用 BNF 定义句法</p>
 <p>原子是可以赋布尔值的变量</p>
 <p>T 和 反T 是逻辑关联词！！！没有任何含义</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">atom : &quot;a&quot; | &quot;b&quot; | ... | &quot;z&quot; | atom atom
-atomic : atom | &quot;T&quot; | &quot;反T&quot;
-negated-atomic : &quot;(~&quot; atomic &quot;)&quot;
-literal : atomic | negated-atomic
-
-formula : literal | conjuction | disjucntion 
-        | implication | negated-formula
-negated-formula : &quot;(~&quot; formula &quot;)&quot;
-
-conjuct : formula
-disjuct : formula
-antecedent : formula
-consequent : formula
-
-conjuction : &quot;(&quot; conjuct &quot;and&quot; conjuct &quot;)&quot;
-disjuction : &quot;(&quot; disjuct &quot;or&quot; disjuct &quot;)&quot;
-inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs 1c">atom : <span class="hljs-string">&quot;a&quot;</span> <span class="hljs-string">| &quot;</span>b<span class="hljs-string">&quot; | ... | &quot;</span>z<span class="hljs-string">&quot; | atom atom</span><br>atomic : atom <span class="hljs-string">| &quot;</span>T<span class="hljs-string">&quot; | &quot;</span>反T<span class="hljs-string">&quot;</span><br>negated-atomic : <span class="hljs-string">&quot;(~&quot;</span> atomic <span class="hljs-string">&quot;)&quot;</span><br>literal : atomic <span class="hljs-string">| negated-atomic</span><br><br>formula : literal <span class="hljs-string">| conjuction | disjucntion </span><br>        <span class="hljs-string">| implication | negated-formula</span><br>negated-formula : <span class="hljs-string">&quot;(~&quot;</span> formula <span class="hljs-string">&quot;)&quot;</span><br><br>conjuct : formula<br>disjuct : formula<br>antecedent : formula<br>consequent : formula<br><br>conjuction : <span class="hljs-string">&quot;(&quot;</span> conjuct <span class="hljs-string">&quot;and&quot;</span> conjuct <span class="hljs-string">&quot;)&quot;</span><br>disjuction : <span class="hljs-string">&quot;(&quot;</span> disjuct <span class="hljs-string">&quot;or&quot;</span> disjuct <span class="hljs-string">&quot;)&quot;</span><br>inplication : <span class="hljs-string">&quot;(&quot;</span> antecedent <span class="hljs-string">&quot;implies&quot;</span> consequent <span class="hljs-string">&quot;)&quot;</span><br></code></pre></td></tr></table></figure>
 <p>原本书上定义没这么详细，我把具体的名字也写在一起了。</p>
 <p>注意：clause 的定义</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">clause : literal | clause &quot;or&quot; literal<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">clause : <span class="hljs-keyword">literal</span> | clause <span class="hljs-string">&quot;or&quot;</span> <span class="hljs-keyword">literal</span><br></code></pre></td></tr></table></figure>
 <h2 id="命题逻辑的语义"><a class="markdownIt-Anchor" href="#命题逻辑的语义"></a> 命题逻辑的语义</h2>
 <p>我认为逻辑公式的语义等同于逻辑命题的取值(不确定对不对)</p>
 <p>对逻辑公式求值时，我们需要 situation。situation 不同，逻辑公式的值可能不同。</p>
@@ -286,7 +252,8 @@ inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&qu
 <p>signature is a collection of constants, and relation symblos with specified arities.</p>
 <p>Signature 相当于一个词汇表的感觉</p>
 <p>Fixing a L</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">terms : constant in L | variable in L<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">terms : <span class="hljs-keyword"><span class="hljs-keyword">constant</span></span> <span class="hljs-keyword"><span class="hljs-keyword">in</span></span> <span class="hljs-type">L</span> | variable <span class="hljs-keyword">in</span> L<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -383,30 +350,6 @@ inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&qu
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
 
   
 
@@ -443,8 +386,6 @@ inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&qu
 
 
   
-    
-  
 
 
 
@@ -463,8 +404,6 @@ inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&qu
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -497,13 +436,6 @@ inplication : &quot;(&quot; antecedent &quot;implies&quot; consequent &quot;)&qu
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
-  
 
 
 
