@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="托尼">
+  <meta name="keywords" content="">
+  <title>笔记：文件流 - 托尼的部落格</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-tomorrow.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"always","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="笔记：文件流">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-22 00:18" pubdate>
+        2020年12月22日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">笔记：文件流</h1>
+            
+            <div class="markdown-body">
+              <h1 id="文件流"><a class="markdownIt-Anchor" href="#文件流"></a> 文件流</h1>
+<p>这里列举了一些和“文件”有关的概念，之后我应该还会重新整理一下。</p>
+<h2 id="一切皆文件"><a class="markdownIt-Anchor" href="#一切皆文件"></a> 一切皆文件</h2>
+<p>什么是文件？这是个很好的问题。我们可以读取，或者可以写入的东西，我们称为文件。计算机中很多东西，我们都可以读取或者写入，我们都可以把它们假装当作一个文件。</p>
+<p>我觉得“一切皆文件”是一个非常好的抽象。它表示了计算机本质上是对数据进行处理的工具。我们可以把计算机的任意一个部分看作一个小小的计算机，它可以接受数据，也可以输出数据。</p>
+<p>比如：</p>
+<p>键盘是文件，因为键盘可以向计算机输入数据。</p>
+<p>屏幕是文件，因为计算机可以向屏幕输入数据，之后屏幕通过显示的方式输出这些数据。</p>
+<p>TCP 链接是文件，因为我们可以从一个 TCP 链接中获取数据，也可以向一个 TCP 链接发送文件。</p>
+<p>这样做的好处是，我们可以把忽略硬件和软件上的不同，把他们抽象成一样的接口操作。</p>
+<ol>
+<li>这样我们就在硬件和软件之间有了统一的接口。我们可以随意组合输入和输出，比如我可以把 TCP 链接的输出发送到屏幕，也可以把键盘的输入输出到音响。</li>
+<li>这样打打降低了我们的学习成本，比如我们学会了怎么读写文本文件，我们可以把一个网络连接看作是一个文本文件。通过相同的读写操作，我们就可以向这个网络连接发送信息。</li>
+<li>提供一定层面上合理的抽象，比如我希望我的屏幕上显示一串文字，但是我不想操作每一个像素点是否发光。我只需要向屏幕按所需格式扔过去我想显示的文字，那么屏幕内部就会搞清楚哪个点发光，哪个点不发光。</li>
+</ol>
+<p>事实上我几乎不能想象不使用这样一种抽象的情景。</p>
+<p>对于刚接触的人，一切皆文件不是一个很容易理解的概念。因为现代计算机中有很多文件格式，而现代操作系统都很聪明，他们会自动帮我们找到对应的应用程序打开文件。所以刚接触的人并没有经历过把一个图片文件用文本方式打开的情景。对于键盘、鼠标、硬盘和网络连接这样看起来毫不相干的东西，是在是很难想到一个公共的模型来描述他们共有的特征。</p>
+<h2 id="基础命令"><a class="markdownIt-Anchor" href="#基础命令"></a> 基础命令</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>echo 字符串</td>
+<td>直接把input当成文本输出到output</td>
+</tr>
+<tr>
+<td>cat 文件名</td>
+<td>把输入视为文件名，输出这个文件里的内容</td>
+</tr>
+<tr>
+<td>命令 &gt; 文件名</td>
+<td>将命令的结果输入某文件（覆盖），不包括错误</td>
+</tr>
+<tr>
+<td>命令 &gt;&gt; 文件名</td>
+<td>将命令的结果附加在某文件末尾，不包括错误</td>
+</tr>
+<tr>
+<td>命令1 | 命令2</td>
+<td>将命令1的结果输入命令2</td>
+</tr>
+<tr>
+<td>命令 &amp;&gt; 文件名</td>
+<td>将命令的结果输入某文件（覆盖），包括错误</td>
+</tr>
+<tr>
+<td>命令 2&gt; 文件名</td>
+<td>只将命令的错误输入某文件（覆盖）</td>
+</tr>
+</tbody>
+</table>
+<p>值得注意的是</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo 1.txt | cat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>的输出是 1.txt ，因为这段代码相当于</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkfifo anonymiousPipe
+echo 1.txt &gt; anonymiousPipe
+cat anonymiousPipe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<p>echo 1.txt 是把 1.txt 这串字符输入到了 一个匿名的管道中，之后用 cat 读取这个匿名管道。得到 1.txt 这段字符</p>
+<p>上面提到了 <code>mkfifo</code>，这个命令就是用来生成管道的。我们除了可以用 <code>|</code>作为匿名管道，我们也可以用有名管道。</p>
+<p>管道同样是一个文件</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkfifo myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>我们可以创建一个管道文件</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">echo &quot;hello&quot; &gt; myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>向管道文件输入 “hello”</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cat myPipe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>从管道中获取输入</p>
+<h2 id="文件作为进程间通讯"><a class="markdownIt-Anchor" href="#文件作为进程间通讯"></a> 文件作为进程间通讯</h2>
+<h2 id="缓冲区"><a class="markdownIt-Anchor" href="#缓冲区"></a> 缓冲区</h2>
+<p>因为相对于 IO 操作来说，cpu 的速度太快了。所以我们一般是把要写的文件先存在缓冲区，之后再真正执行 IO 操作。比如说我们要向屏幕输出依次输出 <code>12345</code> 那么我们就要进行 5 次 IO。这样会拖慢速度，那么我们可以把 <code>12345</code> 先存到缓冲区，之后当缓冲区满了或者强制输出的时候，我们再把缓冲区的内容一并输出。</p>
+<h2 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h2>
+<p>我们可以在外部更改默认的输出位置。</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ python &gt;&gt; 1.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>这样我们默认在交互式python中默认的输出位置是追加到 1.txt 这个文件。那么我们 print 的内容不会在屏幕中显示，反而会出现在 1.txt 这个文件中。</p>
+<p>这里就是我们让 shell 告诉 python 它的默认输出位置在 1.txt 这个文件。</p>
+<p>除此以外，我们也可以在 python 内部告诉程序应该从哪里获得输入输出。</p>
+<p>Python 中 print 函数的高级用法</p>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">print (value,...,sep&#x3D;&#39;&#39;,end&#x3D;&#39;\n&#39;,file&#x3D;sys.stdout,flush&#x3D;False)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>其中的 file 参数就是输出的位置，sys.stdout 是默认输出到屏幕。</p>
+<p>那么我们可以打开一个文件，print 输出到这个文件。</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"output.txt"</span><span class="token punctuation">,</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">,</span><span class="token builtin">file</span> <span class="token operator">=</span> f<span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+<p>值得注意的是，只有在文件关闭或者缓冲区满了的时刻，文件的内容才会被修改。print 函数只是暂时把要修改的内容存到了缓冲区。</p>
+<p>我们还可以暂时把 stdout 换成一个文件</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"output.txt"</span><span class="token punctuation">,</span><span class="token string">"a"</span><span class="token punctuation">)</span>
+sys<span class="token punctuation">.</span>stdout <span class="token operator">=</span> f
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>可惜文件关闭之后我们就不能向屏幕输出信息了。</p>
+<p>除此以外，我们也可以使用 stdin 来实现更底层的输入机制。</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">sys<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">str</span> IP <span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span> 
+<span class="token comment"># 这里str IP 去掉最后的'\n'</span>
+<span class="token comment"># 和 input 不同，'\n' 不会默认去掉最后的换行</span>
+<span class="token comment"># 另外 stdin 不能输出提示，所以我们需要另外输出提示</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>我认为 input 和 print 可以看作是 stdout 和 stdin 的包装。而 stdout 可以看作是一个只写文件， stdin 可以看作是一个只读文件。所以归根结底，我们都可以通过写入或者读取文件的方式使用以上这些函数。</p>
+<h2 id="stringio-与-bytesio"><a class="markdownIt-Anchor" href="#stringio-与-bytesio"></a> StringIO 与 BytesIO</h2>
+<p>Python 提供了 StringIO 和 BytesIO 用来在内存里模拟文件。</p>
+<p>比如说我们希望对照片做一些处理，这个处理需要用到不容的库，但是因为某照片处理库只能接受文件名作为输入，那么我们就可以用 BytesIO 暂存一下照片的中间过程，等全部处理好之后在输出到硬盘上。</p>
+<h2 id="写后感"><a class="markdownIt-Anchor" href="#写后感"></a> 写后感</h2>
+<ol>
+<li>感觉看了 <code>sys.stdout</code> 和 <code>sys.stdin</code> 之后，<code>print</code> 和 <code>input</code> 这两个函数没那么拧巴了，理解它们到底在干嘛了。</li>
+<li>Unix 、C 语言 和 TCP / IP 协议栈是一个整体，它们在设计的时候就很有同一性。它们里面的概念都很类似，而且组合使用起来非常方便。比如 C 语言的内存分配模型和 类 Unix 系统的进程组合工作的非常好， TCP / IP 的接口和 一切皆文件的抽象 组合起来也没有不舒服的地方。 http 中的地址和 类 Unix 系统的地址也是相似的。之前总觉得 Windows 的地址居然用反斜杠作为分隔符，实在是不能理解，现在觉得可能只是和太多和网络有关的软硬件借鉴了 Unix 的实现，而网络作为目前最重要的计算机应用，才会显得 Windows 和其他系统或软件不协调。</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E9%87%8F%E5%9C%BA%E5%92%8C%E5%90%91%E9%87%8F%E5%9C%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">笔记：数量场和向量场</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%BA%8F%E5%88%97%E6%9E%81%E9%99%90/">
+                        <span class="hidden-mobile">笔记：数学分析第六章序列极限</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+    
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
