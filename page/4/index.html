@@ -39,7 +39,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -51,7 +51,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -141,12 +141,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+            <span class="h2" id="subtitle" title="可惜这里地方太小，写不下">
               
             </span>
 
@@ -174,46 +174,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/">笔记：多元微分学</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/">
-          
-          
-            
-          
-          
-其实暑假就在学多元微积分了，可惜一直懒，没有写博客。最近微积分课用到了一些多元微积分的内容，那就写个笔记复习吧。
-
-我觉得鞍点和隐函数存在定理是比较难的部分，因为在一元函数里，这两个很好证，但是在多元里，我们要考虑不同的方向。求偏导的时候也得想着固定哪个参数不动。
- 偏微分
-首先是偏微分，偏微分的意义是当所有其他变量固定的时候，单独动一个变量，整个函数怎么变。
-fx(x,y)=lim⁡Δx→0f
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 14:20" pubdate>
-              2020-11-29
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
 
   <div class="row mx-auto index-card">
     
@@ -577,6 +537,45 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
             <i class="iconfont icon-date"></i>
             <time datetime="2020-09-18 21:44" pubdate>
               2020-09-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AC++%20%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E5%92%8C%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92/">文章：C++ 引用传递和指针传递</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AC++%20%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E5%92%8C%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92/">
+          
+          
+            
+          
+           C++ 引用传递和指针传递
+ 0x00 指针传递
+指针传递让函数在内部操作外部的数据，同时在一定程度上也减少了内存的消耗。
+这类函数接受指针作为输入，内部可以对指针指向的值做更改。
+12345void swap_ptr(int *x, int *y)&#123;    int temp = *x;    *x = *y;    *y = temp;&#125;
+相当于构造了两个局部指针变量，x，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-16 14:05" pubdate>
+              2020-09-16
             </time>
           </div>
         
