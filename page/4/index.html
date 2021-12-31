@@ -1,25 +1,33 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="托尼的部落格">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>托尼的部落格</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -29,7 +37,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -39,7 +47,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -50,8 +58,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -125,13 +134,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -181,25 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9B%AE%E5%BD%95/">笔记：多元微积分目录</a>
+        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AE%A1%E9%81%93%E7%9A%84%E5%B0%8F%E5%BA%94%E7%94%A8/" target="_self">
+          文章：一个管道的小应用
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9B%AE%E5%BD%95/">
+        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AE%A1%E9%81%93%E7%9A%84%E5%B0%8F%E5%BA%94%E7%94%A8/" target="_self">
           
-          
-            
-          
-          主要分为几个方面：
-实际上这里是四个东西
-标量输入，标量输出 -&gt; 单变量函数
-标量输入，向量输出 -&gt; 向量值函数 -&gt; 空间中的一条曲线线
-向量输入，标量输出 -&gt; 多元函数 -&gt; (一个标量场F(x,y,z)=0) 或者是 (空间中的一个超曲面F(x,y)=z)
-向量输入，向量输出 -&gt; 向量函数 -&gt; 一个向量场
-基础知识
-
-向量的加法乘法
-三种坐
+          最近在整理博客的文章，觉得不论是图形化的文件管理器还是终端都不太懂能满足需求，所以就写了一个小 demo 表达一下诉求。手动狗头。   需求 目前我的需求是一站式编辑、预览文档，有终端，可以方便得查看目录。 目前的解决方案是用 tmux 开三个小窗口，一个预览文档，一个显示目录，一个作为终端。  代码 有三（四）个小程序与之对应 12345678910111213# nls.py (newlis
         </a>
       </p>
 
@@ -207,8 +207,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 16:51" pubdate>
-              2020-11-29
+            <time datetime="2021-01-16 16:51" pubdate>
+              2021-01-16
             </time>
           </div>
         
@@ -224,22 +224,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/">笔记：多元微分学</a>
+        <a href="/2021/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part-4/" target="_self">
+          读书笔记：科学哲学 Part 4
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/">
+        <a href="/2021/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part-4/" target="_self">
           
-          
-            
-          
-          
-其实暑假就在学多元微积分了，可惜一直懒，没有写博客。最近微积分课用到了一些多元微积分的内容，那就写个笔记复习吧。
-
-我觉得鞍点和隐函数存在定理是比较难的部分，因为在一元函数里，这两个很好证，但是在多元里，我们要考虑不同的方向。求偏导的时候也得想着固定哪个参数不动。
- 偏微分
-首先是偏微分，偏微分的意义是当所有其他变量固定的时候，单独动一个变量，整个函数怎么变。
-fx(x,y)=lim⁡Δx→0f
+          0x00 实在在论和反实在论 实在论：认为科学的目的是对世界作出正确的描述。 反实在论：科学在某些地方不能给出正确的描述。 比如过，反实在论者可能会说，我们只能对“可观察”的物体作出正确的描述，对于不可观察的物体，我们不能给出正确的描述。比如：我们能正确描述桌子椅子，但是对于像电子、原子这样的物体，我们不可能正确描述他们。 反实在论者认为，不可观察的物体都是科学家虚构的，只是为了描述或者预测可观
         </a>
       </p>
 
@@ -247,8 +240,8 @@ fx(x,y)=lim⁡Δx→0f
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 14:20" pubdate>
-              2020-11-29
+            <time datetime="2021-01-05 21:50" pubdate>
+              2021-01-05
             </time>
           </div>
         
@@ -264,23 +257,15 @@ fx(x,y)=lim⁡Δx→0f
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E6%98%AF%E5%A6%82%E4%BD%95%E8%81%94%E7%B3%BB%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E9%80%86%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84/">笔记：高斯消元法是如何联系线性方程组、矩阵逆和行列式的</a>
+        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%9C%89%E5%85%B3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8CGUI%E5%8E%86%E5%8F%B2/" target="_self">
+          草稿：有关操作系统和GUI历史
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E6%98%AF%E5%A6%82%E4%BD%95%E8%81%94%E7%B3%BB%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E9%80%86%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84/">
+        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%9C%89%E5%85%B3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8CGUI%E5%8E%86%E5%8F%B2/" target="_self">
           
-          
-            
-          
-          把线性方程组看成增广矩阵。对增广矩阵进行矩阵行变换，我们得到等价的增广矩阵。
-我们知道
-Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了Ax = b\\
-RRRRAx = RRRRb\\
-{\rm 如果我们能让RRRRA = I就好了}
-Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
-那么我们一定能找到，因为RRRRA一定对应一个高斯消元。
-我们有三种基本行变换：
+          本篇计划介绍操作系统和GUI的历史 但是最近不太有时间，所以先把参考资料连接放在这里  Dos CS322: Some Typical Operating Systems: MS&#x2F;DOS, VMS, and Unix Linux终端&#x2F;图形界面与桌面环境 揭开Wayland的面纱（一）：X Window的前生今世 揭开Wayland的面纱（二）：Wayland应运而生
         </a>
       </p>
 
@@ -288,8 +273,8 @@ Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-19 19:46" pubdate>
-              2020-11-19
+            <time datetime="2021-01-05 18:34" pubdate>
+              2021-01-05
             </time>
           </div>
         
@@ -305,26 +290,15 @@ Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E4%BB%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9C%8B%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E5%92%8C%E4%B8%80%E9%98%B6%E9%80%BB%E8%BE%91/">草稿：（两篇内容）逻辑的发展和如何用python 表示 prolog 程序</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" target="_self">
+          笔记：有关向量空间的知识结构
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E4%BB%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9C%8B%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E5%92%8C%E4%B8%80%E9%98%B6%E9%80%BB%E8%BE%91/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" target="_self">
           
-          
-            
-          
-           逻辑的发展
- 逻辑三段论
-逻辑三段论可能是形式最简单、历史最悠久的逻辑了。一般来说它有以下形式
-123大前提：所有 某类物体 都具有 某性质小前提：某个个体 是 某类物体结论：  某个个体具有某某性质
-虽然它很简单，但是很有用。
-比如我们在试图反驳某些观点的时候，我们可以这样：
-反驳：板蓝根是中药，所以它没用
-这句话的大前提是 所有中药都是没用的
-小前提是 板蓝根是中药
-结论 板蓝根没用
-然而这
+          先定义向量空间，之后定义子空间。用最小生成集的基数定义向量空间维度。定义生成集和线性不相关，之后联系子空间分析向量空间的维度性质(线性不相关基数 le 基数 le 生成集)。最后定义线性映射，   向量空间 定义： 满足 交换群 数乘的单位元 数乘的结合律 两个分配律 证明满足性质：  nx&#x3D;x+x+⋯+xnx &#x3D; x + x + \cdots+xnx&#x3D;x+x+⋯+x 0x&#x3D;00x &#x3D; 00x&#x3D;
         </a>
       </p>
 
@@ -332,8 +306,8 @@ Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-11 21:22" pubdate>
-              2020-11-11
+            <time datetime="2021-01-02 01:42" pubdate>
+              2021-01-02
             </time>
           </div>
         
@@ -349,22 +323,15 @@ Ax=bRRRRAx=RRRRb如果我们能让RRRRA=I就好了
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%87%AA%E7%84%B6%E6%95%B0%E5%8A%A0%E6%B3%95%E5%92%8C%E4%B9%98%E6%B3%95%E6%80%A7%E8%B4%A8%E8%AF%81%E6%98%8E%E7%9A%84%E9%A1%BA%E5%BA%8F/">笔记：自然数加法和乘法性质证明的顺序</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/" target="_self">
+          未完成：散度和通量
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%87%AA%E7%84%B6%E6%95%B0%E5%8A%A0%E6%B3%95%E5%92%8C%E4%B9%98%E6%B3%95%E6%80%A7%E8%B4%A8%E8%AF%81%E6%98%8E%E7%9A%84%E9%A1%BA%E5%BA%8F/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/" target="_self">
           
-          
-            
-          
-          x+0=0+x(x+y)+z=x+(y+z)x+1=1+xx+y=y+x1×x=x×1=x(x+y)×z=x×z+y×zx×y=y×x(x×y)×z=x×(y×z)x+0 = 0+x\\
-(x+y)+z=x+(y+z)\\
-x+1=1+x\\
-x+y=y+x\\
-1\times x=x\times 1=x\\
-(x+y)\times z = x\times z + y\times z\\
-x\ti
+          这里的内容我都没有正式学过，所以了解不太清楚，现在大概了解一下这些怎么算，方便以后学的时候快点。   线积分 向量值函数上的线积分类似，我们可以求一个向量场中一条曲线上线积分。 ∫CF⋅dr&#x3D;∫CF⋅drdtdt&#x3D;∫C(Mi+Nj+Pk)⋅(x′(t)i+y′(t)j+z′(t)k)dt&#x3D;∫CMdx+Ndy+Pdz\begin{aligned} \int _C F \cdot dr &amp;
         </a>
       </p>
 
@@ -372,8 +339,8 @@ x\ti
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-23 13:07" pubdate>
-              2020-10-23
+            <time datetime="2021-01-01 15:08" pubdate>
+              2021-01-01
             </time>
           </div>
         
@@ -389,19 +356,15 @@ x\ti
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython%20%E6%98%9F%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E6%A8%A1%E6%8B%9F%20Haskell%20%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">文章：Python 星号表达式，模拟 Haskell 模式匹配</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E9%87%8F%E5%9C%BA%E5%92%8C%E5%90%91%E9%87%8F%E5%9C%BA/" target="_self">
+          笔记：数量场和向量场
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython%20%E6%98%9F%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E6%A8%A1%E6%8B%9F%20Haskell%20%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E9%87%8F%E5%9C%BA%E5%92%8C%E5%90%91%E9%87%8F%E5%9C%BA/" target="_self">
           
-          
-            
-          
-           Python 的星号表达式，模拟 Haskell 模式匹配
-简略写写 星号表达式 的语法。
-首先是星号可以表示变长参数。
-123456789def add_first_two(a,b,*args,key1,key2,**kwargs):    try:        print(key1)        print(key2)    except:        pass    finally:
+          0x00 数量场 我们可以把函数 z&#x3D;f(x,y)z &#x3D; f(x,y)z&#x3D;f(x,y) 看作是一个在二维平面上的数量场，每一个点都有一个数值与之对应。我们也可以把它看作一个是三维空间中的曲面。 这样我们研究 y&#x3D;f(x1,x2,x3)y &#x3D; f(x_1,x_2,x_3)y&#x3D;f(x1​,x2​,x3​) 的时候比较方便想象。（我瞎说的） 类似的，我们可以把高维超曲面看作是低一个维度的数量场。（我瞎
         </a>
       </p>
 
@@ -409,8 +372,8 @@ x\ti
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-18 00:06" pubdate>
-              2020-10-18
+            <time datetime="2020-12-31 22:33" pubdate>
+              2020-12-31
             </time>
           </div>
         
@@ -426,25 +389,15 @@ x\ti
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9Apython%20%E7%9A%84%20%E4%B8%A4%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8/">笔记：python 的 两个装饰器</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%96%87%E4%BB%B6%E6%B5%81/" target="_self">
+          笔记：文件流
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9Apython%20%E7%9A%84%20%E4%B8%A4%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%96%87%E4%BB%B6%E6%B5%81/" target="_self">
           
-          
-            
-          
-           python 的 两个装饰器
-
-两个装饰器，一个用来自动把递归转化为记忆化递归。另一个用来强制类型检查。
-那就记录在这里啦
-
- 0x00 记忆化递归
-
-后来发现 functool 里内置了这个函数
-
-12345678910def memorise(func):    def warpper(*args):        if memory.get((*args,func)):          
+          文件流 这里列举了一些和“文件”有关的概念，之后我应该还会重新整理一下。  一切皆文件 什么是文件？这是个很好的问题。我们可以读取，或者可以写入的东西，我们称为文件。计算机中很多东西，我们都可以读取或者写入，我们都可以把它们假装当作一个文件。 我觉得“一切皆文件”是一个非常好的抽象。它表示了计算机本质上是对数据进行处理的工具。我们可以把计算机的任意一个部分看作一个小小的计算机，它可以接受数据，也
         </a>
       </p>
 
@@ -452,8 +405,8 @@ x\ti
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-16 23:22" pubdate>
-              2020-10-16
+            <time datetime="2020-12-22 00:18" pubdate>
+              2020-12-22
             </time>
           </div>
         
@@ -469,24 +422,15 @@ x\ti
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E8%AF%AD%E4%B9%89%E9%99%B7%E9%98%B1/">文章：编程语言中的语义陷阱</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%BA%8F%E5%88%97%E6%9E%81%E9%99%90/" target="_self">
+          笔记：数学分析第六章序列极限
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E8%AF%AD%E4%B9%89%E9%99%B7%E9%98%B1/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%BA%8F%E5%88%97%E6%9E%81%E9%99%90/" target="_self">
           
-          
-            
-          
-          
-编程语言里的很多符号都借鉴自数学中的符号。可是一些时候，他们的语义和我们预想的往往并不相同。这里我来列举一些我遇到的语义陷阱。
-这篇可以和我的另一篇，数学中的等号的语义结合起来看。
-PS : 之后我接触了一下 Haskell，似乎这里所有的问题都解决了 🤦‍♀️
-
-在初学编程的时候，我经常会搞混 = 和==。
- 赋值语句
-我们学编程的第一条语句 赋值 就是一个语义陷阱。
-这是一个老生常谈的问题
+          实数的柯西序列 现在我们需要引入实数的柯西序列。 定义实数的柯西序列。并且证明有理数的柯西序列是实数的柯西序列。因为我们可以取一个比实数 ϵ0\epsilon_0ϵ0​ 更小的 有理数 ϵ1\epsilon_1ϵ1​ 让有理柯西序列小于有理ϵ1\epsilon_1ϵ1​ 这样一定小于实数 ϵ0\epsilon_0ϵ0​。  数列收敛 序列极限唯一。反证法：设同时收敛于 L,L′L,L&amp;#x27;
         </a>
       </p>
 
@@ -494,8 +438,8 @@ PS : 之后我接触了一下 Haskell，似乎这里所有的问题都解决了 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-11 01:33" pubdate>
-              2020-10-11
+            <time datetime="2020-12-08 15:33" pubdate>
+              2020-12-08
             </time>
           </div>
         
@@ -511,24 +455,15 @@ PS : 之后我接触了一下 Haskell，似乎这里所有的问题都解决了 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9Apython%20%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%9Aroperty,%20%20classmethod,%20staticmethod/">文章：python 装饰器：roperty,  classmethod, staticmethod</a>
+        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90/" target="_self">
+          未完成：泰勒级数的误差分析
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9Apython%20%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%9Aroperty,%20%20classmethod,%20staticmethod/">
+        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90/" target="_self">
           
-          
-            
-          
-           python 里的一些装饰器
-
-这篇文章主要介绍 property,  classmethod, staticmethod 这三个装饰器
-
- 0x00 @property
- 函数调用作属性
-property 这个装饰器可以把函数调用当作对象的属性
-直接看例子会比较清楚
-123456789class Matrix():    def __init__(self,data):        self
+          泰勒级数 f(x0+h)&#x3D;f(x0)+f′(x0)h+f′′(x0)2!h2+⋯+f′′(x0)2!h2+Rnf(x_{0}+h) &#x3D; f(x_{0}) + f&amp;#x27;(x_{0})h+\frac{f&amp;#x27;&amp;#x27;(x_{0})}{2!} h^{2} + \cdots +\\ \frac{f&amp;#x27;&amp;#x27;(x_{0})}{2!} h^{2} + R_n f(x0​+h)&#x3D;
         </a>
       </p>
 
@@ -536,8 +471,8 @@ property 这个装饰器可以把函数调用当作对象的属性
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-30 13:45" pubdate>
-              2020-09-30
+            <time datetime="2020-12-07 13:57" pubdate>
+              2020-12-07
             </time>
           </div>
         
@@ -553,24 +488,15 @@ property 这个装饰器可以把函数调用当作对象的属性
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9B%B2%E7%BA%BF%E8%AE%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">笔记：曲线论的一些公式推导</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%94%E7%AB%A0%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97/" target="_self">
+          笔记：数学分析第五章柯西序列
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9B%B2%E7%BA%BF%E8%AE%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%94%E7%AB%A0%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97/" target="_self">
           
-          
-            
-          
-           曲线论的一些公式推导
- 曲线在三维空间中的表示
-曲线可以用向量值函数表示。
-r⃗(t)=x(t)i+y(t)j+z(t)k\vec r(t) = x(t)\bold i + y(t)\bold j +z(t)\bold k
-r(t)=x(t)i+y(t)j+z(t)k
-它的意义是把直线上的一个区间映射到空间中，之后的线积分啥的都用到这个意义。
- 速度 加速度
-\begin{split}
-\vec
+          柯西序列 给出概念：ϵ\epsilonϵ 稳定 和 最终 ϵ\epsilonϵ 稳定。最终ϵ\epsilonϵ 稳定是为了解决对数列开头的数字太敏感的问题。 有理数的柯西序列。 等价的有理柯西序列通过最终 ϵ\epsilonϵ 接近定义。 1.1 1.01 1.001 1.0001 … 2 1.1 1.01 1.001 1.0001 … 等价的有理柯西序列。 定义实数：一个有理柯西序列的形式极限
         </a>
       </p>
 
@@ -578,8 +504,8 @@ r(t)=x(t)i+y(t)j+z(t)k
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-30 10:53" pubdate>
-              2020-09-30
+            <time datetime="2020-12-06 19:50" pubdate>
+              2020-12-06
             </time>
           </div>
         
@@ -593,15 +519,9 @@ r(t)=x(t)i+y(t)j+z(t)k
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -613,7 +533,7 @@ r(t)=x(t)i+y(t)j+z(t)k
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -656,10 +576,11 @@ r(t)=x(t)i+y(t)j+z(t)k
   
 </footer>
 
-<!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -670,22 +591,25 @@ r(t)=x(t)i+y(t)j+z(t)k
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
@@ -694,37 +618,15 @@ r(t)=x(t)i+y(t)j+z(t)k
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -743,7 +645,6 @@ r(t)=x(t)i+y(t)j+z(t)k
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

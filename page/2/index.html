@@ -1,25 +1,33 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="托尼的部落格">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>托尼的部落格</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -29,7 +37,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -39,7 +47,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -50,8 +58,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -125,13 +134,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -181,19 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%81%9A%E6%80%A7%E6%A0%BC%E5%88%86%E6%9E%90/">为什么我不喜欢做性格分析</a>
+        <a href="/2021/%E7%BE%A4%E8%AE%BA%E6%80%9D%E8%B7%AF/" target="_self">
+          群论思路
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%81%9A%E6%80%A7%E6%A0%BC%E5%88%86%E6%9E%90/">
+        <a href="/2021/%E7%BE%A4%E8%AE%BA%E6%80%9D%E8%B7%AF/" target="_self">
           
-          
-            
-          
-          
-emm 这应该是第一篇含有我的个人观点的博客，之前我一直不敢在博客上表达自己的观点，因为我觉得短短一篇博客不太能把一个观点表述完整，这样会引起很多没必要的争议。但是我觉得不喜欢性格分析这个观点是安全的，我并不是说性格分析没有用或者怎么样，我只是表达我自己的喜好。
-
-有时候别人会让我做 mbti 量表或者其他分析性格的什么的，虽然做这些玩意很有趣，但是做过之后我觉得我还是不要喜欢这样的性格分析了。
+          陪集  子群的偏移 拉格朗日定理  陪集的大小一致 陪集构成一个划分    共轭类   共轭类构成一个划分   共轭子群：对于子群H，任取固定元素 g，gHg-1 是一个子群，不一定是 H   正规子群  共轭子群是自己 ghg-1 \in H    商群  关于某个正规子群的所有陪集构成的集合的集合 操作是陪集乘法 锥形映射  同态  3+1个定理  H 是子群，f(H) 是 f(G) 的子群
         </a>
       </p>
 
@@ -201,383 +207,305 @@ emm 这应该是第一篇含有我的个人观点的博客，之前我一直不�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-24 18:25" pubdate>
+            <time datetime="2021-04-25 00:27" pubdate>
+              2021-04-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E6%8A%BD%E8%B1%A1/" target="_self">
+          学习的本质是抽象
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E6%8A%BD%E8%B1%A1/" target="_self">
+          
+          学习是熟悉某领域的一套话语体系 对这个领域进行抽象 人类理解事物的方式是 不理解，不思考；把底层当作黑箱 接受新概念，新概念悬浮在空中，偶尔能撞对，在合适的时机使用新概念。 通过尝试建立感觉，什么时机使用新概念。 通过总结，建立一套方法论，在合适的时机使用新概念。但是值得注意的是，这里的总结只是助记，而非概念之间真的有什么联系。（至于任何事物之间到底有没有任何联系，我们不知道） 零碎概念 - 模糊
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-09 04:06" pubdate>
+              2021-04-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E7%BB%99%E7%9B%B8%E5%90%8C%E7%9A%84%E5%87%BD%E6%95%B0%E8%B5%B7%E4%B8%8D%E5%90%8C%E7%9A%84%E5%90%8D%E5%AD%97%EF%BC%8C%E4%B8%8D%E5%90%8C%E7%9A%84%E5%87%BD%E6%95%B0%E8%B5%B7%E7%9B%B8%E5%90%8C%E7%9A%84%E5%90%8D%E5%AD%97/" target="_self">
+          为什么我们要给相同的函数起不同的名字，不同的函数起相同的名字
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E7%BB%99%E7%9B%B8%E5%90%8C%E7%9A%84%E5%87%BD%E6%95%B0%E8%B5%B7%E4%B8%8D%E5%90%8C%E7%9A%84%E5%90%8D%E5%AD%97%EF%BC%8C%E4%B8%8D%E5%90%8C%E7%9A%84%E5%87%BD%E6%95%B0%E8%B5%B7%E7%9B%B8%E5%90%8C%E7%9A%84%E5%90%8D%E5%AD%97/" target="_self">
+          
+          他们的本质都是为了抽象，本质上说，他们都是为了实现接口化编程而生的。 相同的函数不同的名字，是为了隐藏实现细节。（在 Lisp 中比较常见，C 系 和 ml 系中见的应该比较少，他们有更具体的类型构造系统）。 不同的函数，相同的名字是为了实现 ad hoc 多态，实现接口。  相同的函数，不同的名字 123456789(define mk-frac-proto cons)(define numer
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-06 21:21" pubdate>
+              2021-04-06
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/Java-Generic-%E5%92%8C-Cpp-Template/" target="_self">
+          Java Generic 和 Cpp Template
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/Java-Generic-%E5%92%8C-Cpp-Template/" target="_self">
+          
+          Java Generic 更像一种类型，它只能作用在 Object （这里的 Object 更像指针）上。如果有需要用到某类型的方法的时候，通过 down cast 和虚表机制来寻找函数。因为 Java 用了 Object 来表示指针，所以在编译的时候，我们已经知道 size 信息，所以我们只编译出一份代码。 Cpp template 更像是一种宏，他不能用 &lt;T extends Compa
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-06 21:12" pubdate>
+              2021-04-06
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%20Haskell%20%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8F%98%E9%95%BF%E5%8F%82%E6%95%B0/" target="_self">
+          为什么 Haskell 不需要变长参数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%20Haskell%20%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8F%98%E9%95%BF%E5%8F%82%E6%95%B0/" target="_self">
+          
+          在 lisp 中 变长参数是非常重要的特性，但是它可以被传入一个列表严格替代。 对于所有程序，都有公共的模式  如果问题可以直接解决：直接解决 如果问题不能直接解决：  对问题分类 解决每类问题 如果依然不能直接解决  考虑把问题变成更小的问题      现在看变长参数  变长参数被表示为 一个表 可能包含任意类型 Haskell 里不方便定义任意类型 然而一段程序只能处理有限个类别的问题 定义一
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-06 19:23" pubdate>
+              2021-04-06
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/SICP-%E7%AC%94%E8%AE%B0/" target="_self">
+          SICP 笔记
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/SICP-%E7%AC%94%E8%AE%B0/" target="_self">
+          
+          Understanding a language :  The primitives The ways of combinations The ways of abstractions  The key to understand complicated things is to not look at the detail. You have the name of sprites, you h
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-05 20:52" pubdate>
+              2021-04-05
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AD%E4%B9%89%E9%97%AE%E9%A2%98%EF%BC%9A%E6%8B%B7%E8%B4%9D%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E6%A8%A1%E7%B3%8A/" target="_self">
+          笔记：编程语言的语义问题：拷贝和引用的模糊
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AD%E4%B9%89%E9%97%AE%E9%A2%98%EF%BC%9A%E6%8B%B7%E8%B4%9D%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E6%A8%A1%E7%B3%8A/" target="_self">
+          
+          编程语言的语义问题：拷贝和引用的模糊 对于基本类型，等号的默认语义是拷贝 1234x &#x3D; 5;y &#x3D; x;x &#x3D; 6;cout &lt;&lt; &quot;x: &quot; &lt;&lt; x &lt;&lt; &quot;; y: &quot; &lt;&lt; y &lt;&lt; endl; 显然会输出 x: 6; y: 5 但是在 python 中，对于对象，等号的默认语义是引用 1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-20 19:36" pubdate>
+              2021-03-20
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E5%85%B3%E4%BA%8E%E5%88%B0%E5%BA%95%E9%9C%80%E8%A6%81%E5%AD%A6%E4%BB%80%E4%B9%88/" target="_self">
+          关于到底需要学什么
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E5%85%B3%E4%BA%8E%E5%88%B0%E5%BA%95%E9%9C%80%E8%A6%81%E5%AD%A6%E4%BB%80%E4%B9%88/" target="_self">
+          
+          之前高中的时候，所以经常会提前看一些内容，或者自学一些内容。这样在真正学的时候也会比较轻松，考试分数也有保障。 但是我最近觉得这在大学不太行的通了。因为第一，没有每天例行的上课，如果在一个问题上太钻牛角尖，容易影响其他课程。第二，这不是高效利用时间的方式。上课，听讲，写作业才是高效利用时间的方式。我现在不需要考第一，不需要在朋友面前 show off，因为我确实也没办法 show off。一步一步
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-18 18:56" pubdate>
+              2021-03-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%BE%AE%E5%88%86/" target="_self">
+          笔记：数学分析第十章微分
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%BE%AE%E5%88%86/" target="_self">
+          
+          
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-03 11:40" pubdate>
+              2021-03-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E9%AB%98%E9%98%B6%E9%80%BB%E8%BE%91/" target="_self">
+          笔记：有关高阶逻辑
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E9%AB%98%E9%98%B6%E9%80%BB%E8%BE%91/" target="_self">
+          
+          证明：我是神 P：我不是神 Q：P 和 Q 中有且只有一个是真的 使用真值表，可知，无论 Q 值如何，P 恒为假。  看起来这个证明 “天衣无缝“，然而很明显这个证明是非法的。 这里是一个知乎上的回答，我还需要再多看看书再讨论这个问题。但是我觉得很有趣，就先把这个回答列在这里，以后补上。 作者：鍵山怜奈 链接：https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;366177449&#x2F;an
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-24 23:28" pubdate>
               2021-02-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E5%B7%A5%E5%85%B7%E8%AE%BA%EF%BC%8C%E6%88%91%E9%83%BD%E7%94%A8%E5%95%A5%E8%BD%AF%E4%BB%B6/">工具论，我都用啥软件</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E5%B7%A5%E5%85%B7%E8%AE%BA%EF%BC%8C%E6%88%91%E9%83%BD%E7%94%A8%E5%95%A5%E8%BD%AF%E4%BB%B6/">
-          
-          
-            
-          
-          
-这里介绍一下我用的一些软件和我对软件选择和学习的看法。
-
-首先是我选择软件的看法
-
-不被单一软件绑定
-
-尽量选择全平台通用的软件，或者迁移成本低的软件
-因为平台独占软件会把你绑定在某个平台，这样切换平台时会很痛苦
-
-
-不要为了使用工具而使用工具
-
-很多时候我们没有需求，而给自己创造需求
-只有在使用的过程中发现问题，再找软件解决
-
-
-不要想让一个软件做所有事
-
-每个软件都有自己最擅长的部分
-比如说
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-14 13:46" pubdate>
-              2021-02-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%88%91%E6%80%8E%E4%B9%88%E7%9C%8B%20OOP/">草稿：我怎么看 OOP</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%88%91%E6%80%8E%E4%B9%88%E7%9C%8B%20OOP/">
-          
-          
-            
-          
-          除了大家常说的那些好处和不足以外，我个人还觉得 OOP 提供了一种对指针的抽象和一种安全的 metaprogramming 的思维方式。
-OOP 有三个特点，封装、继承和多态。
-封装是一种抽象方式，所有语言都会提供抽象方式，我觉得封装并不是很神奇。
-但是对于继承和多态，我认为他们是一种 metaprogramming。
- 继承
-继承是给 “子类” 提供了一些 函数 的 “默认实现”。如果没有 “继
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-13 23:07" pubdate>
-              2021-02-13
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%B1%82%E5%AF%BC/">笔记：另一个角度看求导</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%B1%82%E5%AF%BC/">
-          
-          
-            
-          
-          求导可以看作是作用在函数 f 上的一个高阶函数
-123456D :: (R -&gt; R) -&gt; (R -&gt; R)D(f) = g  where  g x =      lim (x1 -&gt; x0 ; x1 : (R - &#123;x1&#125;))        ((f(x0) - f(x1)) / (x0 - x1))
-之前我定义过实数了，现在应该可以定义一个永远算不完
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 17:45" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">笔记：常系数线性微分方程</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
-          
-          
-            
-          
-          
-这篇里面怎么求特解的部分是我总结的，书上没有。
-
- 思路
-L:(R→R)→(R→R)\mathcal L : (\R \rightarrow \R) \rightarrow (\R \rightarrow \R)L:(R→R)→(R→R) 是一个函数的函数它的定义是
-L[y]=∑i=0kαi(x)Dk[y]\mathcal L [y] = \sum^{k}_{i=0}\alpha_{i}(x)\
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 16:42" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%87%A0%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E7%AD%89%E4%BA%8E%E5%8F%B7/">笔记：几种不同的等于号</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%87%A0%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E7%AD%89%E4%BA%8E%E5%8F%B7/">
-          
-          
-            
-          
-          第一个是数值的等号
-5+3=852=255 + 3 = 8\\
-5^2 = 25
-5+3=852=25
-第二个是函数之间的等号
-意思是
-∀x,f(x)=数值等于g(x)\forall x, f(x) = ^{\rm 数值等于} g(x)
-∀x,f(x)=数值等于g(x)
-平常会吧 ∀x\forall x∀x 省略，默认就是这个
-这里有一些有趣的操作
-∀x,f(x)=g(x)  ⟹  ∀x,dfdx
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 15:15" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%B9%9D%E7%AB%A0%E8%BF%9E%E7%BB%AD%E3%80%81%E4%B8%80%E8%87%B4%E8%BF%9E%E7%BB%AD/">笔记：数学分析第九章连续、一致连续</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%B9%9D%E7%AB%A0%E8%BF%9E%E7%BB%AD%E3%80%81%E4%B8%80%E8%87%B4%E8%BF%9E%E7%BB%AD/">
-          
-          
-            
-          
-          
-这里暂时略过第七、第八章的内容, 以后补充。
-
-
-第七章是级数，我觉得比较难的是 fubini 定理。第八章是选择公理，我有点看不太懂，就略过了。
-
- 闭集、紧致集和闭区间
-第九章先介绍了集合 A 的附着点的概念。如果一个点的周围有 A 中的元素，那么这个点就是集合 A 的附着点。
-所有附着点可以构成一个闭包。
-附着点包括极限点和孤立点，极限点就是除了这个点周围还有这个集合的元素(区间中间或者端
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-07 00:06" pubdate>
-              2021-02-07
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%BB%E8%BE%91-Part1/">笔记：逻辑- Part1</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%BB%E8%BE%91-Part1/">
-          
-          
-            
-          
-           句法、语义和证明
-一个逻辑系统有三部分组成 syntax, semantics, and proof theory.
- 命题逻辑的句法
-这里只是句法，他们不包含任何意思，只是符合某种要求的字符串。只有引入语义之后，他们才有意思。
-我们用 BNF 定义句法
-原子是可以赋布尔值的变量
-T 和 反T 是逻辑关联词！！！没有任何含义
-1234567891011121314151617atom : &qu
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-18 21:21" pubdate>
-              2021-01-18
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E5%8F%8D%E8%AF%81%E6%B3%95%E8%AF%81%E6%98%8E%E7%9A%84%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%EF%BC%9F/">笔记：是否存在必须使用反证法证明的逻辑命题？</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E5%8F%8D%E8%AF%81%E6%B3%95%E8%AF%81%E6%98%8E%E7%9A%84%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%EF%BC%9F/">
-          
-          
-            
-          
-          是存在的，但是有前提条件。具体我也不清楚，但是我决定先把结论记下来，以后再去读数理逻辑深入研究。
-已知皮尔士公式：((p  ⟹  q)  ⟹  p)  ⟹  p((p \implies q) \implies p) \implies p((p⟹q)⟹p)⟹p 只能用反证法证明。
-但是我们可以通过画真值表的方式“证明”。
-这里说的证明和证明不是一个意思。我们在这里讨论的证明必须使用公理，在形式上证明
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-18 18:00" pubdate>
-              2021-01-18
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AE%A1%E9%81%93%E7%9A%84%E5%B0%8F%E5%BA%94%E7%94%A8/">文章：一个管道的小应用</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%AE%A1%E9%81%93%E7%9A%84%E5%B0%8F%E5%BA%94%E7%94%A8/">
-          
-          
-            
-          
-          
-最近在整理博客的文章，觉得不论是图形化的文件管理器还是终端都不太懂能满足需求，所以就写了一个小 demo 表达一下诉求。手动狗头。
-
- 需求
-目前我的需求是一站式编辑、预览文档，有终端，可以方便得查看目录。
-目前的解决方案是用 tmux 开三个小窗口，一个预览文档，一个显示目录，一个作为终端。
- 代码
-有三（四）个小程序与之对应
-12345678910111213# nls.py (newlis
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-16 16:51" pubdate>
-              2021-01-16
             </time>
           </div>
         
@@ -591,15 +519,9 @@ T 和 反T 是逻辑关联词！！！没有任何含义
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -611,7 +533,7 @@ T 和 反T 是逻辑关联词！！！没有任何含义
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -654,10 +576,11 @@ T 和 反T 是逻辑关联词！！！没有任何含义
   
 </footer>
 
-<!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -668,22 +591,25 @@ T 和 反T 是逻辑关联词！！！没有任何含义
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
@@ -692,37 +618,15 @@ T 和 反T 是逻辑关联词！！！没有任何含义
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -741,7 +645,6 @@ T 和 反T 是逻辑关联词！！！没有任何含义
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

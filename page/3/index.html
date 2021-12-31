@@ -1,25 +1,33 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="托尼的部落格">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>托尼的部落格</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -29,7 +37,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -39,7 +47,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -50,8 +58,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -125,13 +134,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -181,20 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part-4/">读书笔记：科学哲学 Part 4</a>
+        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%96%E7%95%8C%E4%B8%8A%E5%AD%98%E5%9C%A8%E8%93%9D%E8%89%B2%E7%9A%84%E5%A4%A9%E9%B9%85%E5%90%97%E2%80%94%E2%80%94%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%E7%9A%84%E6%B1%82%E5%80%BC/" target="_self">
+          文章：世界上存在蓝色的天鹅吗——逻辑命题的求值
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part-4/">
+        <a href="/2021/%E6%96%87%E7%AB%A0%EF%BC%9A%E4%B8%96%E7%95%8C%E4%B8%8A%E5%AD%98%E5%9C%A8%E8%93%9D%E8%89%B2%E7%9A%84%E5%A4%A9%E9%B9%85%E5%90%97%E2%80%94%E2%80%94%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%E7%9A%84%E6%B1%82%E5%80%BC/" target="_self">
           
-          
-            
-          
-           0x00 实在在论和反实在论
-实在论：认为科学的目的是对世界作出正确的描述。
-反实在论：科学在某些地方不能给出正确的描述。
-比如过，反实在论者可能会说，我们只能对“可观察”的物体作出正确的描述，对于不可观察的物体，我们不能给出正确的描述。比如：我们能正确描述桌子椅子，但是对于像电子、原子这样的物体，我们不可能正确描述他们。
-反实在论者认为，不可观察的物体都是科学家虚构的，只是为了描述或者预测可观
+          我另外还有博客讨论如何利用编程语言对逻辑命题进行求值。之后我打算学一学关于形式系统和形式证明。  那么我们直接进入主题：逻辑命题放到 “物理世界” 是无意义的，“物理世界”上没有我们在逻辑中讨论的 “真” 和 “假”。所以当 世界上只有知识，对于这些知识我们并不能确定性地宣称它是逻辑上 “真” 或是 “假”。当我们讨论逻辑命题的真值的时候，我们必须需要一个语义系统帮助我们确定逻辑命题的真值。（除
         </a>
       </p>
 
@@ -202,8 +207,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-05 21:50" pubdate>
-              2021-01-05
+            <time datetime="2021-02-24 21:19" pubdate>
+              2021-02-24
             </time>
           </div>
         
@@ -219,25 +224,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%9C%89%E5%85%B3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8CGUI%E5%8E%86%E5%8F%B2/">草稿：有关操作系统和GUI历史</a>
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%81%9A%E6%80%A7%E6%A0%BC%E5%88%86%E6%9E%90/" target="_self">
+          为什么我不喜欢做性格分析
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%9C%89%E5%85%B3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8CGUI%E5%8E%86%E5%8F%B2/">
+        <a href="/2021/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%81%9A%E6%80%A7%E6%A0%BC%E5%88%86%E6%9E%90/" target="_self">
           
-          
-            
-          
-          
-本篇计划介绍操作系统和GUI的历史
-但是最近不太有时间，所以先把参考资料连接放在这里
-
-Dos
-CS322: Some Typical Operating Systems: MS/DOS, VMS, and Unix
-Linux终端/图形界面与桌面环境
-揭开Wayland的面纱（一）：X Window的前生今世
-揭开Wayland的面纱（二）：Wayland应运而生
-
+          emm 这应该是第一篇含有我的个人观点的博客，之前我一直不敢在博客上表达自己的观点，因为我觉得短短一篇博客不太能把一个观点表述完整，这样会引起很多没必要的争议。但是我觉得不喜欢性格分析这个观点是安全的，我并不是说性格分析没有用或者怎么样，我只是表达我自己的喜好。  有时候别人会让我做 mbti 量表或者其他分析性格的什么的，虽然做这些玩意很有趣，但是做过之后我觉得我还是不要喜欢这样的性格分析了。
         </a>
       </p>
 
@@ -245,8 +240,8 @@ Linux终端/图形界面与桌面环境
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-05 18:34" pubdate>
-              2021-01-05
+            <time datetime="2021-02-24 18:25" pubdate>
+              2021-02-24
             </time>
           </div>
         
@@ -262,25 +257,15 @@ Linux终端/图形界面与桌面环境
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/">笔记：有关向量空间的知识结构</a>
+        <a href="/2021/%E5%B7%A5%E5%85%B7%E8%AE%BA%EF%BC%8C%E6%88%91%E9%83%BD%E7%94%A8%E5%95%A5%E8%BD%AF%E4%BB%B6/" target="_self">
+          工具论，我都用啥软件
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%9C%89%E5%85%B3%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/">
+        <a href="/2021/%E5%B7%A5%E5%85%B7%E8%AE%BA%EF%BC%8C%E6%88%91%E9%83%BD%E7%94%A8%E5%95%A5%E8%BD%AF%E4%BB%B6/" target="_self">
           
-          
-            
-          
-          
-先定义向量空间，之后定义子空间。用最小生成集的基数定义向量空间维度。定义生成集和线性不相关，之后联系子空间分析向量空间的维度性质(线性不相关基数 le 基数 le 生成集)。最后定义线性映射，
-
- 向量空间
-定义：
-满足 交换群 数乘的单位元 数乘的结合律 两个分配律
-证明满足性质：
-
-nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
-0x=00x = 00x=
+          这里介绍一下我用的一些软件和我对软件选择和学习的看法。  首先是我选择软件的看法  不被单一软件绑定  尽量选择全平台通用的软件，或者迁移成本低的软件 因为平台独占软件会把你绑定在某个平台，这样切换平台时会很痛苦   不要为了使用工具而使用工具  很多时候我们没有需求，而给自己创造需求 只有在使用的过程中发现问题，再找软件解决   不要想让一个软件做所有事  每个软件都有自己最擅长的部分 比如说
         </a>
       </p>
 
@@ -288,8 +273,8 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-02 01:42" pubdate>
-              2021-01-02
+            <time datetime="2021-02-14 13:46" pubdate>
+              2021-02-14
             </time>
           </div>
         
@@ -305,22 +290,15 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/">未完成：散度和通量</a>
+        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%88%91%E6%80%8E%E4%B9%88%E7%9C%8B%20OOP/" target="_self">
+          草稿：我怎么看 OOP
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/">
+        <a href="/2021/%E8%8D%89%E7%A8%BF%EF%BC%9A%E6%88%91%E6%80%8E%E4%B9%88%E7%9C%8B%20OOP/" target="_self">
           
-          
-            
-          
-          
-这里的内容我都没有正式学过，所以了解不太清楚，现在大概了解一下这些怎么算，方便以后学的时候快点。
-
- 线积分
-向量值函数上的线积分类似，我们可以求一个向量场中一条曲线上线积分。
-∫CF⋅dr=∫CF⋅drdtdt=∫C(Mi+Nj+Pk)⋅(x′(t)i+y′(t)j+z′(t)k)dt=∫CMdx+Ndy+Pdz\begin{aligned}
-\int _C F \cdot dr &amp; 
+          除了大家常说的那些好处和不足以外，我个人还觉得 OOP 提供了一种对指针的抽象和一种安全的 metaprogramming 的思维方式。 OOP 有三个特点，封装、继承和多态。 封装是一种抽象方式，所有语言都会提供抽象方式，我觉得封装并不是很神奇。 但是对于继承和多态，我认为他们是一种 metaprogramming。  继承 继承是给 “子类” 提供了一些 函数 的 “默认实现”。如果没有 “继
         </a>
       </p>
 
@@ -328,8 +306,8 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-01 15:08" pubdate>
-              2021-01-01
+            <time datetime="2021-02-13 23:07" pubdate>
+              2021-02-13
             </time>
           </div>
         
@@ -345,19 +323,15 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E9%87%8F%E5%9C%BA%E5%92%8C%E5%90%91%E9%87%8F%E5%9C%BA/">笔记：数量场和向量场</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%B1%82%E5%AF%BC/" target="_self">
+          笔记：另一个角度看求导
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E9%87%8F%E5%9C%BA%E5%92%8C%E5%90%91%E9%87%8F%E5%9C%BA/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%B1%82%E5%AF%BC/" target="_self">
           
-          
-            
-          
-           0x00 数量场
-我们可以把函数 z=f(x,y)z = f(x,y)z=f(x,y) 看作是一个在二维平面上的数量场，每一个点都有一个数值与之对应。我们也可以把它看作一个是三维空间中的曲面。
-这样我们研究 y=f(x1,x2,x3)y = f(x_1,x_2,x_3)y=f(x1​,x2​,x3​) 的时候比较方便想象。（我瞎说的）
-类似的，我们可以把高维超曲面看作是低一个维度的数量场。（我瞎
+          求导可以看作是作用在函数 f 上的一个高阶函数 123456D :: (R -&gt; R) -&gt; (R -&gt; R)D(f) &#x3D; g  where  g x &#x3D;      lim (x1 -&gt; x0 ; x1 : (R - &amp;#123;x1&amp;#125;))        ((f(x0) - f(x1)) &#x2F; (x0 - x1)) 之前我定义过实数了，现在应该可以定义一个永远算不完
         </a>
       </p>
 
@@ -365,8 +339,8 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-31 22:33" pubdate>
-              2020-12-31
+            <time datetime="2021-02-09 17:45" pubdate>
+              2021-02-09
             </time>
           </div>
         
@@ -382,20 +356,15 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%96%87%E4%BB%B6%E6%B5%81/">笔记：文件流</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" target="_self">
+          笔记：常系数线性微分方程
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%96%87%E4%BB%B6%E6%B5%81/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" target="_self">
           
-          
-            
-          
-           文件流
-这里列举了一些和“文件”有关的概念，之后我应该还会重新整理一下。
- 一切皆文件
-什么是文件？这是个很好的问题。我们可以读取，或者可以写入的东西，我们称为文件。计算机中很多东西，我们都可以读取或者写入，我们都可以把它们假装当作一个文件。
-我觉得“一切皆文件”是一个非常好的抽象。它表示了计算机本质上是对数据进行处理的工具。我们可以把计算机的任意一个部分看作一个小小的计算机，它可以接受数据，也
+          这篇里面怎么求特解的部分是我总结的，书上没有。   思路 L:(R→R)→(R→R)\mathcal L : (\R \rightarrow \R) \rightarrow (\R \rightarrow \R)L:(R→R)→(R→R) 是一个函数的函数它的定义是 L[y]&#x3D;∑i&#x3D;0kαi(x)Dk[y]\mathcal L [y] &#x3D; \sum^{k}_{i&#x3D;0}\alpha_{i}(x)\
         </a>
       </p>
 
@@ -403,8 +372,8 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-22 00:18" pubdate>
-              2020-12-22
+            <time datetime="2021-02-09 16:42" pubdate>
+              2021-02-09
             </time>
           </div>
         
@@ -420,20 +389,15 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%BA%8F%E5%88%97%E6%9E%81%E9%99%90/">笔记：数学分析第六章序列极限</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%87%A0%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E7%AD%89%E4%BA%8E%E5%8F%B7/" target="_self">
+          笔记：几种不同的等于号
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%BA%8F%E5%88%97%E6%9E%81%E9%99%90/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%87%A0%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%9A%84%E7%AD%89%E4%BA%8E%E5%8F%B7/" target="_self">
           
-          
-            
-          
-           实数的柯西序列
-现在我们需要引入实数的柯西序列。
-定义实数的柯西序列。并且证明有理数的柯西序列是实数的柯西序列。因为我们可以取一个比实数 ϵ0\epsilon_0ϵ0​ 更小的 有理数 ϵ1\epsilon_1ϵ1​ 让有理柯西序列小于有理ϵ1\epsilon_1ϵ1​ 这样一定小于实数 ϵ0\epsilon_0ϵ0​。
- 数列收敛
-序列极限唯一。反证法：设同时收敛于 L,L′L,L&#x27;
+          第一个是数值的等号 5+3&#x3D;852&#x3D;255 + 3 &#x3D; 8\\ 5^2 &#x3D; 25 5+3&#x3D;852&#x3D;25 第二个是函数之间的等号 意思是 ∀x,f(x)&#x3D;数值等于g(x)\forall x, f(x) &#x3D; ^{\rm 数值等于} g(x) ∀x,f(x)&#x3D;数值等于g(x) 平常会吧 ∀x\forall x∀x 省略，默认就是这个 这里有一些有趣的操作 ∀x,f(x)&#x3D;g(x)  ⟹  ∀x,dfdx
         </a>
       </p>
 
@@ -441,8 +405,8 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-08 15:33" pubdate>
-              2020-12-08
+            <time datetime="2021-02-09 15:15" pubdate>
+              2021-02-09
             </time>
           </div>
         
@@ -458,19 +422,15 @@ nx=x+x+⋯+xnx = x + x + \cdots+xnx=x+x+⋯+x
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90/">未完成：泰勒级数的误差分析</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%B9%9D%E7%AB%A0%E8%BF%9E%E7%BB%AD%E3%80%81%E4%B8%80%E8%87%B4%E8%BF%9E%E7%BB%AD/" target="_self">
+          笔记：数学分析第九章连续、一致连续
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%B9%9D%E7%AB%A0%E8%BF%9E%E7%BB%AD%E3%80%81%E4%B8%80%E8%87%B4%E8%BF%9E%E7%BB%AD/" target="_self">
           
-          
-            
-          
-           泰勒级数
-f(x0+h)=f(x0)+f′(x0)h+f′′(x0)2!h2+⋯+f′′(x0)2!h2+Rnf(x_{0}+h) = f(x_{0}) + f&#x27;(x_{0})h+\frac{f&#x27;&#x27;(x_{0})}{2!} h^{2} + \cdots +\\
-\frac{f&#x27;&#x27;(x_{0})}{2!} h^{2} + R_n
-f(x0​+h)=
+          这里暂时略过第七、第八章的内容, 以后补充。   第七章是级数，我觉得比较难的是 fubini 定理。第八章是选择公理，我有点看不太懂，就略过了。   闭集、紧致集和闭区间 第九章先介绍了集合 A 的附着点的概念。如果一个点的周围有 A 中的元素，那么这个点就是集合 A 的附着点。 所有附着点可以构成一个闭包。 附着点包括极限点和孤立点，极限点就是除了这个点周围还有这个集合的元素(区间中间或者端
         </a>
       </p>
 
@@ -478,8 +438,8 @@ f(x0​+h)=
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-07 13:57" pubdate>
-              2020-12-07
+            <time datetime="2021-02-07 00:06" pubdate>
+              2021-02-07
             </time>
           </div>
         
@@ -495,23 +455,15 @@ f(x0​+h)=
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%94%E7%AB%A0%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97/">笔记：数学分析第五章柯西序列</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%BB%E8%BE%91-Part1/" target="_self">
+          笔记：逻辑- Part1
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%AC%E4%BA%94%E7%AB%A0%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%80%BB%E8%BE%91-Part1/" target="_self">
           
-          
-            
-          
-           柯西序列
-给出概念：ϵ\epsilonϵ 稳定 和 最终 ϵ\epsilonϵ 稳定。最终ϵ\epsilonϵ 稳定是为了解决对数列开头的数字太敏感的问题。
-有理数的柯西序列。
-等价的有理柯西序列通过最终 ϵ\epsilonϵ 接近定义。
-1.1 1.01 1.001 1.0001 …
-2 1.1 1.01 1.001 1.0001 …
-等价的有理柯西序列。
-定义实数：一个有理柯西序列的形式极限
+          句法、语义和证明 一个逻辑系统有三部分组成 syntax, semantics, and proof theory.  命题逻辑的句法 这里只是句法，他们不包含任何意思，只是符合某种要求的字符串。只有引入语义之后，他们才有意思。 我们用 BNF 定义句法 原子是可以赋布尔值的变量 T 和 反T 是逻辑关联词！！！没有任何含义 1234567891011121314151617atom : &amp;qu
         </a>
       </p>
 
@@ -519,8 +471,8 @@ f(x0​+h)=
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-06 19:50" pubdate>
-              2020-12-06
+            <time datetime="2021-01-18 21:21" pubdate>
+              2021-01-18
             </time>
           </div>
         
@@ -536,24 +488,15 @@ f(x0​+h)=
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E9%87%8D%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/">笔记：多重积分笔记</a>
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E5%8F%8D%E8%AF%81%E6%B3%95%E8%AF%81%E6%98%8E%E7%9A%84%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%EF%BC%9F/" target="_self">
+          笔记：是否存在必须使用反证法证明的逻辑命题？
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E9%87%8D%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/">
+        <a href="/2021/%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E5%8F%8D%E8%AF%81%E6%B3%95%E8%AF%81%E6%98%8E%E7%9A%84%E9%80%BB%E8%BE%91%E5%91%BD%E9%A2%98%EF%BC%9F/" target="_self">
           
-          
-            
-          
-          
-这里的计算还是可以用的上的，但是证明已经比较模糊了。
-主要是贴图片太麻烦了，很多例子没有举
-
- 对偏导数求积分
-∫fx(x,y) dx=f0(x,y)+C(y)\int f_x(x,y)\ dx= f_0(x,y) + C(y)
-∫fx​(x,y) dx=f0​(x,y)+C(y)
-其中C(y)是关于y的函数。
-如果我们想从偏导数还原原函数，那么我们需要对所有偏导数积分，然后找出所有项，之后还要
+          是存在的，但是有前提条件。具体我也不清楚，但是我决定先把结论记下来，以后再去读数理逻辑深入研究。 已知皮尔士公式：((p  ⟹  q)  ⟹  p)  ⟹  p((p \implies q) \implies p) \implies p((p⟹q)⟹p)⟹p 只能用反证法证明。 但是我们可以通过画真值表的方式“证明”。 这里说的证明和证明不是一个意思。我们在这里讨论的证明必须使用公理，在形式上证明
         </a>
       </p>
 
@@ -561,8 +504,8 @@ f(x0​+h)=
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 20:00" pubdate>
-              2020-11-29
+            <time datetime="2021-01-18 18:00" pubdate>
+              2021-01-18
             </time>
           </div>
         
@@ -576,15 +519,9 @@ f(x0​+h)=
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -596,7 +533,7 @@ f(x0​+h)=
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -639,10 +576,11 @@ f(x0​+h)=
   
 </footer>
 
-<!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -653,22 +591,25 @@ f(x0​+h)=
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
@@ -677,37 +618,15 @@ f(x0​+h)=
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -726,7 +645,6 @@ f(x0​+h)=
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

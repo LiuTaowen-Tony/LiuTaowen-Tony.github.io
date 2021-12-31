@@ -1,40 +1,53 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="样本 训练 预测  样本  正样本、负样本 获取样本 网络 公司内部 自己收集 自己收集 视频  正样本、负样本  尽可能多样 环境、干扰多样  训练 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061import cv2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="笔记：opencv学习 Part6 HOG SVM小狮子">
+<meta property="og:url" content="http://example.com/%E4%B8%8D%E6%83%B3%E8%A6%81%E7%9A%84/%E7%AC%94%E8%AE%B0%EF%BC%9Aopencv%E5%AD%A6%E4%B9%A0%20Part6%20HOG%20SVM%E5%B0%8F%E7%8B%AE%E5%AD%90.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:description" content="样本 训练 预测  样本  正样本、负样本 获取样本 网络 公司内部 自己收集 自己收集 视频  正样本、负样本  尽可能多样 环境、干扰多样  训练 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061import cv2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-22T01:55:43.000Z">
+<meta property="article:modified_time" content="2020-12-28T15:58:50.000Z">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>笔记：opencv学习 Part6 HOG SVM小狮子 - 托尼的部落格</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atom-one-light.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-light.min.css" />
     
   
 
   
-
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -53,7 +66,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -64,8 +77,9 @@
   <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -139,13 +153,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -184,7 +199,7 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="page-content">
+<article class="page-content">
   <ol>
 <li>样本</li>
 <li>训练</li>
@@ -205,7 +220,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment">#1. 参数</span><br>PosNum = <span class="hljs-number">820</span><br>NegNum = <span class="hljs-number">1931</span><br>winSize = (<span class="hljs-number">64</span>,<span class="hljs-number">128</span>) <span class="hljs-comment"># 这是小狮子图像的大小</span><br>blockStride = (<span class="hljs-number">16</span>,<span class="hljs-number">16</span>)<br>blockStride = (<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br>cellSize = (<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br>nBin = <span class="hljs-number">9</span><br><br><span class="hljs-comment">#2. hog</span><br><br>hog = cv2.HOGDescriptor(winSize,blockSize,blockStride,<br>                        cellStride,cellSize,nBin)<br><br><span class="hljs-comment">#3. svm</span><br><br>svm = cv2.ml.SVM_create()<br><br><span class="hljs-comment">#4. compute hog</span><br><br>featureNum = <span class="hljs-built_in">int</span>(((<span class="hljs-number">128</span>-<span class="hljs-number">16</span>)/<span class="hljs-number">8</span>+<span class="hljs-number">1</span>)*((<span class="hljs-number">64</span>-<span class="hljs-number">16</span>)/<span class="hljs-number">8</span>+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">9</span>) <span class="hljs-comment">#3780</span><br>featureArray = np.zeros(((PosNum+NegNum),featureNum),np.float32)<br>labelArray = np.zeros(((PosNum+NegNum),<span class="hljs-number">1</span>),np.float32)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,PosNum):<br>    fileName = <span class="hljs-string">f&quot;pos\&#123;str(i+1)&#125;.jpg&quot;</span><br>    img = cv2.imread(fileName)<br>    hist = hog.compute(img,(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>))<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,featureNum):<br>        featureArray[i,j] = hist[j]<br>    labelArray[i,<span class="hljs-number">0</span>] = <span class="hljs-number">1</span><br>    <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,NegNum):<br>    fileName = <span class="hljs-string">f&#x27;neg\&#123;str(i+1)&#125;.jpg&#x27;</span><br>    img = cv2.imread(fileName)<br>    hist = hog.compute(img,(<span class="hljs-number">8</span>,<span class="hljs-number">8</span>))<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,featureNum):<br>        featureArray[i+PosNum,j] = hist[j]<br>    labelArray[i+PosNum,<span class="hljs-number">0</span>] = -<span class="hljs-number">1</span><br><br><span class="hljs-comment">#5. label</span><br><br>svm.setType(cv2.ml.SVM_C_SVC)<br>svm.setKernel(cv2.ml.SVM_LINEAR)<br>svm.setC(<span class="hljs-number">0.01</span>)<br><br><span class="hljs-comment">#6. train</span><br>ret = svm.train(featureArray,cv2.ml.ROW_SAMPLE,labelArray)<br><span class="hljs-comment">#7. pred</span><br><br>alpha = np.zeros((<span class="hljs-number">1</span>),np.float32)<br>rho = svm.getDecisionFunction(<span class="hljs-number">0</span>,alpha)<br><span class="hljs-built_in">print</span>(rho)<br><span class="hljs-built_in">print</span>(alpha)<br>aphaArray = np.zeros((<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),np.float32)<br>support<br><br></code></pre></td></tr></table></figure>
 <p>svm</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>rand1 = np.array([<br>    [<span class="hljs-number">155</span>,<span class="hljs-number">48</span>],<br>    [<span class="hljs-number">159</span>,<span class="hljs-number">50</span>],<br>    [<span class="hljs-number">164</span>,<span class="hljs-number">53</span>],<br>    [<span class="hljs-number">168</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">172</span>,<span class="hljs-number">60</span>]<br>])<span class="hljs-comment">#女生身高体重</span><br><br>rand2 = np.array([<br>    [<span class="hljs-number">152</span>,<span class="hljs-number">53</span>],<br>    [<span class="hljs-number">156</span>,<span class="hljs-number">55</span>],<br>    [<span class="hljs-number">160</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">172</span>,<span class="hljs-number">56</span>],<br>    [<span class="hljs-number">176</span>,<span class="hljs-number">65</span>]<br>])<span class="hljs-comment">#男生身高体重</span><br><br>label = np.array([[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>]])<br><br>data = np.vstack((rand1,rand2))<br>data = np.array(data,dtype = <span class="hljs-string">&#x27;float32&#x27;</span>)<span class="hljs-comment">#转化成float32</span><br><br><span class="hljs-comment"># 0 负样本 1 正样本</span><br><br><span class="hljs-comment">#生成svm</span><br><br>svm = cv2.ml.SVM_create()<br><br><span class="hljs-comment"># 属性设置</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">类型有</span><br><span class="hljs-string">C_SVC --&gt;多分类</span><br><span class="hljs-string">NU_SVC --&gt;多分类</span><br><span class="hljs-string">ONE_CLASS --&gt;一个样本，用来找样本边界</span><br><span class="hljs-string">EPS_SVR ---&gt; 回归</span><br><span class="hljs-string">NU_SVR --&gt;回归</span><br><span class="hljs-string"></span><br><span class="hljs-string">核</span><br><span class="hljs-string">LINEAR</span><br><span class="hljs-string">POLY 多项式</span><br><span class="hljs-string">RBF</span><br><span class="hljs-string">SIGMOID</span><br><span class="hljs-string">CHI2</span><br><span class="hljs-string">INTER</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>svm.setType(cv2.ml.SVM_C_SVC)<br>svm.setKernel(cv2.ml.SVM_LINEAR)<br>svm.setC(<span class="hljs-number">0.01</span>)<br><span class="hljs-comment">#C svm</span><br><br><br><span class="hljs-comment">#xunlian</span><br>result = svm.train(data,cv2.ml.ROW_SAMPLE,label)<br><br><span class="hljs-comment"># visualize the data</span><br><br>width = <span class="hljs-number">50</span><br>height = <span class="hljs-number">50</span><br>image = np.zeros((height, width, <span class="hljs-number">3</span>), dtype=np.uint8)<br><br><span class="hljs-comment"># show the decision region</span><br><br><br>red = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">255</span>)<br>blue = (<span class="hljs-number">255</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(image.shape[<span class="hljs-number">0</span>]):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(image.shape[<span class="hljs-number">1</span>]):<br>        sampleMat = np.matrix([[j+<span class="hljs-number">140</span>,i+<span class="hljs-number">40</span>]], dtype=np.float32)<br>        response = svm.predict(sampleMat)[<span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">if</span> response == <span class="hljs-number">1</span>:<br>            image[i,j] = red<br>        <span class="hljs-keyword">elif</span> response == <span class="hljs-number">0</span>:<br>            image[i,j] = blue<br><br><span class="hljs-comment"># show the training data</span><br><br>black = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)<br>white = (<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    cv2.circle(image,(<span class="hljs-built_in">int</span>(data[i][<span class="hljs-number">0</span>]-<span class="hljs-number">140</span>),<span class="hljs-built_in">int</span>(data[i][<span class="hljs-number">1</span>]-<span class="hljs-number">40</span>)),<span class="hljs-number">3</span>,(black <span class="hljs-keyword">if</span> label[i][<span class="hljs-number">0</span>]==<span class="hljs-number">0</span> <span class="hljs-keyword">else</span> white), -<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># show image</span><br><br>image = cv2.resize(image,(<span class="hljs-number">200</span>,<span class="hljs-number">200</span>))<br>cv2.imshow(<span class="hljs-string">&quot;&quot;</span>,image)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br>pt_data = np.array([[<span class="hljs-number">167</span>,<span class="hljs-number">55</span>],[<span class="hljs-number">162</span>,<span class="hljs-number">60</span>]])<br><span class="hljs-built_in">print</span>(pt_data)<br>pt_data = np.array(pt_data,dtype = <span class="hljs-string">&quot;float32&quot;</span>)<br><br>par1,par2 = svm.predict(pt_data)<br><span class="hljs-built_in">print</span>(par2)<br><span class="hljs-built_in">print</span>(par1)<br></code></pre></td></tr></table></figure>
-</div>
+
+  
+</article>
 
               </div>
             </div>
@@ -215,7 +232,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -258,10 +275,11 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -272,63 +290,55 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
 
 
 
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -347,7 +357,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

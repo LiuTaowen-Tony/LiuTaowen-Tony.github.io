@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="托尼">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前置知识： 皮亚诺算术 整数的定义 Prolog 语法 可选： 可数集 unification  Prolog 使用了 unification 算法。  Unification 算法的语义 实际上这个算法的语义是 :   在 toplevel 查找表达式的定义。   如果 toplevel 可以找到可能匹配的定义，查看定义。   定义由   依次求值 and conjunction。根据 con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="prolog 的优越性及其边界">
+<meta property="og:url" content="http://example.com/2021/prolog-%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6/index.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:description" content="前置知识： 皮亚诺算术 整数的定义 Prolog 语法 可选： 可数集 unification  Prolog 使用了 unification 算法。  Unification 算法的语义 实际上这个算法的语义是 :   在 toplevel 查找表达式的定义。   如果 toplevel 可以找到可能匹配的定义，查看定义。   定义由   依次求值 and conjunction。根据 con">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-25T18:14:29.000Z">
+<meta property="article:modified_time" content="2021-12-31T00:32:17.504Z">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>prolog 的优越性及其边界 - 托尼的部落格</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-light.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic1.zhimg.com/v2-64d2c7f13200c76529411dcf40c67eb4_r.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="prolog 的优越性及其边界">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-26 02:14" pubdate>
+        2021年12月26日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      48 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">prolog 的优越性及其边界</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>前置知识：</p>
+<p>皮亚诺算术</p>
+<p>整数的定义</p>
+<p>Prolog 语法</p>
+<p>可选：</p>
+<p>可数集</p>
+<p>unification</p>
+</blockquote>
+<p>Prolog 使用了 <code>unification</code> 算法。</p>
+<h2 id="unification-算法的语义"><a class="markdownIt-Anchor" href="#unification-算法的语义"></a> Unification 算法的语义</h2>
+<p>实际上这个算法的语义是 :</p>
+<ul>
+<li>
+<p>在 toplevel 查找表达式的定义。</p>
+</li>
+<li>
+<p>如果 toplevel 可以找到可能匹配的定义，查看定义。</p>
+</li>
+<li>
+<p>定义由</p>
+</li>
+<li>
+<p>依次求值 and conjunction。根据 conjunction 找可能匹配的，variable。求值内部的 expresion。找到下一个 conjunction，把已有的 expression 带入。</p>
+</li>
+</ul>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">eval</span> (<span class="hljs-type">Clause</span> pre vars defs) (env : envs) = <br>    |get-pre env <br></code></pre></td></tr></table></figure>
+<p>之后依次顺序尝试匹配 and 连接的 predicate。</p>
+<p>prolog 既有 declaretive 语义也同时也有 imperative 语义。</p>
+<p>因此在写程序的时候需要保证流按偏序生成，这样可以保证覆盖所有的可能解。</p>
+<p>值得注意的是 prolog 和逻辑不等价。</p>
+<p>prolog 的语义是：寻找搜索空间中的所有可能解。</p>
+<p>之后我会讨论一下 prolog 使用的 unification 算法。</p>
+<p>关系型编程的好处是合理处理的关系可以反向计算。</p>
+<p>这有点像之前我们做过的 haskell 的 reasoning about programs。在 reasoning 中，我们有时需要定义一个关系，代表某函数的参数及其结果符合某某关系。例如：</p>
+<p>正是因为关系是双向的，而函数是单向的，所以 prolog 可以反向运算。</p>
+<p>但请注意，反向运算是有边界的。</p>
+<p>prolog 有一个很好的特性：他可以反向计算</p>
+<p>下面我用一个例子展示 prolog 操作数学 object</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs prolog">nat(n).<br>nat(s(<span class="hljs-symbol">N</span>)) :-<br>    nat(<span class="hljs-symbol">N</span>).<br></code></pre></td></tr></table></figure>
+<p>这段语句定义了一个链。这就是所有自然数的定义。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs prolog">three :- nat(s(s(s(n)))).<br>five :- nat(s(s(s(s(s(n)))))).<br></code></pre></td></tr></table></figure>
+<p>三和五都是整数。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs prolog">add_n(n, <span class="hljs-symbol">Y</span>, <span class="hljs-symbol">Y</span>).<br>add_n(s(<span class="hljs-symbol">X</span>), <span class="hljs-symbol">Y</span>, <span class="hljs-symbol">R</span>) :-<br>    add_n(<span class="hljs-symbol">X</span>, s(<span class="hljs-symbol">Y</span>), <span class="hljs-symbol">R</span>).<br></code></pre></td></tr></table></figure>
+<p>这里定义 naive 的加法。</p>
+<p>如果我们只关注加法的正向计算，那么我们可以说这个算法是正确的。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prolog">add_n(s(s(s(n))), s(s(n)), <span class="hljs-symbol">R</span>).<br></code></pre></td></tr></table></figure>
+<p>但是我现在遇到一个问题，给定任一想要的输出，这个程序保证在有限的时间内输出这个输出。但是这个程序不保证结束。</p>
+<p>例如在输出<code>add_n(X, Y, R)</code>的时候，这个定义只能输出：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-symbol">X</span> = n, <span class="hljs-symbol">Y</span> = <span class="hljs-symbol">Z</span> = n;<br><span class="hljs-symbol">X</span> = n, <span class="hljs-symbol">Y</span> = <span class="hljs-symbol">Z</span> = s(n);<br><span class="hljs-symbol">X</span> = n, <span class="hljs-symbol">Y</span> = <span class="hljs-symbol">Z</span> = s(s(n));<br></code></pre></td></tr></table></figure>
+<p>它的求值方法是</p>
+<p>看一个表达式。如果这个表达式中没有变量：</p>
+<ol>
+<li>我们可以理解为内部的 conjunction，之后每次经过一个 conjunction，都会过滤一些值。</li>
+</ol>
+<p>找包括关系的</p>
+<p>如果我们能把定义改为</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs prolog">add_n(s(<span class="hljs-symbol">X</span>), <span class="hljs-symbol">Y</span>, <span class="hljs-symbol">R</span>) :-<br>    nat(<span class="hljs-symbol">R</span>),<br>    add_n(<span class="hljs-symbol">X</span>, s(<span class="hljs-symbol">Y</span>), <span class="hljs-symbol">R</span>).<br></code></pre></td></tr></table></figure>
+<p>prolog 语言的一种定义我附在这里，我实在懒得搞这个了</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><code class="hljs scheme"><span class="hljs-comment">;;; source http://community.schemewiki.org/?sicp-ex-4.78</span><br><br><br><span class="hljs-comment">;;; Exercise 4.78</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">load</span></span> <span class="hljs-string">&quot;ch4-ambeval.scm&quot;</span>)<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> input-prompt <span class="hljs-string">&quot;;;; Query input:&quot;</span>)<br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> output-prompt <span class="hljs-string">&quot;;;; Query results:&quot;</span>)<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">qeval</span> query frame succeed fail)<br>  ((<span class="hljs-name">analyze</span> query) frame succeed fail))<br><br><span class="hljs-comment">;;; predicates</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">and?</span> query) (<span class="hljs-name">tagged-list?</span> query <span class="hljs-symbol">&#x27;and</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">or?</span> query) (<span class="hljs-name">tagged-list?</span> query <span class="hljs-symbol">&#x27;or</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">not?</span> query) (<span class="hljs-name">tagged-list?</span> query <span class="hljs-symbol">&#x27;not</span>))<br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">lisp-value?</span> query) (<span class="hljs-name">tagged-list?</span> query <span class="hljs-symbol">&#x27;lisp-value</span>))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze</span> query)<br><br>  (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span> ((<span class="hljs-name">and?</span> query) (<span class="hljs-name">analyze-and</span> (<span class="hljs-name">contents</span> query)))<br>        ((<span class="hljs-name">or?</span> query) (<span class="hljs-name">analyze-or</span> (<span class="hljs-name">contents</span> query)))<br>        ((<span class="hljs-name">lisp-value?</span> query) (<span class="hljs-name">analyze-lisp-value</span> (<span class="hljs-name">contents</span> query)))<br>        ((<span class="hljs-name">not?</span> query) (<span class="hljs-name">analyze-not</span> (<span class="hljs-name">contents</span> query)))<br>        (<span class="hljs-name"><span class="hljs-builtin-name">else</span></span> (<span class="hljs-name">analyze-simple</span> query))))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze-lisp-value</span> call)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (frame succeed fail)<br>    (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">execute</span><br>         (<span class="hljs-name">instantiate</span><br>          call<br>          frame<br>          (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (v f)<br>            (<span class="hljs-name">error</span> <span class="hljs-string">&quot;Unknown pat var -- LISP-VALUE&quot;</span> v))))<br>        (<span class="hljs-name">succeed</span> frame fail)<br>        (<span class="hljs-name">fail</span>))))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze-not</span> operands)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (frame succeed fail)<br>    ((<span class="hljs-name">analyze</span> (<span class="hljs-name">negated-query</span> operands))<br>     frame<br>     (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (ext fail2)<br>       (<span class="hljs-name">fail</span>))<br>     (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> () (<span class="hljs-name">succeed</span> frame fail)))))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze-or</span> disjuncts)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (frame succeed fail)<br>    (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">try</span>)<br>      ((<span class="hljs-name">analyze</span> (<span class="hljs-name"><span class="hljs-builtin-name">car</span></span> disjuncts))<br>       frame<br>       succeed<br>       (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()<br>         ((<span class="hljs-name">analyze-or</span> (<span class="hljs-name"><span class="hljs-builtin-name">cdr</span></span> disjuncts))<br>          frame succeed fail))))<br><br>    (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">empty-disjunction?</span> disjuncts)<br>        (<span class="hljs-name">succeed</span> frame fail)<br>        (<span class="hljs-name">try</span>))))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze-and</span> conjuncts)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (frame succeed fail)<br>    (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">try</span>)<br>      ((<span class="hljs-name">analyze</span> (<span class="hljs-name"><span class="hljs-builtin-name">car</span></span> conjuncts))<br>       frame<br>       (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (ext fail2)<br>         ((<span class="hljs-name">analyze-and</span> (<span class="hljs-name"><span class="hljs-builtin-name">cdr</span></span> conjuncts))<br>          ext succeed fail2))<br>       fail))<br><br>    (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">empty-conjunction?</span> conjuncts)<br>        (<span class="hljs-name">succeed</span> frame fail)<br>        (<span class="hljs-name">try</span>))))<br><br><span class="hljs-comment">;;; rewritten</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">rule-body</span> rule)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">null?</span></span> (<span class="hljs-name">cddr</span> rule))<br>      <span class="hljs-literal">#f</span><br>      (<span class="hljs-name">caddr</span> rule)))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">analyze-simple</span> query)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (frame succeed fail)<br>    (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">try-assertion</span> assertions)<br>      (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">stream-null?</span> assertions)<br>          (<span class="hljs-name">try-rule</span> (<span class="hljs-name">fetch-rules</span> query frame))<br>          (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">ext</span> (<span class="hljs-name">pattern-match</span> query (<span class="hljs-name">stream-car</span> assertions) frame))<br>                (<span class="hljs-name">fail2</span> (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> () (<span class="hljs-name">try-assertion</span> (<span class="hljs-name">stream-cdr</span> assertions)))))<br>            (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">succeeded?</span> ext)<br>                (<span class="hljs-name">succeed</span> ext fail2)<br>                (<span class="hljs-name">fail2</span>)))))<br><br>    (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">try-rule</span> rules)<br>      (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">stream-null?</span> rules)<br>          (<span class="hljs-name">fail</span>)<br>          (<span class="hljs-name"><span class="hljs-builtin-name">let*</span></span> ((<span class="hljs-name">clean-rule</span> (<span class="hljs-name">rename-variables-in</span> (<span class="hljs-name">stream-car</span> rules)))<br>                 (<span class="hljs-name">ext</span> (<span class="hljs-name">unify-match</span> query (<span class="hljs-name">conclusion</span> clean-rule) frame))<br>                 (<span class="hljs-name">fail2</span> (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> () (<span class="hljs-name">try-rule</span> (<span class="hljs-name">stream-cdr</span> rules)))))<br>            (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">succeeded?</span> ext)<br>                (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">rule-body</span> clean-rule)<br>                    (<span class="hljs-name">qeval</span> (<span class="hljs-name">rule-body</span> clean-rule)<br>                           ext<br>                           succeed fail2)<br>                    (<span class="hljs-name">succeed</span> ext fail2))<br>                (<span class="hljs-name">fail2</span>)))))<br><br>    (<span class="hljs-name">try-assertion</span> (<span class="hljs-name">fetch-assertions</span> query frame))<br>    ))<br><br>(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">driver-loop</span>)<br>  (<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">internal-loop</span> try-again)<br>    (<span class="hljs-name">prompt-for-input</span> input-prompt)<br>    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> ((<span class="hljs-name">q</span> (<span class="hljs-name">query-syntax-process</span> (<span class="hljs-name"><span class="hljs-builtin-name">read</span></span>))))<br>      (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span><br>       <span class="hljs-comment">;; ((eq? q &#x27;#!eof) &#x27;goodbye!)</span><br>       ((<span class="hljs-name"><span class="hljs-builtin-name">eq?</span></span> q <span class="hljs-symbol">&#x27;try-again</span>) (<span class="hljs-name">try-again</span>))<br>       ((<span class="hljs-name">assertion-to-be-added?</span> q)<br>        (<span class="hljs-name">add-rule-or-assertion!</span> (<span class="hljs-name">add-assertion-body</span> q))<br>        (<span class="hljs-name"><span class="hljs-builtin-name">newline</span></span>)<br>        (<span class="hljs-name"><span class="hljs-builtin-name">display</span></span> <span class="hljs-string">&quot;Assertion added to assertions base.&quot;</span>)<br>        (<span class="hljs-name">driver-loop</span>))<br>       (<span class="hljs-name"><span class="hljs-builtin-name">else</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">newline</span></span>)<br>             (<span class="hljs-name"><span class="hljs-builtin-name">display</span></span> <span class="hljs-string">&quot;;;; Starting a new problem &quot;</span>)<br>             (<span class="hljs-name">qeval</span> q<br>                    &#x27;()  <span class="hljs-comment">; an empty frame</span><br>                    <span class="hljs-comment">;; ambeval success</span><br>                    (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (val next-alternative)<br>                      (<span class="hljs-name">announce-output</span> output-prompt)<br>                      (<span class="hljs-name">user-print</span><br>                       (<span class="hljs-name">instantiate</span> q<br>                                    val<br>                                    (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (v f)<br>                                      (<span class="hljs-name">contract-question-mark</span> v))))<br>                      (<span class="hljs-name">internal-loop</span> next-alternative))<br>                    <span class="hljs-comment">;; ambeval failure</span><br>                    (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()<br>                      (<span class="hljs-name">announce-output</span><br>                       <span class="hljs-string">&quot;;;; There are no more values of&quot;</span>)<br>                      (<span class="hljs-name">user-print</span> q)<br>                      (<span class="hljs-name">driver-loop</span>)))))))<br>  (<span class="hljs-name">internal-loop</span><br>   (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> ()<br>     (<span class="hljs-name"><span class="hljs-builtin-name">newline</span></span>)<br>     (<span class="hljs-name"><span class="hljs-builtin-name">display</span></span> <span class="hljs-string">&quot;;;; There is no current problem&quot;</span>)<br>     (<span class="hljs-name">driver-loop</span>))))<br><br><span class="hljs-comment">;;;;;;;;;;;;;;;;;;;;;;</span><br>        test<br><span class="hljs-comment">;;;;;;;;;;;;;;;;;;;;;;</span><br><br><span class="hljs-comment">;;; Query input:</span><br>(<span class="hljs-name">big-shot</span> ?p ?q)<br><br><span class="hljs-comment">;;; Starting a new problem</span><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name">big-shot</span> (<span class="hljs-name">Aull</span> DeWitt) administration)<br><br><span class="hljs-comment">;;; Query input:</span><br>try-again<br><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name">big-shot</span> (<span class="hljs-name">Cratchet</span> Robert) accounting)<br><br><span class="hljs-comment">;;; Query input:</span><br>try-again<br><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name">big-shot</span> (<span class="hljs-name">Scrooge</span> Eben) accounting)<br><br><span class="hljs-comment">;;; Query input:</span><br>try-again<br><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name">big-shot</span> (<span class="hljs-name">Scrooge</span> Eben) accounting)<br><br><br><span class="hljs-comment">;;; Query input:</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">reverse</span></span> (<span class="hljs-name">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>) ?x)<br><br><span class="hljs-comment">;;; Starting a new problem</span><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">reverse</span></span> (<span class="hljs-name">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>) (<span class="hljs-name">3</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>))<br><br><br><span class="hljs-comment">;;; Query input:</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">and</span></span> (<span class="hljs-name">replace</span> ?p2 ?p1)<br>            (<span class="hljs-name">salary</span> ?p1 ?s1)<br>            (<span class="hljs-name">salary</span> ?p2 ?s2)<br>            (<span class="hljs-name">lisp-value</span> &gt; ?s2 ?s1))<br><br><span class="hljs-comment">;;; Starting a new problem</span><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">and</span></span> (<span class="hljs-name">replace</span> (<span class="hljs-name">Hacker</span> Alyssa P) (<span class="hljs-name">Fect</span> Cy D)) (<span class="hljs-name">salary</span> (<span class="hljs-name">Fect</span> Cy D) <span class="hljs-number">35000</span>) (<span class="hljs-name">salary</span> (<span class="hljs-name">Hacker</span> Alyssa P) <span class="hljs-number">40000</span>) (<span class="hljs-name">lisp-value</span> &gt; <span class="hljs-number">40000</span> <span class="hljs-number">35000</span>))<br><br><span class="hljs-comment">;;; Query input:</span><br>try-again<br><br><span class="hljs-comment">;;; Query results:</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">and</span></span> (<span class="hljs-name">replace</span> (<span class="hljs-name">Warbucks</span> Oliver) (<span class="hljs-name">Aull</span> DeWitt)) (<span class="hljs-name">salary</span> (<span class="hljs-name">Aull</span> DeWitt) <span class="hljs-number">25000</span>) (<span class="hljs-name">salary</span> (<span class="hljs-name">Warbucks</span> Oliver) <span class="hljs-number">150000</span>) (<span class="hljs-name">lisp-value</span> &gt; <span class="hljs-number">150000</span> <span class="hljs-number">25000</span>))<br><br><span class="hljs-comment">;;; Query input:</span><br>try-again<br><br><span class="hljs-comment">;;; There are no more values of</span><br>(<span class="hljs-name"><span class="hljs-builtin-name">and</span></span> (<span class="hljs-name">replace</span> (<span class="hljs-name">?</span> p2) (<span class="hljs-name">?</span> p1)) (<span class="hljs-name">salary</span> (<span class="hljs-name">?</span> p1) (<span class="hljs-name">?</span> s1)) (<span class="hljs-name">salary</span> (<span class="hljs-name">?</span> p2) (<span class="hljs-name">?</span> s2)) (<span class="hljs-name">lisp-value</span> &gt; (<span class="hljs-name">?</span> s2) (<span class="hljs-name">?</span> s1)))<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/%E5%A4%9A%E6%80%81/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">多态</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%EF%BC%8C%E4%BB%A5python%E4%B8%BA%E4%BE%8B%EF%BC%9A%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="hidden-mobile">如何学习编程，以python为例：容器与复杂度转移</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

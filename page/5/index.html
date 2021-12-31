@@ -1,25 +1,33 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="托尼">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="托尼的部落格">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="托尼的部落格">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="托尼">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>托尼的部落格</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -29,7 +37,7 @@
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -39,7 +47,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif","offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -50,8 +58,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>托尼的部落格</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>托尼的部落格</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -125,13 +134,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -181,22 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AJS%20Python%20%E5%92%8C%20C++%20%E7%9A%84this%E6%8C%87%E9%92%88%EF%BC%9B%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%8C%B4%E5%AD%90%E8%A1%A5%E4%B8%81/">文章：JS Python 和 C++ 的this指针；鸭子类型和猴子补丁</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E9%87%8D%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/" target="_self">
+          笔记：多重积分笔记
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AJS%20Python%20%E5%92%8C%20C++%20%E7%9A%84this%E6%8C%87%E9%92%88%EF%BC%9B%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%8C%B4%E5%AD%90%E8%A1%A5%E4%B8%81/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E9%87%8D%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-           JS Python 和 C++ 的this指针；鸭子类型和猴子补丁
-
-我对这三种语言其实都只是刚刚入门，一定有许多理解不到位的地方，就在这里记录下我现在的理解吧。
-
- 0x00 C++
-首先我们来聊聊最古老 C++ 里面的 this 指针。
-C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ 是没有自己的编译器的，所以当时想编译 C++ 程序，我们只能把 C++ 编译到 
+          这里的计算还是可以用的上的，但是证明已经比较模糊了。 主要是贴图片太麻烦了，很多例子没有举   对偏导数求积分 ∫fx(x,y) dx&#x3D;f0(x,y)+C(y)\int f_x(x,y)\ dx&#x3D; f_0(x,y) + C(y) ∫fx​(x,y) dx&#x3D;f0​(x,y)+C(y) 其中C(y)是关于y的函数。 如果我们想从偏导数还原原函数，那么我们需要对所有偏导数积分，然后找出所有项，之后还要
         </a>
       </p>
 
@@ -204,8 +207,8 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-18 21:44" pubdate>
-              2020-09-18
+            <time datetime="2020-11-29 20:00" pubdate>
+              2020-11-29
             </time>
           </div>
         
@@ -221,21 +224,15 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AC++%20%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E5%92%8C%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92/">文章：C++ 引用传递和指针传递</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9B%AE%E5%BD%95/" target="_self">
+          笔记：多元微积分目录
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9AC++%20%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%E5%92%8C%E6%8C%87%E9%92%88%E4%BC%A0%E9%80%92/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9B%AE%E5%BD%95/" target="_self">
           
-          
-            
-          
-           C++ 引用传递和指针传递
- 0x00 指针传递
-指针传递让函数在内部操作外部的数据，同时在一定程度上也减少了内存的消耗。
-这类函数接受指针作为输入，内部可以对指针指向的值做更改。
-12345void swap_ptr(int *x, int *y)&#123;    int temp = *x;    *x = *y;    *y = temp;&#125;
-相当于构造了两个局部指针变量，x，
+          主要分为几个方面： 实际上这里是四个东西 标量输入，标量输出 -&gt; 单变量函数 标量输入，向量输出 -&gt; 向量值函数 -&gt; 空间中的一条曲线线 向量输入，标量输出 -&gt; 多元函数 -&gt; (一个标量场F(x,y,z)&#x3D;0) 或者是 (空间中的一个超曲面F(x,y)&#x3D;z) 向量输入，向量输出 -&gt; 向量函数 -&gt; 一个向量场 基础知识  向量的加法乘法 三种坐
         </a>
       </p>
 
@@ -243,8 +240,8 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-16 14:05" pubdate>
-              2020-09-16
+            <time datetime="2020-11-29 16:51" pubdate>
+              2020-11-29
             </time>
           </div>
         
@@ -260,24 +257,15 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E5%88%A9%E7%94%A8%E5%90%91%E9%87%8F%E5%80%BC%E5%87%BD%E6%95%B0%E8%AF%81%E6%98%8E%E5%BC%80%E6%99%AE%E5%8B%92%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/">文章：利用向量值函数证明开普勒第一定律</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/" target="_self">
+          笔记：多元微分学
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E5%88%A9%E7%94%A8%E5%90%91%E9%87%8F%E5%80%BC%E5%87%BD%E6%95%B0%E8%AF%81%E6%98%8E%E5%BC%80%E6%99%AE%E5%8B%92%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6/" target="_self">
           
-          
-            
-          
-           利用向量值函数证明开普勒第一定律
-
-前几天在看向量值函数的切向和垂直加速度，觉得能用这个证明行星运行的轨道。自己算了半天，也没解出来微分方程。对我来说这个微分方程还是需要一些技巧，把解法翻译了一下，记录在这里。
-
- 0x00 开普勒三定律
-
-所有行星围绕太阳的轨道都是椭圆，且太阳在椭圆轨道的一个焦点。
-在相同时间间隔内，太阳到行星连线扫过的面积相等。
-任意两个行星运行时间周期的平方和半轴长度的立
+          其实暑假就在学多元微积分了，可惜一直懒，没有写博客。最近微积分课用到了一些多元微积分的内容，那就写个笔记复习吧。  我觉得鞍点和隐函数存在定理是比较难的部分，因为在一元函数里，这两个很好证，但是在多元里，我们要考虑不同的方向。求偏导的时候也得想着固定哪个参数不动。  偏微分 首先是偏微分，偏微分的意义是当所有其他变量固定的时候，单独动一个变量，整个函数怎么变。 fx(x,y)&#x3D;lim⁡Δx→0f
         </a>
       </p>
 
@@ -285,8 +273,8 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-12 22:31" pubdate>
-              2020-09-12
+            <time datetime="2020-11-29 14:20" pubdate>
+              2020-11-29
             </time>
           </div>
         
@@ -302,21 +290,15 @@ C++ 里的 this 指针据说是为了兼容 C 而设计的。因为当初 C++ �
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%94%A8%20mxnet%20%E5%AE%9E%E7%8E%B0%20Dropout/">笔记：用 mxnet 实现 Dropout</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E6%98%AF%E5%A6%82%E4%BD%95%E8%81%94%E7%B3%BB%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E9%80%86%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84/" target="_self">
+          笔记：高斯消元法是如何联系线性方程组、矩阵逆和行列式的
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%94%A8%20mxnet%20%E5%AE%9E%E7%8E%B0%20Dropout/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E6%98%AF%E5%A6%82%E4%BD%95%E8%81%94%E7%B3%BB%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E9%80%86%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84/" target="_self">
           
-          
-            
-          
-           用 mxnet 实现 Dropout
- 0x00 Dropout是啥
-在一个神经网络中，某一个隐藏单元的表达式是
-hi=ϕ(x1w1+x2w2+...+b)h_i = \phi (x_1w_{1}+x_2w_{2}+...+b)
-hi​=ϕ(x1​w1​+x2​w2​+...+b)
-在使用丢弃法的时候，我们以p为概率丢掉hih_ihi​,同时为了平衡丢掉一些参数带来的影响，我们同时有1-p的概率
+          把线性方程组看成增广矩阵。对增广矩阵进行矩阵行变换，我们得到等价的增广矩阵。 我们知道 Ax&#x3D;bRRRRAx&#x3D;RRRRb如果我们能让RRRRA&#x3D;I就好了Ax &#x3D; b\\ RRRRAx &#x3D; RRRRb\\ {\rm 如果我们能让RRRRA &#x3D; I就好了} Ax&#x3D;bRRRRAx&#x3D;RRRRb如果我们能让RRRRA&#x3D;I就好了 那么我们一定能找到，因为RRRRA一定对应一个高斯消元。 我们有三种基本行变换：
         </a>
       </p>
 
@@ -324,8 +306,8 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-08 00:31" pubdate>
-              2020-09-08
+            <time datetime="2020-11-19 19:46" pubdate>
+              2020-11-19
             </time>
           </div>
         
@@ -341,41 +323,15 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part3/">读书笔记：科学哲学 Part 3 </a>
+        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E4%BB%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9C%8B%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E5%92%8C%E4%B8%80%E9%98%B6%E9%80%BB%E8%BE%91/" target="_self">
+          草稿：（两篇内容）逻辑的发展和如何用python 表示 prolog 程序
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part3/">
+        <a href="/2020/%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%9A%E4%BB%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9C%8B%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E5%92%8C%E4%B8%80%E9%98%B6%E9%80%BB%E8%BE%91/" target="_self">
           
-          
-            
-          
-           科学哲学 Part 3
- 0x00 亨普尔的解释覆盖模型
-亨普尔试图用逻辑三段论的方式来做科学的解释。
-
-普适定律
-特定事实
-=&gt;
-待解释的现象
-
-比如说：
-
-根据牛顿力学，“行星围绕恒星转”。
-太阳是恒星，地球是行星。
-地球围绕太阳转。
-
-
-所有金属都导电
-铁是金属
-铁导电
-
- 0x01 不相关性问题
-但是这带来一个问题：
-符合解释覆盖模型的解释不一定是我们想要的科学解释。
-例如
-
-有规
+          逻辑的发展  逻辑三段论 逻辑三段论可能是形式最简单、历史最悠久的逻辑了。一般来说它有以下形式 123大前提：所有 某类物体 都具有 某性质小前提：某个个体 是 某类物体结论：  某个个体具有某某性质 虽然它很简单，但是很有用。 比如我们在试图反驳某些观点的时候，我们可以这样： 反驳：板蓝根是中药，所以它没用 这句话的大前提是 所有中药都是没用的 小前提是 板蓝根是中药 结论 板蓝根没用 然而这
         </a>
       </p>
 
@@ -383,8 +339,8 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-07-31 17:27" pubdate>
-              2020-07-31
+            <time datetime="2020-11-11 21:22" pubdate>
+              2020-11-11
             </time>
           </div>
         
@@ -400,22 +356,15 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part2/">读书笔记：科学哲学 Part 2</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%87%AA%E7%84%B6%E6%95%B0%E5%8A%A0%E6%B3%95%E5%92%8C%E4%B9%98%E6%B3%95%E6%80%A7%E8%B4%A8%E8%AF%81%E6%98%8E%E7%9A%84%E9%A1%BA%E5%BA%8F/" target="_self">
+          笔记：自然数加法和乘法性质证明的顺序
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6-Part2/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%87%AA%E7%84%B6%E6%95%B0%E5%8A%A0%E6%B3%95%E5%92%8C%E4%B9%98%E6%B3%95%E6%80%A7%E8%B4%A8%E8%AF%81%E6%98%8E%E7%9A%84%E9%A1%BA%E5%BA%8F/" target="_self">
           
-          
-            
-          
-           读书笔记：科学哲学 Part 2
- 0x01 什么是科学哲学
-科学家在做科学研究时会做一些假设，比如过去的每天太阳都会从东方升起，我们就相信明天太阳也会从东方升起。科学哲学用来质疑这些理所当然的假设。
- 0x02 归纳和演绎 &amp; 修谟
-归纳和演绎略
-修谟：虽然我们无时不刻都在用归纳逻辑，但是这不是一种理性的行为。
-所有科学理论都是建立在观察上的。所以所有科学理论都有归纳逻辑的部分。修谟质
+          x+0&#x3D;0+x(x+y)+z&#x3D;x+(y+z)x+1&#x3D;1+xx+y&#x3D;y+x1×x&#x3D;x×1&#x3D;x(x+y)×z&#x3D;x×z+y×zx×y&#x3D;y×x(x×y)×z&#x3D;x×(y×z)x+0 &#x3D; 0+x\\ (x+y)+z&#x3D;x+(y+z)\\ x+1&#x3D;1+x\\ x+y&#x3D;y+x\\ 1\times x&#x3D;x\times 1&#x3D;x\\ (x+y)\times z &#x3D; x\times z + y\times z\\ x\ti
         </a>
       </p>
 
@@ -423,8 +372,8 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-07-26 13:32" pubdate>
-              2020-07-26
+            <time datetime="2020-10-23 13:07" pubdate>
+              2020-10-23
             </time>
           </div>
         
@@ -440,28 +389,15 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6%20Part%201/">读书笔记：科学哲学 Part 1</a>
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython%20%E6%98%9F%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E6%A8%A1%E6%8B%9F%20Haskell%20%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" target="_self">
+          文章：Python 星号表达式，模拟 Haskell 模式匹配
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%A7%91%E5%AD%A6%E5%93%B2%E5%AD%A6%20Part%201/">
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython%20%E6%98%9F%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E6%A8%A1%E6%8B%9F%20Haskell%20%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" target="_self">
           
-          
-            
-          
-           读书笔记：科学哲学 Part 1
- 0x00 科学的定义
- 看法1:
-科学是用来理解、解释和预言世界的。
-反驳：
-各种宗教也试图理解、解释和预言世界，但是通常宗教不被看作是科学。
- 看法2
-科学的特征是使用科学的方法探索世界。
-例子，实验法。但是不是所有科学都使用实验法，比如天文学就只能观察之后提出假说。
- 0x01 什么是伪科学
- 看法1
-卡尔波普：科学理论具有可证伪性
-弗洛伊德的观点几乎可以
+          Python 的星号表达式，模拟 Haskell 模式匹配 简略写写 星号表达式 的语法。 首先是星号可以表示变长参数。 123456789def add_first_two(a,b,*args,key1,key2,**kwargs):    try:        print(key1)        print(key2)    except:        pass    finally:
         </a>
       </p>
 
@@ -469,8 +405,8 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-07-22 17:48" pubdate>
-              2020-07-22
+            <time datetime="2020-10-18 00:06" pubdate>
+              2020-10-18
             </time>
           </div>
         
@@ -486,24 +422,15 @@ hi​=ϕ(x1​w1​+x2​w2​+...+b)
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E8%8D%89%E7%A8%BF%EF%BC%9A%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/">草稿：家庭服务器的配置</a>
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9Apython%20%E7%9A%84%20%E4%B8%A4%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_self">
+          笔记：python 的 两个装饰器
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E8%8D%89%E7%A8%BF%EF%BC%9A%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE/">
+        <a href="/2020/%E7%AC%94%E8%AE%B0%EF%BC%9Apython%20%E7%9A%84%20%E4%B8%A4%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_self">
           
-          
-            
-          
-          目前写一份草稿,记录下我做了哪些配置,免得到时候服务器搞坏了不会修.
-过段时间我把我的配置也粘贴上来.
-首先我弄了smb服务.
-教程 https://www.linuxidc.com/Linux/2018-11/155466.htm
-重要的是要做好权限管理,分开用户.
-然后是jellyfin用来dlan串流视频.
-https://post.smzdm.com/p/adwlg0pz/
-没做直播测试
-
+          python 的 两个装饰器  两个装饰器，一个用来自动把递归转化为记忆化递归。另一个用来强制类型检查。 那就记录在这里啦   0x00 记忆化递归  后来发现 functool 里内置了这个函数  12345678910def memorise(func):    def warpper(*args):        if memory.get((*args,func)):
         </a>
       </p>
 
@@ -511,8 +438,8 @@ https://post.smzdm.com/p/adwlg0pz/
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-05-11 01:35" pubdate>
-              2020-05-11
+            <time datetime="2020-10-16 23:22" pubdate>
+              2020-10-16
             </time>
           </div>
         
@@ -528,23 +455,15 @@ https://post.smzdm.com/p/adwlg0pz/
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9ATEX%20PS%20PDF%20DVI%20%E8%BF%99%E4%BA%9B%E9%83%BD%E6%98%AF%E5%95%A5/">文章：TEX PS PDF DVI 这些都是啥</a>
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E8%AF%AD%E4%B9%89%E9%99%B7%E9%98%B1/" target="_self">
+          文章：编程语言中的语义陷阱
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9ATEX%20PS%20PDF%20DVI%20%E8%BF%99%E4%BA%9B%E9%83%BD%E6%98%AF%E5%95%A5/">
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E8%AF%AD%E4%B9%89%E9%99%B7%E9%98%B1/" target="_self">
           
-          
-            
-          
-           TEX PS PDF DVI 这些都是啥
-
-碎碎念： 
-啊哈，终于可以写一点关于计算机历史的东西了，我觉得挺开心的。之前也是咕咕咕了好久 233.
-打算写完这一篇之后我去写写关于视频和音频的文章。–&gt;大概要写模拟和数字视频还有模拟和数字音乐以及我喜欢的八比特。
-这篇文章主要介绍这几种跟打印相关的格式、语言，那么下一篇就介绍跟显示相关的格式和语言 (txt rtf doc html)
-
-那我
+          编程语言里的很多符号都借鉴自数学中的符号。可是一些时候，他们的语义和我们预想的往往并不相同。这里我来列举一些我遇到的语义陷阱。 这篇可以和我的另一篇，数学中的等号的语义结合起来看。 PS : 之后我接触了一下 Haskell，似乎这里所有的问题都解决了 🤦‍♀️  在初学编程的时候，我经常会搞混 &#x3D; 和&#x3D;&#x3D;。  赋值语句 我们学编程的第一条语句 赋值 就是一个语义陷阱。 这是一个老生常谈的问题
         </a>
       </p>
 
@@ -552,19 +471,12 @@ https://post.smzdm.com/p/adwlg0pz/
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-28 16:06" pubdate>
-              2020-04-28
+            <time datetime="2020-10-11 01:33" pubdate>
+              2020-10-11
             </time>
           </div>
         
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%86%E5%8F%B2-LaTeX/">计算机历史 $\LaTeX$</a>
-            
-          </div>
         
       </div>
     </article>
@@ -576,17 +488,15 @@ https://post.smzdm.com/p/adwlg0pz/
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/%E8%8D%89%E7%A8%BF%EF%BC%9Acli%20gui%20%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">草稿：cli gui 的一些思考</a>
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython-web%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
+          文章：Python web服务器
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/%E8%8D%89%E7%A8%BF%EF%BC%9Acli%20gui%20%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">
+        <a href="/2020/%E6%96%87%E7%AB%A0%EF%BC%9APython-web%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
           
-          
-            
-          
-          Cli 和 Gui 最大的区别在于 Cli 需要记忆很多内容。比如说文件管理器，在用gui的时候我不会记得哪个文件存在哪个目录，然而在cli里面我需要记住某个文件在某个目录里才能执行cp这样的命令。再比如说数学画图工具，在gui里面，我只要输入公式，直接就能画图。但是cli的画图就不太方便，要记下来有哪些参数可以设置，如果我不经常使用的话我每次写都要查教程，就很麻烦。
-在看到cli的第一眼，我是懵
+          Python WSGI服务器 预备知识：socket、 browser server 架构  什么是 web 服务器 web 服务器是一个机器：接受一个字符串作为输入（HTTP request），之后将一个字符串作为输出（HTTP response）。其中输入和输出的字符串都要符合一定的标准（HTTP）。  WSGI 服务器 事实上，我们构建 web app 并不需要自己解析 request 字
         </a>
       </p>
 
@@ -594,8 +504,8 @@ https://post.smzdm.com/p/adwlg0pz/
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-20 17:47" pubdate>
-              2020-04-20
+            <time datetime="2020-10-03 16:40" pubdate>
+              2020-10-03
             </time>
           </div>
         
@@ -609,15 +519,9 @@ https://post.smzdm.com/p/adwlg0pz/
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -629,7 +533,7 @@ https://post.smzdm.com/p/adwlg0pz/
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -672,10 +576,11 @@ https://post.smzdm.com/p/adwlg0pz/
   
 </footer>
 
-<!-- SCRIPTS -->
 
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -686,22 +591,25 @@ https://post.smzdm.com/p/adwlg0pz/
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
@@ -710,37 +618,15 @@ https://post.smzdm.com/p/adwlg0pz/
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -759,7 +645,6 @@ https://post.smzdm.com/p/adwlg0pz/
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>
